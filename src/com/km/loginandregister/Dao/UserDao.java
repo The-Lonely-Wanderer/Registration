@@ -9,6 +9,7 @@ import java.util.List;
 import com.km.loginandregister.util.ConnectionFactory;
 import com.km.registeandlogin.vo.User;
 
+
 public class UserDao {
 	
 	//患者
@@ -235,4 +236,5 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
+
 }
