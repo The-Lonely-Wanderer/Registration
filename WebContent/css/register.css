@@ -1,19 +1,19 @@
 @CHARSET "UTF-8";
 
-#registersp1, #registersp, #registersp2,#registersp3,#registersp4,#registersp5 {
+#registersp1, #registersp, #registersp2,#registersp3,#registersp4,#registersp5,#registersp6 {
 	display: none;
 	color: red;
 }
 
 #registerfrom {
-	height: 600px;
-	width: 500px;
+	height: 650px;
+	width: 550px;
 	background: rgba(255, 255, 255, 0.6);
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
 }
 
-#registerusername, #registerpassword, #registerrepassword ,#registerusertype,#registeruserrealname,#registeruseraddress{
+#registerusername, #registerpassword, #registerrepassword ,#registerusertype,#registeruserrealname,#registeruseraddress,#registerusertel{
 	border: none;
 	border-bottom: 1px solid rgba(0, 153, 153, 0.8);
 	font-size: 16px;
@@ -81,7 +81,7 @@
 }
 #register {
 	position: absolute;
-	top:527px;
+	top:593px;
 	left: 30px;
 	height: 30px;
 	width: 80px;
@@ -94,7 +94,7 @@
 }
 
 #no {
-	top:527px;
+	top:593px;
 	position: absolute;
 	left: 184px;
 	height: 30px;

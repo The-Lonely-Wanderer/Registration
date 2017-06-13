@@ -41,6 +41,11 @@
 					<input id="registeruseraddress" type="text" name="user_address" style="outline: none;" onblur="registeruseraddressf()" />
 					<span id="registersp5">地址不能为空</span>
 				</p>
+				<p>
+					<span>手机号码：</span>
+					<input id="registerusertel" type="text" name="user_address" style="outline: none;" onblur="registerusertelf()" />
+					<span id="registersp6">手机号码不能为空</span>
+				</p>
 					<input id="register" type="button" value="注册" onclick="registerbuttonsub()" />
 					<input id="no" type="reset" value="重置"/>
 				</p>

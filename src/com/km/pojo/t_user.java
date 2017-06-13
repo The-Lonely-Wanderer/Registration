@@ -1,14 +1,16 @@
 package com.km.pojo;
 
 public class t_user {
-	// 1.患者的编号、名字、密码、类型、真实名字、收货地址、是否删除；
+	// 1.患者的编号、名字、密码、类型、真实名字、收货地址、tel、del;
 	private int user_id;
 	private String user_name;
 	private String user_password;
 	private String user_type;
 	private String user_realname;
 	private String user_address;
+	private int user_tel;
 	private String user_del;
+	
 
 	// 2.get set方法；
 	public int getUser_id() {
@@ -67,6 +69,14 @@ public class t_user {
 		this.user_del = user_del;
 	}
 
+	public int getUser_tel() {
+		return user_tel;
+	}
+
+	public void setUser_tel(int user_tel) {
+		this.user_tel = user_tel;
+	}
+
 	// 4.无参构造方法；
 	public t_user() {
 	}
@@ -82,6 +92,7 @@ public class t_user {
 		result = prime * result + ((user_name == null) ? 0 : user_name.hashCode());
 		result = prime * result + ((user_password == null) ? 0 : user_password.hashCode());
 		result = prime * result + ((user_realname == null) ? 0 : user_realname.hashCode());
+		result = prime * result + user_tel;
 		result = prime * result + ((user_type == null) ? 0 : user_type.hashCode());
 		return result;
 	}
@@ -122,6 +133,8 @@ public class t_user {
 				return false;
 		} else if (!user_realname.equals(other.user_realname))
 			return false;
+		if (user_tel != other.user_tel)
+			return false;
 		if (user_type == null) {
 			if (other.user_type != null)
 				return false;
@@ -147,6 +160,7 @@ public class t_user {
 		this.user_realname = user_realname;
 		this.user_address = user_address;
 		this.user_del = user_del;
+		this.user_tel = user_tel;
 	}
 	public t_user( String user_password, String user_type, String user_realname,
 			String user_address) {
@@ -170,7 +184,7 @@ public class t_user {
 	public String toString() {
 		return "t_user [user_id=" + user_id + ", user_name=" + user_name + ", user_password=" + user_password
 				+ ", user_type=" + user_type + ", user_realname=" + user_realname + ", user_address=" + user_address
-				+ ", user_del=" + user_del + "]";
+				+ ", user_del=" + user_del + ", user_tel=" + user_tel + "]";
 	}
 
 	// 6.to string 方法；

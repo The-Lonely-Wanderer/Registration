@@ -69,6 +69,15 @@ function registeruseraddressf() {
 		usernamespan.style.display = "none";
 	}
 }
+function registerusertelf() {
+	var username = document.getElementById("registerusertel").value.trim();
+	var usernamespan = document.getElementById("registersp6");
+	if (username.length == 0) {
+		usernamespan.style.display = "block";
+	} else {
+		usernamespan.style.display = "none";
+	}
+}
 
 
 
