@@ -39,6 +39,48 @@ function registerbuttonsub() {
 		form.submit();
 	}
 }
+
+
+
+function registerusertypef() {
+	var usertype = document.getElementById("registerusertype").value.trim();
+	var usertypespan = document.getElementById("registersp3");
+	if (usertype.length == 0) {
+		usertypespan.style.display = "block";
+	} else {
+		usertypespan.style.display = "none";
+	}
+}
+function registeruserrealnamef() {
+	var username = document.getElementById("registeruserrealname").value.trim();
+	var usernamespan = document.getElementById("registersp4");
+	if (username.length == 0) {
+		usernamespan.style.display = "block";
+	} else {
+		usernamespan.style.display = "none";
+	}
+}
+function registeruseraddressf() {
+	var username = document.getElementById("registeruseraddress").value.trim();
+	var usernamespan = document.getElementById("registersp5");
+	if (username.length == 0) {
+		usernamespan.style.display = "block";
+	} else {
+		usernamespan.style.display = "none";
+	}
+}
+function registerusertelf() {
+	var username = document.getElementById("registerusertel").value.trim();
+	var usernamespan = document.getElementById("registersp6");
+	if (username.length == 0) {
+		usernamespan.style.display = "block";
+	} else {
+		usernamespan.style.display = "none";
+	}
+}
+
+
+
 function backa() {
 	window.location = "index.jsp";
 }

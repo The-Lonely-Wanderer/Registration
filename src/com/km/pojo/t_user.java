@@ -1,15 +1,16 @@
 package com.km.pojo;
 
 public class t_user {
-	// 1.患者的编号、名字、密码、类型、真实名字、收货地址、del；
+	// 1.患者的编号、名字、密码、类型、真实名字、收货地址、tel、del;
 	private int user_id;
 	private String user_name;
 	private String user_password;
 	private String user_type;
 	private String user_realname;
 	private String user_address;
-	private String user_del;
 	private int user_tel;
+	private String user_del;
+	
 
 	// 2.get set方法；
 	public int getUser_id() {
@@ -160,6 +161,23 @@ public class t_user {
 		this.user_address = user_address;
 		this.user_del = user_del;
 		this.user_tel = user_tel;
+	}
+	public t_user( String user_password, String user_type, String user_realname,
+			String user_address) {
+		
+		this.user_password = user_password;
+		this.user_type = user_type;
+		this.user_realname = user_realname;
+		this.user_address = user_address;
+	}
+
+	public t_user(String user_name, String user_password, String user_type, String user_realname,
+			String user_address) {
+		this.user_name = user_name;
+		this.user_password = user_password;
+		this.user_type = user_type;
+		this.user_realname = user_realname;
+		this.user_address = user_address;
 	}
 
 	@Override
