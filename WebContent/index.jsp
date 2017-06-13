@@ -6,11 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="css/index.css">
-	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-	
-	
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+
+
 </head>
 <body>
 	<div id="top">
@@ -21,36 +20,19 @@
 	</div>
 	<div id="banner">
 		<div id="xinxi">
-			<div id="xinxi_left">
-				
-			</div>
+			<div id="xinxi_left"></div>
 			<div id="xinxi_right">
-				<div class="xinxi_right_1">
-				查看修改
-				
-				</div>
-				<div class="xinxi_right_1">
-				患者
-				
-				</div>
-				<div class="xinxi_right_1">
-				医生
-				
-				</div>
-				<div class="xinxi_right_1">
-				管理员
-				
-				</div>
-				<div class="xinxi_right_1">
-				最新消息
-				
-				</div>
+				<div class="xinxi_right_1">查看修改</div>
+				<div class="xinxi_right_1">患者</div>
+				<div class="xinxi_right_1">医生</div>
+				<div class="xinxi_right_1">管理员</div>
+				<div class="xinxi_right_1">最新消息</div>
 			</div>
 		</div>
 		<div id="gonggao">
 			<p>最新公告--></p>
-		
-		
+
+
 		</div>
 	</div>
 	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>
