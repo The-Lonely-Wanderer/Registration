@@ -23,7 +23,7 @@ public class UserDao {
 		ResultSet set;
 		User user1 = null;
 		try {
-			ps = conn.prepareStatement("select * from t_user where username=? and password=?");
+			ps = conn.prepareStatement("select * from user where username=? and password=?");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			set = ps.executeQuery();

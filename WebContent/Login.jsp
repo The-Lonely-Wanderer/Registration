@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
-<!-- <link rel="stylesheet" type="text/css" -->
-<!-- 	href="/registerandlogin3.0/css/login.css"> -->
+<link rel="stylesheet" type="text/css"
+	href="/registerandlogin3.0/css/login.css">
 <script rel="stylesheet" type="text/javascript"
 	src="/registerandlogin3.0/js/login.js">
 	
@@ -32,7 +32,7 @@
 			}
 		}
 	%>
-	<form id="loginfrom" action="loginfrom" method="post">
+	<form id="loginfrom" action="DoctorLoginServlet" method="post">
 		<div id="login-a">
 			<p>
 				<span>用户名：</span> <input id="username" type="text" name="username"
