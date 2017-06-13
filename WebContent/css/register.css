@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+
+#registersp1, #registersp, #registersp2 {
+	display: none;
+	color: red;
+}
+
+#registerfrom {
+	height: 370px;
+	width: 370px;
+	background: rgba(255, 255, 255, 0.6);
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
+}
+
+#registerusername, #registerpassword, #registerrepassword {
+	border: none;
+	border-bottom: 1px solid rgba(0, 153, 153, 0.8);
+	font-size: 16px;
+	background: rgba(255, 255, 255, 0);
+	width: 200px;
+	height: 20px;
+	color: rgba(0, 153, 153, 0.8);
+	
+}
+
+#register-a {
+	margin: auto;
+	height: 100%;
+	width: 300px;
+	position: relative;
+}
+
+#register-a p:nth-child(1) {
+	position: absolute;
+	top: 45px
+}
+
+#register-a p:nth-child(2) {
+	position: absolute;
+	top: 125px
+}
+
+#register-a p:nth-child(3) {
+	position: absolute;
+	top: 200px
+}
+
+#register-a p:nth-child(4) {
+	position: absolute;
+	top: 290px
+}
+#register:hover {
+	color: rgba(0, 153, 153, 0.6);
+	background: rgba(255, 255, 255, 0);
+	border: 1px solid rgb(0, 153, 153);
+}
+#no:hover {
+	color: rgba(0, 153, 153, 0.6);
+	background: rgba(255, 255, 255, 0);
+	border: 1px solid rgb(0, 153, 153);
+}
+
+#back:hover {
+	color: rgba(0, 153, 153, 0.6);
+	background: rgba(255, 255, 255, 0);
+	border: 1px solid rgb(0, 153, 153);
+}
+#register {
+	position: absolute;
+	left: 0px;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	background: rgba(0, 153, 153, 0.6);
+	cursor: pointer;
+	color: #FFF;
+	font-size:20px;
+	border: none;
+}
+
+#no {
+	position: absolute;
+	left: 105px;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	background: rgba(0, 153, 153, 0.6);
+	cursor: pointer;
+	color: #FFF;
+	font-size:20px;
+	border: none;
+}
+
+#back {
+	position: absolute;
+	left: 210px;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	background: rgba(0, 153, 153, 0.6);
+	cursor: pointer;
+	color: #FFF;
+	font-size:20px;
+	border: none;
+}
