@@ -10,7 +10,9 @@ public class ConnectionFactory {
 		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection=DriverManager.getConnection("jdbc:mysql://192.168.1.110:3306/registration","root","kemeng1993");
+			connection=DriverManager.getConnection("jdbc:mysql://192.168.1.110:3306/test","root","kemeng1993");
+
+//			connection=DriverManager.getConnection("jdbc:mysql://192.168.1.110:3306/registration","root","kemeng1993");
 			System.out.println("成功连接");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
