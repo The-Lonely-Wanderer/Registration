@@ -36,5 +36,5 @@ function buttonsub() {
 	}
 }
 function isbaa() {
-	window.location = "login.jsp";
+	window.location = "index.jsp";
 }

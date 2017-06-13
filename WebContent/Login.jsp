@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 <link rel="stylesheet" type="text/css"
-	href="/registerandlogin3.0/css/login.css">
+	href="/Registration/css/login.css">
 <script rel="stylesheet" type="text/javascript"
-	src="/registerandlogin3.0/js/login.js">
+	src="/Registration/js/login.js">
 	
 </script>
 </head>
@@ -49,8 +49,7 @@
 			</p>
 			<p>
 				<input id="login" type="button" value="登录" onclick="buttonsub()" />
-				<input id="no" type="button" value="返回" onclick="isbaa()" /> <a
-					href="AllUserServlet">查询所用用户信息</a>
+				<input id="no" type="button" value="返回" onclick="isbaa()" />
 			</p>
 			<%
 				String message = (String) request.getAttribute("message");

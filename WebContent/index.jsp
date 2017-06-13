@@ -22,11 +22,21 @@
 		<div id="xinxi">
 			<div id="xinxi_left"></div>
 			<div id="xinxi_right">
-				<div class="xinxi_right_1">查看修改</div>
-				<div class="xinxi_right_1">患者</div>
-				<div class="xinxi_right_1">医生</div>
-				<div class="xinxi_right_1">管理员</div>
-				<div class="xinxi_right_1">最新消息</div>
+				<div class="xinxi_right_1">
+				查看修改
+				</div>
+				<div class="xinxi_right_1">
+				患者
+				</div>
+				<div class="xinxi_right_1">
+				医生
+				</div>
+				<div class="xinxi_right_1">
+				管理员
+				</div>
+				<div class="xinxi_right_1">
+				最新消息
+				</div>
 			</div>
 		</div>
 		<div id="gonggao">

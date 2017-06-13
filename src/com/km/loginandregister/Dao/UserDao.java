@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.km.loginandregister.util.ConnectionFactory;
+import com.km.pojo.t_admin;
 import com.km.registeandlogin.vo.User;
 
 
@@ -98,24 +99,26 @@ public class UserDao {
 	 * @ps 用于查询医生用户，用于注册
 	 *
 	 * */
-	public boolean inserdoctoruser(User user) {// 增加医生用户，用于注册
+	public User getdoctor(User user) {// 查询医生用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
-		int flage;
+		ResultSet set;
+		User user1 = null;
 		try {
-			ps = conn.prepareStatement("insert into t_yisheng values(?,?,?)");
+			ps = conn.prepareStatement("select * from t_yisheng where username=? and password=?");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
-			ps.setInt(3, user.getStatus());
-			flage = ps.executeUpdate();
-			if (flage != 0) {
-				return true;
+			set = ps.executeQuery();
+			while (set.next()) {
+				user1 = new User(set.getString("username"), set.getString("password"));
+				return user1;
 			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 	
@@ -151,26 +154,28 @@ public class UserDao {
 	 * @ps 用于查询管理员用户，用于注册
 	 *
 	 * */
-	public boolean inseradminuser(User user) {// 增加管理员用户，用于注册
+	public t_admin getadmin(t_admin t_admin) {// 查询管路员用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
-		int flage;
+		ResultSet set;
+		t_admin user1 = null;
 		try {
-			ps = conn.prepareStatement("insert into t_admin values(?,?,?)");
-			ps.setString(1, user.getUsername());
-			ps.setString(2, user.getPassword());
-			ps.setInt(3, user.getStatus());
-			flage = ps.executeUpdate();
-			if (flage != 0) {
-				return true;
+			ps = conn.prepareStatement("select * from t_admin where username=? and userpassword=?");
+			ps.setString(1, t_admin.getUserName());
+			ps.setString(2, t_admin.getUserPassword());
+			set = ps.executeQuery();
+			while (set.next()) {
+				user1 = new t_admin(set.getString("username"), set.getString("userpassword"));
+				System.out.println(user1);
+				return user1;
 			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
-
 	//所有用户
 	/**
 	 * @ps 用于获取所有用户
