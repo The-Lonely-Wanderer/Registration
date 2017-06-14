@@ -48,7 +48,7 @@ public class hz_Dao {
 			ps.setString(2, user.getUser_type());
 			ps.setString(3, user.getUser_realname());
 			ps.setString(4, user.getUser_address());
-			ps.setInt(5, user.getUser_tel());
+			ps.setLong(5, user.getUser_tel());
 			ps.setString(6, user.getUser_name());
 			ps.execute();
 			System.out.println("患者用户修改成功");
@@ -63,13 +63,15 @@ public class hz_Dao {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		try {
-			ps = conn.prepareStatement("insert into t_user values(?,?,?,?,?,?,no)");
-			ps.setString(1, user.getUser_name());
-			ps.setString(2, user.getUser_password());
-			ps.setString(3, user.getUser_type());
-			ps.setString(4, user.getUser_realname());
-			ps.setString(5, user.getUser_address());
-			ps.setInt(6, user.getUser_tel());
+			ps = conn.prepareStatement("insert into t_user values(?,?,?,?,?,?,?,?)");
+			ps.setInt(1,0);
+			ps.setString(2, user.getUser_name());
+			ps.setString(3, user.getUser_password());
+			ps.setString(4, user.getUser_type());
+			ps.setString(5, user.getUser_realname());
+			ps.setString(6, user.getUser_address());
+			ps.setLong(7, user.getUser_tel());
+			ps.setString(8, "no");
 			ps.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

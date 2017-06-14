@@ -77,7 +77,7 @@ function autoSubmit(){
 				患者类型：<input type="text"  value="${user_type}" name="user_type"/></br>
 				患者姓名：<input type="text"  value="${user_realname}" name="user_realname"/></br>
 				收货地址：<input type="text"  value="${user_address}" name="user_address"/></br>
-				手机号码：<input type="text"  value="${user_tel}" name="user_address"/></br>
+				手机号码：<input type="text"  value="${user_tel}" name="user_tel"/></br>
 						<input type="submit" value="修改"/>
 						<span>${massage}</span>
 				</form>

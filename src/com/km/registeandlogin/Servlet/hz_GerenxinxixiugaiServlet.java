@@ -43,16 +43,19 @@ public class hz_GerenxinxixiugaiServlet extends HttpServlet {
 		String user_type = request.getParameter("user_type");
 		String user_realname = request.getParameter("user_realname");
 		String user_address = request.getParameter("user_address");
-		int user_tel = Integer.getInteger(request.getParameter("user_tel"));
+		String user_te = request.getParameter("user_tel");
+		long user_tel = Long.parseLong(user_te);
+//		int user_tel=Integer.parseInt(user_te);
 		
 		HttpSession session=request.getSession();	
-		String usersession = (String) session.getAttribute("user_name");
+		String usersession = (String) session.getAttribute("username");
 		
 		t_user user = new t_user(usersession ,user_password, user_type, user_realname, user_address,user_tel);
 		hz_GerenxinxiService gs = new hz_GerenxinxiService();
 		t_user userall = gs.getxiugai(user);
 		if(userall==null){
-			request.setAttribute("massage", "修改成功");
+			request.setAttribute("massage", "修改成功！");
+			request.getRequestDispatcher("hz_index.jsp").forward(request, response);
 		}
 		
 	}

@@ -48,15 +48,14 @@ public class hz_PatientRegisterServlet extends HttpServlet {
 		String user_type = request.getParameter("user_type");
 		String user_realname = request.getParameter("user_realname");
 		String user_address = request.getParameter("user_address");
-		int user_tel = Integer.getInteger(request.getParameter("user_tel"))    ;
-		
+		String user_te = request.getParameter("user_tel");
+		int user_tel=Integer.parseInt(user_te);
 		if (!"".equals(user_name) || !"".equals(user_password) || !"".equals(repassword)
 				|| null != user_name || null != user_password || null != repassword) {
 			if (user_password.equals(repassword)) {
 				hz_RegisterService rServer = new hz_RegisterService();
 				t_user user = new t_user(user_name,user_password,user_type,user_realname,user_tel,user_address);
 				user = rServer.RegisterServer(user);
-				System.out.println(user);
 				if (user==null) {
 					request.setAttribute("message", "注册成功请登录...");
 					request.getRequestDispatcher("Login.jsp").forward(request, response);

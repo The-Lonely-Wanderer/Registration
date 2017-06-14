@@ -44,7 +44,7 @@ public class hz_GerenxinxiServlet extends HttpServlet {
 		hz_GerenxinxiService ams = new hz_GerenxinxiService();
 		
 		HttpSession session=request.getSession();	
-		t_user usersession = (t_user) session.getAttribute("user_name");
+		t_user usersession = (t_user) session.getAttribute("username");
 		
 		t_user user = ams.getall(usersession);
 		request.setAttribute("user", user);
