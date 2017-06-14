@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.km.registeandlogin.server.RegisterServer;
+import com.km.pojo.t_user;
+import com.km.registeandlogin.server.hz_RegisterService;
 
 /**
  * Servlet implementation class RegisterServlet
  */
 @WebServlet("/registerfrom")
-public class PatientRegisterServlet extends HttpServlet {
+public class hz_PatientRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public PatientRegisterServlet() {
+	public hz_PatientRegisterServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -41,21 +42,25 @@ public class PatientRegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String user_name = request.getParameter("username");
+		String user_password = request.getParameter("password");
 		String repassword = request.getParameter("repassword");
-		boolean flage;
-		if (!"".equals(username) || !"".equals(password) || !"".equals(repassword)
-				|| null != username || null != password || null != repassword) {
-			if (password.equals(repassword)) {
-				RegisterServer rServer = new RegisterServer();
-				flage = rServer.registerserver(username,password);
-				System.out.println(flage);
-				if (flage) {
+		String user_type = request.getParameter("user_type");
+		String user_realname = request.getParameter("user_realname");
+		String user_address = request.getParameter("user_address");
+		int user_tel = Integer.getInteger(request.getParameter("user_tel"))    ;
+		
+		if (!"".equals(user_name) || !"".equals(user_password) || !"".equals(repassword)
+				|| null != user_name || null != user_password || null != repassword) {
+			if (user_password.equals(repassword)) {
+				hz_RegisterService rServer = new hz_RegisterService();
+				t_user user = new t_user(user_name,user_password,user_type,user_realname,user_tel,user_address);
+				user = rServer.RegisterServer(user);
+				System.out.println(user);
+				if (user==null) {
 					request.setAttribute("message", "注册成功请登录...");
 					request.getRequestDispatcher("Login.jsp").forward(request, response);
 				} else {
-					request.setAttribute("message", "注册异常，请重新注册...");
 					request.getRequestDispatcher("register.jsp").forward(request, response);
 				}
 

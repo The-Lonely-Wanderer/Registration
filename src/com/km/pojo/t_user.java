@@ -10,7 +10,6 @@ public class t_user {
 	private String user_address;
 	private int user_tel;
 	private String user_del;
-	
 
 	// 2.get set方法；
 	public int getUser_id() {
@@ -162,22 +161,35 @@ public class t_user {
 		this.user_del = user_del;
 		this.user_tel = user_tel;
 	}
-	public t_user( String user_password, String user_type, String user_realname,
-			String user_address) {
-		
+
+	public t_user(String user_password, String user_type, String user_realname, String user_address, int user_tel) {
+
 		this.user_password = user_password;
 		this.user_type = user_type;
 		this.user_realname = user_realname;
 		this.user_address = user_address;
+		this.user_tel = user_tel;
 	}
 
-	public t_user(String user_name, String user_password, String user_type, String user_realname,
+	public t_user(String user_name, String user_password, String user_type, String user_realname, int user_tel,
 			String user_address) {
 		this.user_name = user_name;
 		this.user_password = user_password;
 		this.user_type = user_type;
 		this.user_realname = user_realname;
 		this.user_address = user_address;
+		this.user_tel = user_tel;
+	}
+
+	//患者修改的构造方法
+	public t_user(String usersession, String user_password, String user_type, String user_realname,
+			String user_address, int user_tel) {
+		this.user_name = usersession;
+		this.user_password = user_password;
+		this.user_type = user_type;
+		this.user_realname = user_realname;
+		this.user_address = user_address;
+		this.user_tel = user_tel;
 	}
 
 	@Override

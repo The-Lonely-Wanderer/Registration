@@ -48,7 +48,8 @@ public class hz_GerenxinxiServlet extends HttpServlet {
 		
 		t_user user = ams.getall(usersession);
 		request.setAttribute("user", user);
-		request.getRequestDispatcher("gerenxinxi.jsp").forward(request, response);
+		request.getRequestDispatcher("hz_index.jsp").forward(request, response);
+		
 	}
 
 }
