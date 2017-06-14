@@ -8,9 +8,8 @@ public class t_user {
 	private String user_type;
 	private String user_realname;
 	private String user_address;
-	private int user_tel;
+	private long user_tel;
 	private String user_del;
-	
 
 	// 2.get set方法；
 	public int getUser_id() {
@@ -69,11 +68,11 @@ public class t_user {
 		this.user_del = user_del;
 	}
 
-	public int getUser_tel() {
+	public long getUser_tel() {
 		return user_tel;
 	}
 
-	public void setUser_tel(int user_tel) {
+	public void setUser_tel(long user_tel) {
 		this.user_tel = user_tel;
 	}
 
@@ -92,7 +91,7 @@ public class t_user {
 		result = prime * result + ((user_name == null) ? 0 : user_name.hashCode());
 		result = prime * result + ((user_password == null) ? 0 : user_password.hashCode());
 		result = prime * result + ((user_realname == null) ? 0 : user_realname.hashCode());
-		result = prime * result + user_tel;
+		result = prime * result + (int) (user_tel ^ (user_tel >>> 32));
 		result = prime * result + ((user_type == null) ? 0 : user_type.hashCode());
 		return result;
 	}
@@ -150,6 +149,8 @@ public class t_user {
 		this.user_password = user_password;
 	}
 
+
+
 	public t_user(int user_id, String user_name, String user_password, String user_type, String user_realname,
 			String user_address, String user_del, int user_tel) {
 		super();
@@ -162,22 +163,33 @@ public class t_user {
 		this.user_del = user_del;
 		this.user_tel = user_tel;
 	}
-	public t_user( String user_password, String user_type, String user_realname,
-			String user_address) {
-		
+
+	public t_user(String user_password, String user_type, String user_realname, String user_address, long user_tel) {
+
 		this.user_password = user_password;
 		this.user_type = user_type;
 		this.user_realname = user_realname;
 		this.user_address = user_address;
+		this.user_tel = user_tel;
 	}
 
-	public t_user(String user_name, String user_password, String user_type, String user_realname,
-			String user_address) {
-		this.user_name = user_name;
+
+	//患者修改的构造方法
+	public t_user(String usersession, String user_password, String user_type, String user_realname,
+			String user_address, long user_tel) {
+		this.user_name = usersession;
 		this.user_password = user_password;
 		this.user_type = user_type;
 		this.user_realname = user_realname;
 		this.user_address = user_address;
+		this.user_tel = user_tel;
+	}
+
+
+
+	public t_user(String user_name2, String user_password2, String user_type2, String user_realname2, int user_tel2,
+			String user_address2) {	
+		
 	}
 
 	@Override

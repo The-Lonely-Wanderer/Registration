@@ -10,6 +10,7 @@ public class hz_GerenxinxiService {
 	public t_user getall(t_user usersession) {
 		return dao.getgerenxinxi(usersession);
 	}
+	//患者修改个人信息
 	public t_user getxiugai(t_user user) {
 		return dao.getxiugai(user);
 	}

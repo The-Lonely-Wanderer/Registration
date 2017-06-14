@@ -1,31 +1,29 @@
 package com.km.registeandlogin.Servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.km.pojo.t_user;
-import com.km.registeandlogin.server.hz_GerenxinxiService;
-
+import com.km.registeandlogin.server.Hz_KeshiyuyueService;
 
 
 /**
- * Servlet implementation class GerenxinxiServlet
- * 
- * 查询个人信息
+ * Servlet implementation class Hz_KeshiyuyueServlet
  */
-@WebServlet("/GerenxinxiServlet")
-public class hz_GerenxinxiServlet extends HttpServlet {
+@WebServlet("/Hz_KeshiyuyueServlet")
+public class Hz_KeshiyuyueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hz_GerenxinxiServlet() {
+    public Hz_KeshiyuyueServlet() {
         super();
     }
 
@@ -33,23 +31,17 @@ public class hz_GerenxinxiServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+			doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 * 患者查询个人信息
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		hz_GerenxinxiService ams = new hz_GerenxinxiService();
-		
-		HttpSession session=request.getSession();	
-		t_user usersession = (t_user) session.getAttribute("username");
-		
-		t_user user = ams.getall(usersession);
-		request.setAttribute("user", user);
-		request.getRequestDispatcher("hz_index.jsp").forward(request, response);
-		
+		Hz_KeshiyuyueService ams = new Hz_KeshiyuyueService();
+		List<t_user> list = ams.getall();
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("chaxun.jsp").forward(request, response);
 	}
 
 }

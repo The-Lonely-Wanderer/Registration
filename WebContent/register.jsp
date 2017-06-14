@@ -43,7 +43,7 @@
 				</p>
 				<p>
 					<span>手机号码：</span>
-					<input id="registerusertel" type="text" name="user_address" style="outline: none;" onblur="registerusertelf()" />
+					<input id="registerusertel" type="text" name="user_tel" style="outline: none;" onblur="registerusertelf()" />
 					<span id="registersp6">手机号码不能为空</span>
 				</p>
 					<input id="register" type="button" value="注册" onclick="registerbuttonsub()" />
