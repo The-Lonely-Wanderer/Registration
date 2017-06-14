@@ -9,5 +9,6 @@
 <body>
 <h1>患者主页面</h1>
 <a href="hz_huanzhez.jsp">患者子页面</a>
+
 </body>
 </html>

@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
 
 
+
+
+</script>
 </head>
 <body>
 	<div id="top">
@@ -49,15 +53,15 @@
 			<div id="xinxi_right">
 				<div class="xinxi_right_1">
 				<p>查看修改</p>
-				<form action="xiugai">
-				
-				</form>
+					姓名:【${param.username}】<br/>
+					密码:【${param.password}】
+					<input type="button" value="修改信息">
 				</div>
 				<div class="xinxi_right_1">
 				<p>患者</p>
-				<form action="">
+					姓名：-->
+					
 				
-				</form>
 				</div>
 				<div class="xinxi_right_1">
 				<p>医生</p>
