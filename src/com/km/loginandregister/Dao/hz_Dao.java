@@ -11,10 +11,15 @@ import com.km.pojo.t_user;
 public class hz_Dao {
 	
 	//患者个人信息查询
+	/**
+	 * 
+	 * @param usersession
+	 * @ps 传入 t_user对象  返回t_user对象
+	 */
 	public t_user getgerenxinxi(t_user usersession) {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
-		
+			
 		try {
 			ps = conn.prepareStatement("select  user_password, user_type, user_realname , user_address from t_user where user_name = ?");
 			ps.setString(1, usersession.getUser_name());

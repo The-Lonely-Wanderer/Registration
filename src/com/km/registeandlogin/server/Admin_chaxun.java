@@ -12,8 +12,9 @@ public class Admin_chaxun {
 		user2=userDao.getadmin(t_admin);
 		if(user2!=null){
 			return user2;
-		}
-		return null;
+		}else{
+			return null;
+			}
 	}
 	
 	 

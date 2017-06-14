@@ -47,19 +47,30 @@
 				7天免验证<input type="radio" name="nocheck" value="ok">是<input
 					type="radio" name="nocheck" value="no" checked="checked">否
 			</p>
+
+
 			<p>
 				<input id="login" type="button" value="登录" onclick="buttonsub()" />
 				<input id="no" type="button" value="返回" onclick="isbaa()" />
+			</p>
+
+			<p>
+				<select style="width: 150px;height:20px;" name="select">
+					<option value="doctor">医生</option>
+					<option value="patient">患者</option>
+					<option value="admin">管理员</option>
+				</select>
 			</p>
 			<%
 				String message = (String) request.getAttribute("message");
 				if (null != message || "".equals(message)) {
 			%>
-			<p style="color: red;"><%=message%></p>
+						<p style="color: red;"><%=message%></p>
 			<%
 				}
 			%>
-		</div>
+		
+					</div>
 	</form>
 </body>
 </html>

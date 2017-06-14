@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+body {
+	background: url("../img/3.jpg") center;
+}
+
 #loginfrom {
 	margin: 200px auto;
 	height: 355px;
@@ -19,7 +23,7 @@
 	width: 280px;
 	height: 100%;
 	border: 1px solid rgba(255, 255, 255, 0);
-	position:relative;
+	position: relative;
 }
 
 p {
@@ -28,44 +32,35 @@ p {
 
 p:nth-child(1) {
 	margin-top: 80px;
-	position:absolute;
-	top:10px;
-	left:0px;
+	position: absolute;
+	top: 10px;
+	left: 0px;
 }
 
 p:nth-child(2) {
 	margin-top: 80px;
-	position:absolute;
-	top:70px;
-	left:0px;
+	position: absolute;
+	top: 70px;
+	left: 0px;
 }
 
 p:nth-child(3) {
 	margin-left: 95px;
-	position:absolute;
-	top:170px;
-	left:25px;
-	
+	position: absolute;
+	top: 170px;
+	left: 25px;
 }
 
-p:nth-child(4){
-	position:absolute;
-	top:220px;
+p:nth-child(4) {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+}
+
+p:nth-child(5){
+	position: absolute;
+	top: 210px;
 	left:0px;
-}
-p:nth-child(4) a{
-	
-	display:inline-block;
-	width:150px;
-	height:20px;
-	color:rgba(0, 153, 153, 0.6);
-	margin-right:30px;
-	margin-top:20px;
-	text-decoration:none;
-}
-
-body {
-	background: url("../img/3.jpg");
 }
 
 #login, #no {
@@ -94,14 +89,16 @@ body {
 	background: rgba(255, 255, 255, 0);
 	border: 1px solid rgb(0, 153, 153);
 }
-#username,#password{
-	height:20px;
-	border:none;
-	font-size:16px;
-	color:rgba(0,153,153,0.8);
-	border-bottom:1px solid rgba(0, 153, 153, 0.6);
-	background:rgba(255,255,255,0); 
+
+#username, #password {
+	height: 20px;
+	border: none;
+	font-size: 16px;
+	color: rgba(0, 153, 153, 0.8);
+	border-bottom: 1px solid rgba(0, 153, 153, 0.6);
+	background: rgba(255, 255, 255, 0);
 }
-#sp1,#sp{
-	margin-left:70px;
+
+#sp1, #sp {
+	margin-left: 70px;
 }
