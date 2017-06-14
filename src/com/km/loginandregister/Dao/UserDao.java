@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.km.loginandregister.util.ConnectionFactory;
 import com.km.pojo.t_admin;
+import com.km.pojo.t_yisheng;
 import com.km.registeandlogin.vo.User;
 
 
@@ -120,7 +121,57 @@ public class UserDao {
 		}
 		return null;
 	}
+	
+	
+	public t_yisheng getYishengxinxi(t_yisheng ys) {
 
+		Connection connection = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = connection.prepareStatement(
+					"select yisheng_id ,yisheng_sex, yisheng_age, yisheng_zhicheng,keshi_id  from t_yisheng where yisheng_name =?");
+			ps.setString(1, ys.getYisheng_name());
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				ys = new t_yisheng(rs.getInt("yisheng_id"), rs.getString("yisheng_sex"), rs.getString("yisheng_age"),
+						rs.getString("yisheng_zhicheng"), rs.getInt("keshi_id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return ys;
+	}
+
+	/**
+	 * @ps 修改医生信息
+	 */
+	public t_yisheng getXiugai(t_yisheng xgxi) {
+		Connection connection = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+
+		try {
+			ps = connection.prepareStatement(
+					"update counts set yisheng_id=? ,yisheng_sex=?,yisheng_age=?,yi_zhicheng=?,keshi_id,");
+			ps.setInt(1, xgxi.getYisheng_id());
+			ps.setString(2, xgxi.getYisheng_sex());
+			ps.setString(3, xgxi.getYisheng_age());
+			ps.setString(4, xgxi.getYisheng_zhicheng());
+			ps.setInt(5, xgxi.getKeshi_id());
+			ps.execute();
+
+			System.out.println("修改succsee");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+
+	}
+	
+	
 	
 	//管理员
 	/**
