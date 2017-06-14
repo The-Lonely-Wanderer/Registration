@@ -49,12 +49,12 @@ public class hz_PatientRegisterServlet extends HttpServlet {
 		String user_realname = request.getParameter("user_realname");
 		String user_address = request.getParameter("user_address");
 		String user_te = request.getParameter("user_tel");
-		int user_tel=Integer.parseInt(user_te);
+		long user_tel=Long.parseLong(user_te);
 		if (!"".equals(user_name) || !"".equals(user_password) || !"".equals(repassword)
 				|| null != user_name || null != user_password || null != repassword) {
 			if (user_password.equals(repassword)) {
 				hz_RegisterService rServer = new hz_RegisterService();
-				t_user user = new t_user(user_name,user_password,user_type,user_realname,user_tel,user_address);
+				t_user user = new t_user(user_name,user_password,user_type,user_realname,user_address,user_tel);
 				user = rServer.RegisterServer(user);
 				if (user==null) {
 					request.setAttribute("message", "注册成功请登录...");

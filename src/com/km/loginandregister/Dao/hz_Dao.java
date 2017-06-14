@@ -29,7 +29,6 @@ public class hz_Dao {
 			while (rs.next()) {
 				usersession = new t_user(rs.getString("user_password"), rs.getString("user_type"),
 						rs.getString("user_realname"), rs.getString("user_address"), rs.getInt("user_tel"));
-				System.out.println(usersession.getUser_name());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -51,7 +50,6 @@ public class hz_Dao {
 			ps.setLong(5, user.getUser_tel());
 			ps.setString(6, user.getUser_name());
 			ps.execute();
-			System.out.println("患者用户修改成功");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

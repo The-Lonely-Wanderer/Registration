@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.km.loginandregister.util.ConnectionFactory;
 import com.km.pojo.t_admin;
+import com.km.pojo.t_user;
 import com.km.registeandlogin.vo.User;
 
 
@@ -127,7 +128,7 @@ public class UserDao {
 	 * @ps 用于查询管理员用户，用于登录
 	 *
 	 * */
-	public boolean getadminLogin(User user) {// 查询管路员用户，用于登录
+	public boolean getadminLogin(User user) {// 查询管理员用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
@@ -166,7 +167,6 @@ public class UserDao {
 			set = ps.executeQuery();
 			while (set.next()) {
 				user1 = new t_admin(set.getString("username"), set.getString("userpassword"));
-				System.out.println(user1);
 				return user1;
 			}
 
@@ -181,19 +181,19 @@ public class UserDao {
 	 * @ps 用于获取所有用户
 	 *
 	 * */
-	public List<User> getAllUser() {// 获取数据库内所有的用户信息
+	public List<t_user> getAllUser() {// 获取数据库内所有的用户信息
 
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
-		List<User> alList = new ArrayList<User>();
-		User user1 = null;
+		List<t_user> alList = new ArrayList<t_user>();
+		t_user t_user1 = null;
 		try {
-			ps = conn.prepareStatement("select * from user");
+			ps = conn.prepareStatement("select * from t_user");
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new User(set.getString("username"), set.getString("password"));
-				alList.add(user1);
+				t_user1 = new t_user(set.getString("user_name"), set.getString("user_password"), set.getString("user_type"), set.getString("user_realname"), set.getString("user_address"),set.getShort("uset_tel"));
+				alList.add(t_user1);
 			}
 
 		} catch (SQLException e) {

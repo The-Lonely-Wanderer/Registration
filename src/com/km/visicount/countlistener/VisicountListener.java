@@ -1,12 +1,8 @@
 package com.km.visicount.countlistener;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import javax.xml.ws.spi.http.HttpContext;
-
 import com.km.registeandlogin.server.VisiterServer;
 
 /**

@@ -175,21 +175,14 @@ public class t_user {
 
 
 	//患者修改的构造方法
-	public t_user(String usersession, String user_password, String user_type, String user_realname,
+	public t_user(String username, String user_password, String user_type, String user_realname,
 			String user_address, long user_tel) {
-		this.user_name = usersession;
+		this.user_name = username;
 		this.user_password = user_password;
 		this.user_type = user_type;
 		this.user_realname = user_realname;
 		this.user_address = user_address;
 		this.user_tel = user_tel;
-	}
-
-
-
-	public t_user(String user_name2, String user_password2, String user_type2, String user_realname2, int user_tel2,
-			String user_address2) {	
-		
 	}
 
 	@Override

@@ -21,13 +21,13 @@ import com.km.registeandlogin.server.PatientLoginServer;
  * Servlet implementation class DoctorLoginServlet
  */
 @WebServlet("/DoctorLoginServlet")
-public class DoctorLoginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DoctorLoginServlet() {
+	public LoginServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
