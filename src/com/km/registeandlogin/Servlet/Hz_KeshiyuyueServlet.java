@@ -10,43 +10,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.km.pojo.t_user;
-import com.km.registeandlogin.server.AllUserServer;
-import com.km.registeandlogin.vo.User;
+import com.km.registeandlogin.server.Hz_KeshiyuyueService;
 
 
 /**
- * Servlet implementation class AllUser
+ * Servlet implementation class Hz_KeshiyuyueServlet
  */
-@WebServlet("/AllUserServlet")
-public class AllUserServlet extends HttpServlet {
+@WebServlet("/Hz_KeshiyuyueServlet")
+public class Hz_KeshiyuyueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllUserServlet() {
+    public Hz_KeshiyuyueServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-		
+			doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<t_user> alList;
-		AllUserServer allUserServer=new AllUserServer();
-		alList=allUserServer.getlist();
-		request.setAttribute("alList", alList);
-		request.getAttribute("username");
-		request.getRequestDispatcher("AllUser.jsp").forward(request, response);
+		Hz_KeshiyuyueService ams = new Hz_KeshiyuyueService();
+		List<t_user> list = ams.getall();
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("chaxun.jsp").forward(request, response);
 	}
 
 }
