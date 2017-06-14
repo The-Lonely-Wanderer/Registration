@@ -103,11 +103,10 @@ public class DoctorLoginServlet extends HttpServlet {
 			application.setAttribute("count", counta);// 将新增的人数重新赋值给count
 			
 			if("doctor".equals(select)){
-				request.getRequestDispatcher("admin.jsp").forward(request, response);
+				request.getRequestDispatcher("ys_index.jsp").forward(request, response);
 			}
 			if("admin".equals(select)){
 				request.getRequestDispatcher("admin.jsp").forward(request, response);
-			
 			}
 			if("patient".equals(select)){
 				request.getRequestDispatcher("hz_index.jsp").forward(request, response);
