@@ -24,7 +24,7 @@ public class UserDao {
 		ResultSet set;
 		User user1 = null;
 		try {
-			ps = conn.prepareStatement("select * from user where username=? and password=?");
+			ps = conn.prepareStatement("select * from t_user where username=? and password=?");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			set = ps.executeQuery();
@@ -207,39 +207,39 @@ public class UserDao {
 	 * @ps 用于查询访问人数
 	 *
 	 * */
-	public int getcount() {// 查询网站访问人数
-		Connection conn = ConnectionFactory.getConnectionFactory();
-		PreparedStatement ps = null;
-		ResultSet set;
-		int count = 0;
-		try {
-			ps = conn.prepareStatement("select * from counts");
-			set = ps.executeQuery();
-			while (set.next()) {
-				count = set.getInt(1);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return count;
-	}
-	//跟新访问人数
-	/**
-	 * @ps 用于更新访问人数
-	 *
-	 * */
-	public void updatecount( int count) {//更改访问人数
-		Connection conn = ConnectionFactory.getConnectionFactory();
-		PreparedStatement ps = null;
-		try {
-			ps=conn.prepareStatement("update counts set count=?");
-			ps.setInt(1, count);
-			ps.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public int getcount() {// 查询网站访问人数
+//		Connection conn = ConnectionFactory.getConnectionFactory();
+//		PreparedStatement ps = null;
+//		ResultSet set;
+//		int count = 0;
+//		try {
+//			ps = conn.prepareStatement("select * from counts");
+//			set = ps.executeQuery();
+//			while (set.next()) {
+//				count = set.getInt(1);
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return count;
+//	}
+//	//跟新访问人数
+//	/**
+//	 * @ps 用于更新访问人数
+//	 *
+//	 * */
+//	public void updatecount( int count) {//更改访问人数
+//		Connection conn = ConnectionFactory.getConnectionFactory();
+//		PreparedStatement ps = null;
+//		try {
+//			ps=conn.prepareStatement("update counts set count=?");
+//			ps.setInt(1, count);
+//			ps.execute();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 
 }
