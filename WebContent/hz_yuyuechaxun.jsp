@@ -7,6 +7,35 @@
 <title>预约查询</title>
 </head>
 <body>
-<h1>预约查询</h1>
+	<table width="75%" border="0" align="center">
+		<tr>
+			<td bgcolor="#9CCFFF">
+				<div align="center">
+					<font size="2">科室</font>
+				</div>
+			</td>
+			<td bgcolor="#9CCFFF">
+				<div align="center">
+					<font size="2">挂号量</font>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#9CCFFF">
+				<div align="center">
+					<font size="2"><%=%></font>
+				</div>
+			</td>
+			<td bgcolor="#9CCFFF">
+				<div align="center">
+					<font size="2"><%=%></font>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<p align="center">
+		<font size="2">点击<a href="/hospital/admin.jsp">这里</a>返回主页
+		</font>
+	</p>
 </body>
 </html>

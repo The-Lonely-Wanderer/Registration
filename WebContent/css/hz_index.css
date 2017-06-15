@@ -77,7 +77,9 @@ body{
 	height:100%;	
 	background:#FFF;
 }
-
+.xinxi_right_1:nth-child(1){
+	display:block;
+}
 
 
 

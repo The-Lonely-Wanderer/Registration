@@ -187,10 +187,7 @@ public class t_user {
 
 
 
-	public t_user(String user_name2, String user_password2, String user_type2, String user_realname2, int user_tel2,
-			String user_address2) {	
-		
-	}
+
 
 	@Override
 	public String toString() {

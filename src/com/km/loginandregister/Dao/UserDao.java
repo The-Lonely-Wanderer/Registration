@@ -24,12 +24,12 @@ public class UserDao {
 		ResultSet set;
 		User user1 = null;
 		try {
-			ps = conn.prepareStatement("select * from t_user where username=? and password=?");
+			ps = conn.prepareStatement("select * from t_user where user_name=? and user_password=?");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new User(set.getString("username"), set.getString("password"));
+				user1 = new User(set.getString("user_name"), set.getString("user_password"));
 				if (user1 != null) {
 					return true;
 				}
