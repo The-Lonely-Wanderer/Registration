@@ -2,7 +2,7 @@
  * 
  */
 $("#lis-li-1").click(function() {
-//个人信息查看；
+
 	$(".xinxi_right_1").eq(0).show().siblings().hide();
 });
 $("#lis-li-2").click(function() {

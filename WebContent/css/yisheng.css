@@ -54,6 +54,11 @@ body{
 	border-bottom:1px solid rgba(102,102,102,0.5);
 }
 
+#top img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
 .lis{
 	font-weight:bolder;
 	width:100%;

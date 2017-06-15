@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.km.pojo.t_yisheng;
-
-
-
+import com.km.registeandlogin.server.ys_XiugaiGerenxinxiService;
 
 /**
  * Servlet implementation class ys_XiugaiGerenxinxiServlet @ps医生个人信息修改；
@@ -42,32 +40,36 @@ public class ys_XiugaiGerenxinxiServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String yisheng_id = request.getParameter("yisheng_id");
-		int yisheng = Integer.parseInt(yisheng_id);
 		String yisheng_name = request.getParameter("yisheng_name");
-
 		String yisheng_sex = request.getParameter("yisheng_sex");
 		String yisheng_age = request.getParameter("yisheng_age");
 		String yisheng_zhicheng = request.getParameter("yisheng_zhicheng");
 		String keshi_id = request.getParameter("keshi_id");
+		if ("".equals(keshi_id)) {
+			keshi_id = "11";
+		}
 		int keshi = Integer.parseInt(keshi_id);
-		ys_XiugaiGerenxinxiServlet xg = new ys_XiugaiGerenxinxiServlet();
-		t_yisheng xgxi = new t_yisheng(yisheng, yisheng_name,  yisheng_sex,yisheng_age, yisheng_zhicheng, keshi);
-		t_yisheng setAll = xg.getXiugai(xgxi);
-		if (setAll == null) {
+		String yisheng_id = request.getParameter("yisheng_id");
+		
+		if ("".equals(yisheng_id)) {
+			yisheng_id ="11";
+		}
+		int yisheng = Integer.parseInt(yisheng_id);
+		ys_XiugaiGerenxinxiService xg = new ys_XiugaiGerenxinxiService();
+		t_yisheng xgxi = new t_yisheng(yisheng, yisheng_name, yisheng_sex, yisheng_age, yisheng_zhicheng, keshi);
+		boolean setAll = xg.getXiugai(xgxi);
+		System.out.println("setall"+setAll);
+		if (setAll == true) {
+			
 			request.setAttribute("message", "修改成功");
-			request.getRequestDispatcher("gerenxinxi.jsp").forward(request, response);
+			request.getRequestDispatcher("ys_index.jsp").forward(request, response);
+			System.out.println("success");
 		} else {
 			request.setAttribute("message", "修改失败");
-			request.getRequestDispatcher("gerenxinxi.jsp").forward(request, response);
-
+			request.getRequestDispatcher("ys_index.jsp").forward(request, response);
+			System.out.println("false");
 		}
 
-	}
-
-	private t_yisheng getXiugai(t_yisheng xgxi) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

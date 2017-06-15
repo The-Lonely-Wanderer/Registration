@@ -50,13 +50,13 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String rString = request.getParameter("nocheck"); // 设置请求属性S
 		String select=request.getParameter("select");
-		
+		System.out.println(select);
 		request.setAttribute("username", username);
 		// 登录
 		boolean login = false;
 		if("doctor".equals(select)){
 			LoginServer doctorlServer = new LoginServer();
-			login = doctorlServer.Login(username, password);
+			login = doctorlServer.getDoctor(username, password);
 		}
 		if("admin".equals(select)){
 			
