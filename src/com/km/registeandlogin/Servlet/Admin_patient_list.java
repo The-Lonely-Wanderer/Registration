@@ -1,6 +1,7 @@
 package com.km.registeandlogin.Servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -8,9 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.km.pojo.t_user;
 import com.km.registeandlogin.server.Admin_patient_server;
+import com.km.registeandlogin.server.AllUserServer;
 
 /**
  * Servlet implementation class Admnin_patient_list
@@ -38,15 +43,18 @@ public class Admin_patient_list extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		List<t_user> alist;
-		Admin_patient_server admnin_patient_list=new Admin_patient_server();
-		alist=admnin_patient_list.get_Admin_patient();
-		
-		
-		
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		List<t_user> alList;
+		AllUserServer allUserServer=new AllUserServer();
+		alList=allUserServer.getlist();
+		JSONObject jsonObject=new JSONObject();
+		JSONArray jsonArray=new JSONArray();
+		jsonObject.put("alList", alList);
+		jsonArray.add(jsonObject);
+		PrintWriter out = response.getWriter();
+		out.println(jsonArray.toJSONString());
+		out.close();
 	}
-
 }
