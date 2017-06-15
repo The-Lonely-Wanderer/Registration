@@ -14,6 +14,10 @@ public class Admin_patient_server {
 		List<t_user> alList;
 		UserDao userDao = new UserDao();
 		alList=userDao.getAllUser();
-		return null;
+		if(alList.size()!=0){
+			return alList;
+		}else{
+			return null;
+		}
 	}
 }

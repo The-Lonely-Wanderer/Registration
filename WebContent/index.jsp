@@ -41,8 +41,6 @@
 		</div>
 		<div id="gonggao">
 			<p>最新公告--></p>
-
-
 		</div>
 	</div>
 	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>

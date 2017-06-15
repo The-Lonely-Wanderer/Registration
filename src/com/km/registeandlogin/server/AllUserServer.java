@@ -10,7 +10,7 @@ public class AllUserServer {
 	public List<t_user> getlist(){
 		List<t_user> list=new ArrayList<t_user>();
 		UserDao userDao=new UserDao();
-		list=userDao.getAllUser();	
+		list=userDao.getAllUser();
 		return list;
 	}
 	

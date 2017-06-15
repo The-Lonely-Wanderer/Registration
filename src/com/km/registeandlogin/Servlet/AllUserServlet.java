@@ -1,6 +1,8 @@
 package com.km.registeandlogin.Servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -8,7 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.km.pojo.t_user;
 import com.km.registeandlogin.server.AllUserServer;
 import com.km.registeandlogin.vo.User;
@@ -27,7 +32,7 @@ public class AllUserServlet extends HttpServlet {
     public AllUserServlet() {
         super();
         // TODO Auto-generated constructor stub
-    }
+    } 
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,9 +49,16 @@ public class AllUserServlet extends HttpServlet {
 		List<t_user> alList;
 		AllUserServer allUserServer=new AllUserServer();
 		alList=allUserServer.getlist();
-		request.setAttribute("alList", alList);
-		request.getAttribute("username");
-		request.getRequestDispatcher("AllUser.jsp").forward(request, response);
+		HttpSession session=request.getSession();
+		session.setAttribute("alList", alList);
+		request.getRequestDispatcher("admin.jsp").forward(request, response);
+		JSONObject jsonObject=new JSONObject();
+		JSONArray jsonArray=new JSONArray();
+		jsonObject.put("alList", alList);
+		jsonArray.add(jsonObject);
+		PrintWriter out = response.getWriter();
+		out.println(jsonArray.toJSONString());
+		out.close();
 	}
 
 }
