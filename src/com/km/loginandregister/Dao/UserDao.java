@@ -32,7 +32,7 @@ public class UserDao {
 			ps.setString(2, user.getPassword());
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new User(set.getString("username"), set.getString("password"));
+				user1 = new User(set.getString("user_name"), set.getString("user_password"));
 				if (user1 != null) {
 					return true;
 				}

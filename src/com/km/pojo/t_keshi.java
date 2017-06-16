@@ -5,7 +5,7 @@ public class t_keshi {
 	private int keshi_id;
 	private String kehsi_name;
 	private String keshi_jianjie;
-	private String keshi_yisheng;
+	private int keshi_yisheng;
 	private String keshi_del;
 
 	// 2.get set方法；
@@ -33,11 +33,11 @@ public class t_keshi {
 		this.keshi_jianjie = keshi_jianjie;
 	}
 
-	public String getKeshi_yisheng() {
+	public int getKeshi_yisheng() {
 		return keshi_yisheng;
 	}
 
-	public void setKeshi_yisheng(String keshi_yisheng) {
+	public void setKeshi_yisheng(int keshi_yisheng) {
 		this.keshi_yisheng = keshi_yisheng;
 	}
 
@@ -50,7 +50,6 @@ public class t_keshi {
 	}
 
 	// 3.hash code方法和equals 方法；
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,7 +58,7 @@ public class t_keshi {
 		result = prime * result + ((keshi_del == null) ? 0 : keshi_del.hashCode());
 		result = prime * result + keshi_id;
 		result = prime * result + ((keshi_jianjie == null) ? 0 : keshi_jianjie.hashCode());
-		result = prime * result + ((keshi_yisheng == null) ? 0 : keshi_yisheng.hashCode());
+		result = prime * result + keshi_yisheng;
 		return result;
 	}
 
@@ -89,10 +88,7 @@ public class t_keshi {
 				return false;
 		} else if (!keshi_jianjie.equals(other.keshi_jianjie))
 			return false;
-		if (keshi_yisheng == null) {
-			if (other.keshi_yisheng != null)
-				return false;
-		} else if (!keshi_yisheng.equals(other.keshi_yisheng))
+		if (keshi_yisheng != other.keshi_yisheng)
 			return false;
 		return true;
 	}
@@ -102,13 +98,27 @@ public class t_keshi {
 	}
 
 	// 5.有参构造方法；
-	public t_keshi(int keshi_id, String kehsi_name, String keshi_jianjie, String keshi_yisheng, String keshi_del) {
+	public t_keshi(int keshi_id, String kehsi_name, String keshi_jianjie, int keshi_yisheng, String keshi_del) {
 		super();
 		this.keshi_id = keshi_id;
 		this.kehsi_name = kehsi_name;
 		this.keshi_jianjie = keshi_jianjie;
 		this.keshi_yisheng = keshi_yisheng;
 		this.keshi_del = keshi_del;
+	}
+
+	// 科室预约ajax构造方法
+	public t_keshi(int keshi_id,String kehsi_name, String keshi_jianjie, int keshi_yisheng) {
+		this.keshi_id = keshi_id;
+		this.kehsi_name = kehsi_name;
+		this.keshi_jianjie = keshi_jianjie;
+		this.keshi_yisheng = keshi_yisheng;
+	}
+
+
+
+	public t_keshi(int username) {
+		this.keshi_id = username;
 	}
 
 	// 6.to string 方法；

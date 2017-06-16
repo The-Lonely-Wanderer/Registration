@@ -203,6 +203,5 @@ public class t_user {
 				+ ", user_del=" + user_del + ", user_tel=" + user_tel + "]";
 	}
 
-	// 6.to string 方法；
 
 }
