@@ -52,7 +52,6 @@ public class Hz_KeshiyuyueAjaxServlet extends HttpServlet {
 		// 接收页面传来的参数
 		// String username = request.getParameter("username");
 		// System.out.println(username);
-		System.out.println("进入Ajax");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		Hz_KeshiyuyueAjaxService ajax = new Hz_KeshiyuyueAjaxService();

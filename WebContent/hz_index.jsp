@@ -51,7 +51,7 @@
 			</div>
 			<div id="xinxi_right" align="center">
 
-
+				<%--个人信息查询 --%>
 				<div class="xinxi_right_1">
 					<p>
 						<b>查看个人基本信息 </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -134,7 +134,7 @@
 					</form>
 				</div>
 
-
+				<%--个人信息修改 --%>
 				<div class="xinxi_right_1">
 					<p>
 						<b>修改个人基本信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -213,7 +213,7 @@
 					</form>
 				</div>
 
-
+				<%--科室查看 --%>
 				<div class="xinxi_right_1">
 					<p>
 						<b>科室预约</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -232,14 +232,14 @@
 					</p>
 					<table width="75%" border="0" align="center">
 						<tr>
-							<td bgcolor="#9CCFFF" height="35px" colspan="3">
+							<td bgcolor="#9CCFFF" height="35px" colspan="4">
 								<div align="center">
 									<font size="4"><b>科室</b></font>
 								</div>
 							</td>
 						</tr>
 						<tr>
-							<th bgcolor="#9CCFFF" height="35px">
+							<th bgcolor="#9CCFFF" height="35px" colspan="2">
 								<div align="center">
 									<font size="4"><b>科室名称</b></font>
 								</div>
@@ -255,30 +255,86 @@
 								</div>
 							</th>
 						</tr>
-						
-						
-						
-						
+						<%--拿的科室的值 --%>
 						<tr>
-							<td bgcolor="#9CCFFF" height="35px" colspan="3">
+							<td bgcolor="#9CCFFF" height="35px" colspan="4">
 								<div align="center" class="zhi1">
 									
 								</div>
-							</td>
+							</td>							
 						</tr>
-							
+
 					</table>
 					<p align="center">
 						<b><font size="4">点击<a href="#">这里</a>返回主页
 						</font></b>
 					</p>
 				</div>
-
+				<%-- 医生预约--%>
 				<div class="xinxi_right_1">
-					<p>医生预约</p>
-					<form action=""></form>
+					<p>
+					<b>医生预约</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：【<b>${param.username}】</b>
+					</p>
+					<table width="75%" border="0" align="center">
+										<tr>
+											<td bgcolor="#9CCFFF" height="35px" colspan="5">
+												<div align="center">
+													<font size="4"><b>该科室医生</b></font>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>医生姓名</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>性别</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>年龄</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>医生简介</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>操作</b></font>
+												</div>
+											</th>
+										</tr>
+										<tr>
+											<td bgcolor="#9CCFFF" height="35px" colspan="5">
+												<div align="center">
+													<font size="4" class="keshiyisheng"><b>
+													
+													</b>
+													</font>
+												</div>
+											</td>
+										</tr>
+									</table>
 				</div>
-
+						
 
 				<div class="xinxi_right_1">
 					<p>已经预约</p>
@@ -288,7 +344,7 @@
 
 				<div class="xinxi_right_1">
 					<p>取消预约。。。。。。。</p>
-					<form action=""></form>
+					<form action="" method="post"></form>
 				</div>
 
 

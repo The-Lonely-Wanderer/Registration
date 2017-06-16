@@ -117,6 +117,10 @@ public class t_keshi {
 
 
 
+	public t_keshi(int username) {
+		this.keshi_id = username;
+	}
+
 	// 6.to string 方法；
 	@Override
 	public String toString() {

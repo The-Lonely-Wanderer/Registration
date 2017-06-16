@@ -10,6 +10,7 @@ import java.util.List;
 import com.km.loginandregister.util.ConnectionFactory;
 import com.km.pojo.t_keshi;
 import com.km.pojo.t_user;
+import com.km.pojo.t_yisheng;
 
 public class hz_Dao {
 
@@ -32,7 +33,6 @@ public class hz_Dao {
 			while (rs.next()) {
 				usersession = new t_user(rs.getString("user_password"), rs.getString("user_type"),
 						rs.getString("user_realname"), rs.getString("user_address"), rs.getLong("user_tel"));
-				System.out.println(usersession.getUser_name());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -100,4 +100,28 @@ public class hz_Dao {
 		}
 		return list;
 	}
+	//医生查询
+
+	public List<t_yisheng> getlook(t_keshi keshi) {
+			Connection conn = ConnectionFactory.getConnectionFactory();
+			PreparedStatement ps = null;
+			t_yisheng yisheng = new t_yisheng();
+			List<t_yisheng> list = new ArrayList<t_yisheng>();
+			try {
+				ps = conn.prepareStatement("SELECT yisheng_name,yisheng_sex,yisheng_age,yisheng_zhicheng from t_yisheng where keshi_id = ?");
+				ps.setInt(1, keshi.getKeshi_id());
+				ResultSet rs = ps.executeQuery();	
+				while (rs.next()) {
+					yisheng = new t_yisheng(rs.getString("yisheng_name"), rs.getString("yisheng_sex"),
+							rs.getString("yisheng_age"), rs.getString("yisheng_zhicheng"));
+					System.out.println(yisheng.getYisheng_name());
+					list.add(yisheng);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return list;
+		}
+	
 }
