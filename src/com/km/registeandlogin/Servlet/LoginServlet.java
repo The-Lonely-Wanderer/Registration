@@ -51,16 +51,20 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String rString = request.getParameter("nocheck"); // 设置请求属性S
-		String select = request.getParameter("select");
+
+		String select=request.getParameter("select");
+		System.out.println(select);
+
+		String select1 = request.getParameter("select");
 
 		request.setAttribute("username", username);
 		// 登录
 		boolean login = false;
-		if ("doctor".equals(select)) {
+		if ("doctor".equals(select1)) {
 			LoginServer doctorlServer = new LoginServer();
-			login = doctorlServer.Login(username, password);
+			login = doctorlServer.getDoctor(username, password);
 		}
-		if ("admin".equals(select)) {
+		if ("admin".equals(select1)) {
 
 			Admin_chaxun admin_chaxun = new Admin_chaxun();
 			t_admin t_admin = new t_admin(username, password);
@@ -72,7 +76,7 @@ public class LoginServlet extends HttpServlet {
 				login = false;
 			}
 		}
-		if ("patient".equals(select)) {
+		if ("patient".equals(select1)) {
 
 			t_user t_user = new t_user(username, password);
 			PatientLoginServer patientLoginServer = new PatientLoginServer();
@@ -104,14 +108,14 @@ public class LoginServlet extends HttpServlet {
 			counta++;
 			application.setAttribute("count", counta);// 将新增的人数重新赋值给count
 
-			if ("doctor".equals(select)) {
+			if ("doctor".equals(select1)) {
 
 				request.getRequestDispatcher("ys_index.jsp").forward(request, response);
 			}
-			if ("admin".equals(select)) {
+			if ("admin".equals(select1)) {
 				request.getRequestDispatcher("admin.jsp").forward(request, response);
 			}
-			if ("patient".equals(select)) {
+			if ("patient".equals(select1)) {
 				request.getRequestDispatcher("hz_index.jsp").forward(request, response);
 			}
 
