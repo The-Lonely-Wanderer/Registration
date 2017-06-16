@@ -1,18 +1,19 @@
 package com.km.registeandlogin.server;
 
 import com.km.loginandregister.Dao.UserDao;
+import com.km.pojo.t_yisheng;
 import com.km.registeandlogin.vo.User;
 
 public class LoginServer {
-	public boolean getDoctor(String username,String password){
-		boolean login;
-		User user=new User(username, password);
+	public t_yisheng getDoctor(String username,String password){
+		t_yisheng t_yisheng;
+		t_yisheng user=new t_yisheng(username, password);
 		UserDao uDao=new UserDao();
-		login=uDao.getdoctorLogin(user);
-		if(login==true){
-			return true;
+		t_yisheng=uDao.getdoctorLogin(user);
+		if(t_yisheng!=null){
+			return t_yisheng;
 		}else{
-			return false;
+			return null;
 		}
 	}	
 }

@@ -52,24 +52,24 @@
 			</div>
 			<div id="xinxi_right">
 				<div class="xinxi_right_1">
-					<p>查看修改</p>
+					<p>查看修改</p><br/>
 					姓名:【${param.username}】<br /> 密码:【${param.password}】 <input
 						type="button" value="修改信息">
 				</div>
 				<div class="xinxi_right_1">
-					<p>患者信息:</p>
+					<p>患者信息:</p><br/>
 					<div id="huanzhe_div"></div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>医生</p>
+					<p>医生</p><br/>
 					<form action=""></form>
 				</div>
 				<div class="xinxi_right_1">
-					<p>管理员</p>
+					<p>管理员</p><br/>
 					<form action=""></form>
 				</div>
 				<div class="xinxi_right_1">
-					<p>最新消息</p>
+					<p>最新消息</p><br/>
 					<form action=""></form>
 				</div>
 			</div>

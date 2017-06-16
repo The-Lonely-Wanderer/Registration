@@ -32,6 +32,7 @@ $("#lis-li-2").click(function(event){
 		var json = jQuery.parseJSON(alList);
 		var list=json[0].alList;
 		var str="";
+		console.log(alList);
 		for ( var i in list) {
 			str += "<tr><td id='huanzhe_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + list[i].user_name + "</td><td id='huanzhe_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + list[i].user_password + "</td><td id='huanzhe_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + list[i].user_type+ "</td><td id='huanzhe_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + list[i].user_realname + "</td><td id='huanzhe_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + list[i].user_address + "</td><td id='huanzhe_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + list[i].user_tel + "</td><td><span id='"+list[i].user_id+"' onclick='javascript:upda("+list[i].user_id+");'>删除</span></td></tr>";
 		}

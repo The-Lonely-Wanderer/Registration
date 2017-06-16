@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.km.pojo.t_admin;
 import com.km.pojo.t_user;
+import com.km.pojo.t_yisheng;
 import com.km.registeandlogin.server.Admin_chaxun;
 import com.km.registeandlogin.server.LoginServer;
 import com.km.registeandlogin.server.PatientLoginServer;
@@ -51,18 +52,35 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String rString = request.getParameter("nocheck"); // 设置请求属性S
-
-		String select=request.getParameter("select");
-		System.out.println(select);
-
 		String select1 = request.getParameter("select");
-
+		ServletContext application = getServletContext();
+		HttpSession session = request.getSession();
 		request.setAttribute("username", username);
+
 		// 登录
-		boolean login = false;
+		t_yisheng login = null;
 		if ("doctor".equals(select1)) {
 			LoginServer doctorlServer = new LoginServer();
 			login = doctorlServer.getDoctor(username, password);
+			if (login!=null) {
+				if ("ok".equals(rString)) {
+					Cookie cookieusername = new Cookie("username", username);
+					Cookie cookiepassword = new Cookie("passsword", password);
+					cookieusername.setMaxAge(60 * 60 * 24 * 7);
+					cookiepassword.setMaxAge(60 * 60 * 24 * 7);
+					response.addCookie(cookieusername);
+					response.addCookie(cookiepassword);
+				}
+				session.setAttribute("username", username);
+				session.setMaxInactiveInterval(60 * 60 * 1);
+				int counta = (int) application.getAttribute("count");// 获取count
+				counta++;
+				application.setAttribute("count", counta);// 将新增的人数重新赋值给count
+				request.getRequestDispatcher("ys_index.jsp").forward(request, response);
+			} else {
+				request.setAttribute("message", "账号或密码错误");
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
+			}
 		}
 		if ("admin".equals(select1)) {
 
@@ -70,58 +88,50 @@ public class LoginServlet extends HttpServlet {
 			t_admin t_admin = new t_admin(username, password);
 			t_admin t_admin2 = new t_admin();
 			t_admin2 = admin_chaxun.getAdmin(t_admin);
-			if (t_admin2 != null) {
-				login = true;
+			if (t_admin2 !=null) {
+				if ("ok".equals(rString)) {
+					Cookie cookieusername = new Cookie("username", username);
+					Cookie cookiepassword = new Cookie("passsword", password);
+					cookieusername.setMaxAge(60 * 60 * 24 * 7);
+					cookiepassword.setMaxAge(60 * 60 * 24 * 7);
+					response.addCookie(cookieusername);
+					response.addCookie(cookiepassword);
+				}
+				session.setAttribute("username", username);
+				session.setMaxInactiveInterval(60 * 60 * 1);
+				int counta = (int) application.getAttribute("count");// 获取count
+				counta++;
+				application.setAttribute("count", counta);// 将新增的人数重新赋值给count
+				request.getRequestDispatcher("admin.jsp").forward(request, response);
 			} else {
-				login = false;
+				request.setAttribute("message", "账号或密码错误");
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
 			}
 		}
 		if ("patient".equals(select1)) {
-
 			t_user t_user = new t_user(username, password);
 			PatientLoginServer patientLoginServer = new PatientLoginServer();
-			t_user t_user2 = new t_user();
-			t_user2 = patientLoginServer.getpatient(t_user);
-			if (t_user2 != null) {
-				login = true;
-			} else {
-				login = false;
-			}
-		}
-		if (login == true) {
-			// 创建cookie,设置属性
-			if ("ok".equals(rString)) {
-				Cookie cookieusername = new Cookie("username", username);
-				Cookie cookiepassword = new Cookie("passsword", password);
-				cookieusername.setMaxAge(60 * 60 * 24 * 7);
-				cookiepassword.setMaxAge(60 * 60 * 24 * 7);
-				response.addCookie(cookieusername);
-				response.addCookie(cookiepassword);
-			}
-			// 创建会话，设置会话属性
-			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
-			session.setMaxInactiveInterval(60 * 60 * 1);
-			// 创建上下文，设置上下文属性
-			ServletContext application = getServletContext();
-			int counta = (int) application.getAttribute("count");// 获取count
-			counta++;
-			application.setAttribute("count", counta);// 将新增的人数重新赋值给count
-
-			if ("doctor".equals(select1)) {
-
-				request.getRequestDispatcher("ys_index.jsp").forward(request, response);
-			}
-			if ("admin".equals(select1)) {
-				request.getRequestDispatcher("admin.jsp").forward(request, response);
-			}
-			if ("patient".equals(select1)) {
+			t_user t_user3 = new t_user();
+			t_user3 = patientLoginServer.getpatient(t_user);
+			if (t_user3 !=null) {
+				if ("ok".equals(rString)) {
+					Cookie cookieusername = new Cookie("username", username);
+					Cookie cookiepassword = new Cookie("passsword", password);
+					cookieusername.setMaxAge(60 * 60 * 24 * 7);
+					cookiepassword.setMaxAge(60 * 60 * 24 * 7);
+					response.addCookie(cookieusername);
+					response.addCookie(cookiepassword);
+				}
+				session.setAttribute("username", username);
+				session.setMaxInactiveInterval(60 * 60 * 1);
+				int counta = (int) application.getAttribute("count");// 获取count
+				counta++;
+				application.setAttribute("count", counta);// 将新增的人数重新赋值给count
 				request.getRequestDispatcher("hz_index.jsp").forward(request, response);
+			} else {
+				request.setAttribute("message", "账号或密码错误");
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
 			}
-
-		} else {
-			request.setAttribute("message", "账号或密码错误");
-			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 
 	}

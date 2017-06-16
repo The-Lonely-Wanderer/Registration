@@ -86,6 +86,11 @@ body {
 	height: 100%;
 	background: #FFF;
 }
+.xinxi_right_1 p{
+	font-size:20px;
+	font-family:"microsoft yahei";
+	font-weight:500px;
+}
 
 .xinxi_right_1:nth-child(1) {
 	display: block;
