@@ -8,16 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 import com.km.loginandregister.util.ConnectionFactory;
 import com.km.pojo.t_admin;
+
+import com.km.pojo.t_yisheng;
+import com.km.pojo.t_yuyue;
+import com.km.pojo.t_user;
 import com.km.registeandlogin.vo.User;
 
-
 public class UserDao {
-	
-	//患者
+
+	// 患者
 	/**
 	 * @ps 用于查询患者用户，用于登录
 	 *
-	 * */
+	 */
 	public boolean getpatientLogin(User user) {// 查询患者用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
@@ -41,10 +44,11 @@ public class UserDao {
 		}
 		return false;
 	}
+
 	/**
 	 * @ps 用于增加患者用户，用于注册
 	 *
-	 * */
+	 */
 
 	public boolean insertpatientuser(User user) {// 增加患者用户，用于注册
 		Connection conn = ConnectionFactory.getConnectionFactory();
@@ -65,25 +69,24 @@ public class UserDao {
 		}
 		return false;
 	}
-	
-	
-	//医生
+
+	// 医生
 	/**
 	 * @ps 用于查询医生用户，用于登录
 	 *
-	 * */
+	 */
 	public boolean getdoctorLogin(User user) {// 查询医生用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
 		User user1 = null;
 		try {
-			ps = conn.prepareStatement("select * from t_yisheng where username=? and password=?");
+			ps = conn.prepareStatement("select * from t_yisheng where yisheng_name=? and yisheng_pw=?");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new User(set.getString("username"), set.getString("password"));
+				user1 = new User(set.getString("yisheng_name"), set.getString("yisheng_pw"));
 				if (user1 != null) {
 					return true;
 				}
@@ -95,10 +98,11 @@ public class UserDao {
 		}
 		return false;
 	}
+
 	/**
 	 * @ps 用于查询医生用户，用于注册
 	 *
-	 * */
+	 */
 	public User getdoctor(User user) {// 查询医生用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
@@ -120,14 +124,65 @@ public class UserDao {
 		}
 		return null;
 	}
+/**
+ * @ps:查看医生信息；
+ * */
+	public t_yisheng getYishengxinxi(t_yisheng ys) {
 
-	
-	//管理员
+		Connection connection = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = connection.prepareStatement(
+					"select yisheng_id ,yisheng_sex, yisheng_age, yisheng_zhicheng,keshi_id  from t_yisheng where yisheng_name =?");
+			ps.setString(1, ys.getYisheng_name());
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				ys = new t_yisheng(rs.getInt("yisheng_id"), rs.getString("yisheng_sex"), rs.getString("yisheng_age"),
+						rs.getString("yisheng_zhicheng"), rs.getInt("keshi_id"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return ys;
+	}
+
+	/**
+	 * @ps 修改医生信息
+	 */
+	public boolean getXiugai(t_yisheng xgxi) {
+		Connection connection = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+
+		try {
+			ps = connection.prepareStatement(
+					"update t_yisheng  set yisheng_name=?, yisheng_sex=?,yisheng_age=?,yisheng_zhicheng=?,keshi_id=? where yisheng_id =?");
+			ps.setString(1, xgxi.getYisheng_name());
+			ps.setString(2, xgxi.getYisheng_sex());
+			ps.setString(3, xgxi.getYisheng_age());
+			ps.setString(4, xgxi.getYisheng_zhicheng());
+			ps.setInt(5, xgxi.getKeshi_id());
+			ps.setInt(6, xgxi.getYisheng_id());
+			int aa = ps.executeUpdate();
+			if (aa == 1) {
+				System.out.println("aa"+aa);
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+
+	}
+
+	// 管理员
 	/**
 	 * @ps 用于查询管理员用户，用于登录
 	 *
-	 * */
-	public boolean getadminLogin(User user) {// 查询管路员用户，用于登录
+	 */
+	public boolean getadminLogin(User user) {// 查询管理员用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
@@ -150,10 +205,11 @@ public class UserDao {
 		}
 		return false;
 	}
+
 	/**
 	 * @ps 用于查询管理员用户，用于注册
 	 *
-	 * */
+	 */
 	public t_admin getadmin(t_admin t_admin) {// 查询管路员用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
@@ -166,7 +222,6 @@ public class UserDao {
 			set = ps.executeQuery();
 			while (set.next()) {
 				user1 = new t_admin(set.getString("username"), set.getString("userpassword"));
-				System.out.println(user1);
 				return user1;
 			}
 
@@ -176,24 +231,28 @@ public class UserDao {
 		}
 		return null;
 	}
-	//所有用户
+
+	// 所有用户
 	/**
 	 * @ps 用于获取所有用户
 	 *
-	 * */
-	public List<User> getAllUser() {// 获取数据库内所有的用户信息
+	 */
+	public List<t_user> getAllUser() {// 获取数据库内所有的用户信息
 
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
-		List<User> alList = new ArrayList<User>();
-		User user1 = null;
+		List<t_user> alList = new ArrayList<t_user>();
+		t_user t_user1 = null;
 		try {
-			ps = conn.prepareStatement("select * from user");
+			ps = conn.prepareStatement("select * from t_user");
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new User(set.getString("username"), set.getString("password"));
-				alList.add(user1);
+				t_user1 = new t_user(set.getString("user_name"), set.getString("user_password"),
+						set.getString("user_type"), set.getString("user_realname"), set.getString("user_address"),
+						set.getShort("uset_tel"));
+				t_user1=new t_user(set.getInt("user_id"),set.getString("user_name"), set.getString("user_password"), set.getString("user_type"), set.getString("user_realname"), set.getString("user_address"), set.getLong("user_tel"));
+				alList.add(t_user1);
 			}
 
 		} catch (SQLException e) {
@@ -202,35 +261,111 @@ public class UserDao {
 		}
 		return alList;
 	}
+
+	// 用于医生查询预约的患者；
+	/**
+	 * @ps 医生查询预约；
+	 */
+	public List<t_yuyue> getYuyue() {
+		Connection connection = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		List<t_yuyue> list = new ArrayList<>();
+		ResultSet rs = null;
+		t_yuyue yuyue = null;
+
+		try {
+			ps = connection.prepareStatement("select  *from t_yuyue");
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				yuyue = new t_yuyue(rs.getString("yuyue_userId"), rs.getString("yuyue_yishengId"),
+						rs.getString("yuyue_shijian"), rs.getString("yuyue_beizhu"));
+				list.add(yuyue);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	// 访问人数
+
+	
+	/**
+	 * @ps 删除患者
+	 */
+	public List<t_user> deleteUser( int id){
+		Connection conn=ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		List<t_user> alList = new ArrayList<t_user>();
+		int i;
+		try {
+			ps=conn.prepareStatement("delete from t_user where user_id=?");
+			ps.setInt(1, id);
+			i=ps.executeUpdate();
+			if(i==1){
+				alList=getAllUser(); 
+				return alList;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
+	
 	//访问人数
 	/**
 	 * @ps 用于查询访问人数
 	 *
-<<<<<<< HEAD
-	 * */
-//	public int getcount() {// 查询网站访问人数
-//		Connection conn = ConnectionFactory.getConnectionFactory();
-//		PreparedStatement ps = null;
-//		ResultSet set;
-//		int count = 0;
-//		try {
-//			ps = conn.prepareStatement("select * from counts");
-//			set = ps.executeQuery();
-//			while (set.next()) {
-//				count = set.getInt(1);
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return count;
-//	}
-//	//跟新访问人数
-//	/**
-//	 * @ps 用于更新访问人数
-//	 *
-//	 * */
-//	 * */
+	 */
+	// public int getcount() {// 查询网站访问人数
+	// Connection conn = ConnectionFactory.getConnectionFactory();
+	// PreparedStatement ps = null;
+	// ResultSet set;
+	// int count = 0;
+	// try {
+	// ps = conn.prepareStatement("select * from counts");
+	// set = ps.executeQuery();
+	// while (set.next()) {
+	// count = set.getInt(1);
+	// }
+	// } catch (SQLException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// return count;
+	// }
+	// //跟新访问人数
+	// /**
+	// * @ps 用于更新访问人数
+	// *
+	// * */
+	// * */
+	// public int getcount() {// 查询网站访问人数
+	// Connection conn = ConnectionFactory.getConnectionFactory();
+	// PreparedStatement ps = null;
+	// ResultSet set;
+	// int count = 0;
+	// try {
+	// ps = conn.prepareStatement("select * from counts");
+	// set = ps.executeQuery();
+	// while (set.next()) {
+	// count = set.getInt(1);
+	// }
+	// } catch (SQLException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// return count;
+	// }
+	// 跟新访问人数
 //	public int getcount() {// 查询网站访问人数
 //		Connection conn = ConnectionFactory.getConnectionFactory();
 //		PreparedStatement ps = null;
@@ -252,19 +387,19 @@ public class UserDao {
 	/**
 	 * @ps 用于更新访问人数
 	 *
-	 * */
+	 */
 
-//	public void updatecount( int count) {//更改访问人数
-//		Connection conn = ConnectionFactory.getConnectionFactory();
-//		PreparedStatement ps = null;
-//		try {
-//			ps=conn.prepareStatement("update counts set count=?");
-//			ps.setInt(1, count);
-//			ps.execute();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+	// public void updatecount( int count) {//更改访问人数
+	// Connection conn = ConnectionFactory.getConnectionFactory();
+	// PreparedStatement ps = null;
+	// try {
+	// ps=conn.prepareStatement("update counts set count=?");
+	// ps.setInt(1, count);
+	// ps.execute();
+	// } catch (SQLException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// }
 
 }

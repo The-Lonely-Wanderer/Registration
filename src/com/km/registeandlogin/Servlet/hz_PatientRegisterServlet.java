@@ -49,8 +49,8 @@ public class hz_PatientRegisterServlet extends HttpServlet {
 		String user_realname = request.getParameter("user_realname");
 		String user_address = request.getParameter("user_address");
 		String user_te = request.getParameter("user_tel");
-		long user_tel = Long.parseLong(user_te);
 //		int user_tel=Integer.parseInt(user_te);
+		long user_tel=Long.parseLong(user_te);
 		if (!"".equals(user_name) || !"".equals(user_password) || !"".equals(repassword)
 				|| null != user_name || null != user_password || null != repassword) {
 			if (user_password.equals(repassword)) {

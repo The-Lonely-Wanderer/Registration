@@ -1,18 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.km.pojo.t_user"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/admin.css">
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-<script type="text/javascript">
-
-
-
-
-</script>
+<!-- <script type="text/javascript" src="js/Admin_Ajax.js"></script> -->
 </head>
 <body>
 	<div id="top">
@@ -45,6 +44,7 @@
 						<div class="xinxi_div">
 							<ul>
 								<li id="lis-li-5" class="lis-li">最新消息</li>
+
 							</ul>
 						</div>
 					</li>
@@ -52,34 +52,25 @@
 			</div>
 			<div id="xinxi_right">
 				<div class="xinxi_right_1">
-				<p>查看修改</p>
-					姓名:【${param.username}】<br/>
-					密码:【${param.password}】
-					<input type="button" value="修改信息">
+					<p>查看修改</p>
+					姓名:【${param.username}】<br /> 密码:【${param.password}】 <input
+						type="button" value="修改信息">
 				</div>
 				<div class="xinxi_right_1">
-				<p>患者</p>
-					姓名：-->
-					
-				
+					<p>患者信息:</p>
+					<div id="huanzhe_div"></div>
 				</div>
 				<div class="xinxi_right_1">
-				<p>医生</p>
-				<form action="">
-				
-				</form>
+					<p>医生</p>
+					<form action=""></form>
 				</div>
 				<div class="xinxi_right_1">
-				<p>管理员</p>
-				<form action="">
-				
-				</form>
+					<p>管理员</p>
+					<form action=""></form>
 				</div>
 				<div class="xinxi_right_1">
-				<p>最新消息</p>
-				<form action="">
-				
-				</form>
+					<p>最新消息</p>
+					<form action=""></form>
 				</div>
 			</div>
 		</div>

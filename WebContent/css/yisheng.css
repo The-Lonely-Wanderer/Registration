@@ -54,6 +54,11 @@ body{
 	border-bottom:1px solid rgba(102,102,102,0.5);
 }
 
+#top img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
 .lis{
 	font-weight:bolder;
 	width:100%;
@@ -72,9 +77,7 @@ body{
 	height:100%;	
 	background:#FFF;
 }
-.xinxi_right_1:nth-child(1){
-	display:block;
-}
+
 
 
 

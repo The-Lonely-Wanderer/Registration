@@ -140,6 +140,16 @@ public class t_yuyue {
 		this.yuyue_zhuanjiajianyi = yuyue_zhuanjiajianyi;
 	}
 
+	
+
+	public t_yuyue(String yuyue_userId, String yuyue_yishengId, String yuyue_shijian, String yuyue_beizhu) {
+		super();
+		this.yuyue_userId = yuyue_userId;
+		this.yuyue_yishengId = yuyue_yishengId;
+		this.yuyue_shijian = yuyue_shijian;
+		this.yuyue_beizhu = yuyue_beizhu;
+	}
+
 	// 6.to string方法；
 	@Override
 	public String toString() {

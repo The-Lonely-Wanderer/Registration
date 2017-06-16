@@ -32,6 +32,7 @@ public class hz_Dao {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				usersession = new t_user(rs.getString("user_password"), rs.getString("user_type"),
+
 						rs.getString("user_realname"), rs.getString("user_address"), rs.getLong("user_tel"));
 			}
 		} catch (SQLException e) {

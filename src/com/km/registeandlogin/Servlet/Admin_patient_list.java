@@ -2,7 +2,6 @@ package com.km.registeandlogin.Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,43 +14,41 @@ import javax.servlet.http.HttpSession;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.km.pojo.t_user;
+import com.km.registeandlogin.server.Admin_patient_server;
 import com.km.registeandlogin.server.AllUserServer;
-import com.km.registeandlogin.vo.User;
-
 
 /**
- * Servlet implementation class AllUser
+ * Servlet implementation class Admnin_patient_list
  */
-@WebServlet("/AllUserServlet")
-public class AllUserServlet extends HttpServlet {
+@WebServlet("/Admnin_patient_list")
+public class Admin_patient_list extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllUserServlet() {
+    public Admin_patient_list() {
         super();
         // TODO Auto-generated constructor stub
-    } 
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
-		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		List<t_user> alList;
 		AllUserServer allUserServer=new AllUserServer();
 		alList=allUserServer.getlist();
-		HttpSession session=request.getSession();
-		session.setAttribute("alList", alList);
-		request.getRequestDispatcher("admin.jsp").forward(request, response);
 		JSONObject jsonObject=new JSONObject();
 		JSONArray jsonArray=new JSONArray();
 		jsonObject.put("alList", alList);
@@ -60,5 +57,4 @@ public class AllUserServlet extends HttpServlet {
 		out.println(jsonArray.toJSONString());
 		out.close();
 	}
-
 }
