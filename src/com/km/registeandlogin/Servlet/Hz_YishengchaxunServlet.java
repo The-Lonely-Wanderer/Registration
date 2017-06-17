@@ -41,6 +41,7 @@ public class Hz_YishengchaxunServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 科室下的医生查询
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
@@ -62,7 +63,8 @@ public class Hz_YishengchaxunServlet extends HttpServlet {
 		for (int i = 0; i < list.size(); i++) {
 			// 使用json返回所需要的参数
 			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("Kehsi_name", list.get(i).getYisheng_name());
+			jsonObject.put("getYisheng_id", list.get(i).getYisheng_id());
+			jsonObject.put("getYisheng_name", list.get(i).getYisheng_name());
 			jsonObject.put("getYisheng_sex", list.get(i).getYisheng_sex());
 			jsonObject.put("getYisheng_age", list.get(i).getYisheng_age());
 			jsonObject.put("getYisheng_zhicheng", list.get(i).getYisheng_zhicheng());

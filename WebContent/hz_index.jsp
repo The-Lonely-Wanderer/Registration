@@ -263,7 +263,60 @@
 								</div>
 							</td>							
 						</tr>
-
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="4">
+								<div align="center">
+									<table width="100%" border="0" align="center">
+										<tr>
+											<td bgcolor="#9CCFFF" height="35px" colspan="5">
+												<div align="center">
+													<font size="4"><b>该科室医生</b></font>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>医生姓名</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>性别</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>年龄</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>医生简介</b></font>
+												</div>
+											</th>
+											<th bgcolor="#9CCFFF" height="35px">
+												<div align="center">
+													<font size="4"><b>操作</b></font>
+												</div>
+											</th>
+										</tr>
+										<tr>
+											<td bgcolor="#9CCFFF" height="35px" colspan="5">
+												<div align="center">
+													<font size="4" class="keshiyisheng"><b>
+													
+													</b>
+													</font>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						
+						
 					</table>
 					<p align="center">
 						<b><font size="4">点击<a href="#">这里</a>返回主页
@@ -346,7 +399,7 @@
 					<p>取消预约。。。。。。。</p>
 					<form action="" method="post"></form>
 				</div>
-
+			
 
 			</div>
 		</div>
