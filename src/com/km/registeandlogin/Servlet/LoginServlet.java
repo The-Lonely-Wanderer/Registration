@@ -15,7 +15,7 @@ import com.km.pojo.t_admin;
 import com.km.pojo.t_user;
 import com.km.pojo.t_yisheng;
 import com.km.registeandlogin.server.Admin_chaxun;
-import com.km.registeandlogin.server.LoginServer;
+import com.km.registeandlogin.server.DoctorLoginServer;
 import com.km.registeandlogin.server.PatientLoginServer;
 
 /**
@@ -58,11 +58,14 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("username", username);
 
 		// 登录
-		t_yisheng login = null;
+		
 		if ("doctor".equals(select1)) {
-			LoginServer doctorlServer = new LoginServer();
-			login = doctorlServer.getDoctor(username, password);
-			if (login!=null) {
+			System.out.println("医生登录");
+			t_yisheng t_yisheng;
+			DoctorLoginServer doctorlServer = new DoctorLoginServer();
+			t_yisheng = doctorlServer.getDoctor(username, password);
+			System.out.println("yisheng"+t_yisheng);
+			if (t_yisheng != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
 					Cookie cookiepassword = new Cookie("passsword", password);
@@ -83,12 +86,13 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		if ("admin".equals(select1)) {
-
+			System.out.println("管理员登录");
 			Admin_chaxun admin_chaxun = new Admin_chaxun();
 			t_admin t_admin = new t_admin(username, password);
 			t_admin t_admin2 = new t_admin();
 			t_admin2 = admin_chaxun.getAdmin(t_admin);
-			if (t_admin2 !=null) {
+			System.out.println("Admin"+t_admin2);
+			if (t_admin2 != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
 					Cookie cookiepassword = new Cookie("passsword", password);
@@ -102,18 +106,25 @@ public class LoginServlet extends HttpServlet {
 				int counta = (int) application.getAttribute("count");// 获取count
 				counta++;
 				application.setAttribute("count", counta);// 将新增的人数重新赋值给count
+				
+				
 				request.getRequestDispatcher("admin.jsp").forward(request, response);
+				
+				
+				
 			} else {
 				request.setAttribute("message", "账号或密码错误");
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
 			}
 		}
 		if ("patient".equals(select1)) {
-			t_user t_user = new t_user(username, password);
+			System.out.println("患者登录");
 			PatientLoginServer patientLoginServer = new PatientLoginServer();
-			t_user t_user3 = new t_user();
-			t_user3 = patientLoginServer.getpatient(t_user);
-			if (t_user3 !=null) {
+			t_user t_user = new t_user(username, password);
+			t_user t_user2 = new t_user();
+			t_user2 = patientLoginServer.getpatient(t_user);
+			System.out.println("t_user2"+t_user2);
+			if (t_user2 != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
 					Cookie cookiepassword = new Cookie("passsword", password);

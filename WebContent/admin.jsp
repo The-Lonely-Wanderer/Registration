@@ -15,10 +15,10 @@
 </head>
 <body>
 	<div id="top">
-		<img src="img/1.jpg" width="100%" height="500px" /> <img
-			src="img/2.jpg" width="100%" height="500px" /> <img src="img/4.jpg"
-			width="100%" height="500px" /> <img src="img/5.jpg" width="100%"
-			height="500px" />
+		<img src="img/1.jpg" width="100%" height="500px" /> 
+		<img src="img/2.jpg" width="100%" height="500px" /> 
+		<img src="img/4.jpg" width="100%" height="500px" /> 
+		<img src="img/5.jpg" width="100%" height="500px" />
 	</div>
 	<div id="banner">
 		<div id="xinxi">

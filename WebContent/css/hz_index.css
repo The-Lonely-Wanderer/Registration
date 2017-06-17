@@ -8,6 +8,14 @@
 body{
 	background:rgba(153,153,153,0.2);
 }
+
+#top img{
+	
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
 #banner {
 	width: 80%;
 	height: 1000px;
@@ -16,7 +24,7 @@ body{
 	position:relative;
 }
 #top{
-	
+	position:relative;
 	width:100%;
 	height:500px;
 	

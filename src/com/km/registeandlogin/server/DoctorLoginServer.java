@@ -4,7 +4,7 @@ import com.km.loginandregister.Dao.UserDao;
 import com.km.pojo.t_yisheng;
 import com.km.registeandlogin.vo.User;
 
-public class LoginServer {
+public class DoctorLoginServer {
 	public t_yisheng getDoctor(String username,String password){
 		t_yisheng t_yisheng;
 		t_yisheng user=new t_yisheng(username, password);

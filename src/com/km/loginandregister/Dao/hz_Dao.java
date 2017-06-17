@@ -22,23 +22,25 @@ public class hz_Dao {
 	 * @ps 传入 t_user对象 返回t_user对象
 	 */
 
-	public t_user getgerenxinxi(t_user usersession) {
+	public t_user getgerenxinxi(t_user t_user) {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
+		t_user t_user1=new t_user();
 		try {
 			ps = conn.prepareStatement(
 					"select  user_password, user_type, user_realname , user_address,user_tel from t_user where user_name = ?");
-			ps.setString(1, usersession.getUser_name());
+			ps.setString(1, t_user.getUser_name());
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				usersession = new t_user(rs.getString("user_password"), rs.getString("user_type"),
+				t_user1 = new t_user(rs.getString("user_password"), rs.getString("user_type"),
 
 						rs.getString("user_realname"), rs.getString("user_address"), rs.getLong("user_tel"));
+				return t_user1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return usersession;
+		return null;
 	}
 
 	// 患者修改个人信息
