@@ -262,37 +262,37 @@ public class UserDao {
 		return alList;
 	}
 
-		/**
-		 * @ps 用于获取所有医生用户
-		 *
-		 */
-		public List<t_yisheng> getAlldoctorUser() {// 获取数据库内所有的医生用户信息
-
-			Connection conn = ConnectionFactory.getConnectionFactory();
-			PreparedStatement ps = null;
-			ResultSet set;
-			List<t_yisheng> doctorlList = new ArrayList<t_yisheng>();
-			t_yisheng t_yisheng;
-			try {
-				ps = conn.prepareStatement("select * from t_yisheng");
-				set = ps.executeQuery();
-				while (set.next()) {
-					t_yisheng = new t_yisheng(set.getInt("yisheng_id"), set.getString("yisheng_name"),set.getString(" yisheng_password"), set.getString("yisheng_sex"), set.getString("yisheng_age"), set.getString("yisheng_zhicheng"),set.getInt(" keshi_id"));
-					doctorlList.add(t_yisheng);
-					return doctorlList;
-				}
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	/**
+	 * @ps 用于获取所有医生用户
+	 *
+	 */
+	public List<t_yisheng> getAlldoctorUser() {// 获取数据库内所有的医生用户信息
+		System.out.println("调用getAlldoctorUser");
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		ResultSet set;
+		List<t_yisheng> doctorlList = new ArrayList<t_yisheng>();
+		t_yisheng t_yisheng;
+		try {
+			ps = conn.prepareStatement("select * from t_yisheng");
+			
+			set = ps.executeQuery();
+			while (set.next()) {
+				t_yisheng = new t_yisheng(set.getInt("yisheng_id"), set.getString("yisheng_name"),
+						set.getString("yisheng_pw"), set.getString("yisheng_sex"), set.getString("yisheng_age"),
+						set.getString("yisheng_zhicheng"), set.getInt("keshi_id"));
+				doctorlList.add(t_yisheng);
+				
+				System.out.println(t_yisheng);
+				return doctorlList;
 			}
-			return null;
-		}
 
-	
-	
-	
-	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	// 用于医生查询预约的患者；
 	/**
@@ -345,6 +345,7 @@ public class UserDao {
 		}
 		return null;
 	}
+
 	/**
 	 * @ps 删除医生
 	 */
@@ -374,24 +375,23 @@ public class UserDao {
 	 * @ps 用于通过人数
 	 *
 	 */
-	 public int getdoctorcount() {// 查询网站访问人数
-	 Connection conn = ConnectionFactory.getConnectionFactory();
-	 PreparedStatement ps = null;
-	 ResultSet set;
-	 int count = 0;
-	 try {
-	 ps = conn.prepareStatement("select * from counts");
-	 set = ps.executeQuery();
-	 while (set.next()) {
-	 count = set.getInt(1);
-	 }
-	 } catch (SQLException e) {
-	 // TODO Auto-generated catch block
-	 e.printStackTrace();
-	 }
-	 return count;
-	 }
-	
+	public int getdoctorcount() {// 查询网站访问人数
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		ResultSet set;
+		int count = 0;
+		try {
+			ps = conn.prepareStatement("select * from counts");
+			set = ps.executeQuery();
+			while (set.next()) {
+				count = set.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
 
 	public List<t_admin> deleteAdmin(int id) {
 		// TODO Auto-generated method stub

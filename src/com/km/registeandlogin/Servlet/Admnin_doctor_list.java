@@ -47,9 +47,10 @@ public class Admnin_doctor_list extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		System.out.println("调用doctorlList");
 		List<t_yisheng> doctorlList;
-		AllUserServer alldoctorServer=new AllUserServer();
-		doctorlList=Admin_doctor_Server.getdoctoclist();
+		Admin_doctor_Server alldoctorServer=new Admin_doctor_Server();
+		doctorlList=alldoctorServer.getdoctoclist();
 		JSONObject jsonObject=new JSONObject();
 		JSONArray jsonArray=new JSONArray();
 		jsonObject.put("doctorlList", doctorlList);

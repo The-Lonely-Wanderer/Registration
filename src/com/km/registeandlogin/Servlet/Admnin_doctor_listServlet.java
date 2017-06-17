@@ -20,7 +20,7 @@ import com.km.registeandlogin.server.DeleteUserServer;
 /**
  * Servlet implementation class Admnin_doctor_list
  */
-@WebServlet("/Admnin_doctor_list")
+@WebServlet("/Admin_doctor_delete")
 public class Admnin_doctor_listServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

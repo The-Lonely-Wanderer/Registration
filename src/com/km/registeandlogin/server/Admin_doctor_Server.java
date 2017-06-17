@@ -10,7 +10,7 @@ public class Admin_doctor_Server {
 	 * @ps 调用userDao.getAlldoctorUser()
 	 * @return 返回t_yisheng 集合对象
 	 */
-	public static List<t_yisheng> getdoctoclist() {
+	public List<t_yisheng> getdoctoclist() {
 			
 		List<t_yisheng> t_yisheng;
 		UserDao userDao=new UserDao();
