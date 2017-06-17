@@ -9,25 +9,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.km.pojo.t_admin;
 import com.km.pojo.t_user;
-import com.km.registeandlogin.server.Admin_patient_server;
-import com.km.registeandlogin.server.AllUserServer;
+import com.km.registeandlogin.server.DeleteAdminServer;
+import com.km.registeandlogin.server.DeleteUserServer;
 
 /**
- * Servlet implementation class Admnin_patient_list
+ * Servlet implementation class Admnin_admin_list
  */
-@WebServlet("/Admnin_patient_list")
-public class Admin_patient_list extends HttpServlet {
+@WebServlet("/Admin_admin_delete")
+public class Admnin_admin_DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Admin_patient_list() {
+    public Admnin_admin_DeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,18 +43,23 @@ public class Admin_patient_list extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		List<t_user> alList;
-		AllUserServer allUserServer=new AllUserServer();
-		alList=allUserServer.getlist();
-		JSONObject jsonObject=new JSONObject();
-		JSONArray jsonArray=new JSONArray();
-		jsonObject.put("alList", alList);
+		String id = request.getParameter("id");
+		int id2 = Integer.parseInt(id);
+		List<t_admin> adminslist;
+		DeleteAdminServer deleteAdmin = new DeleteAdminServer();
+		adminslist = deleteAdmin.deleteAdmin(id2);
+		JSONObject jsonObject = new JSONObject();
+		JSONArray jsonArray = new JSONArray();
+		jsonObject.put("adminslist", adminslist);
 		jsonArray.add(jsonObject);
 		PrintWriter out = response.getWriter();
 		out.println(jsonArray.toJSONString());
-		out.close();
+		out.close();	
+		
 	}
+
 }
