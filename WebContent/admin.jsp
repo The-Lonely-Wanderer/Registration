@@ -55,6 +55,8 @@
 					<p>查看修改</p><br/>
 					姓名:【${param.username}】<br /> 密码:【${param.password}】
 					<form action="" method="post">
+					
+					
 						 <input type="button" value="修改信息">
 					 </form>
 				</div>
@@ -71,12 +73,15 @@
 				</div>
 				<div class="xinxi_right_1">
 					<p>管理员</p><br/>
-					<form action="" method="post"></form>
+					<div id="admin_div"></div>
+					<div id="admin_add">
+						<form action="" method="post"></form>
+					</div>
 				</div>
 				<div class="xinxi_right_1">
 					<p>最新消息</p><br/>
-					<div id="admin_div"></div>
-					<div id="admin_add">
+					<div id="message_div"></div>
+					<div id="message_add">
 						<form action="" method="post"></form>
 					</div>
 				</div>

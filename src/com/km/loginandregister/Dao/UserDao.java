@@ -208,7 +208,7 @@ public class UserDao {
 	}
 
 	/**
-	 * @ps 用于查询管理员用户，用于注册
+	 * @ps 用于查询管理员用户
 	 *
 	 */
 	public t_admin getadmin(t_admin t_admin) {// 查询管路员用户，用于登录
@@ -267,7 +267,6 @@ public class UserDao {
 	 *
 	 */
 	public List<t_yisheng> getAlldoctorUser() {// 获取数据库内所有的医生用户信息
-		System.out.println("调用getAlldoctorUser");
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
@@ -275,7 +274,6 @@ public class UserDao {
 		t_yisheng t_yisheng;
 		try {
 			ps = conn.prepareStatement("select * from t_yisheng");
-			
 			set = ps.executeQuery();
 			while (set.next()) {
 				t_yisheng = new t_yisheng(set.getInt("yisheng_id"), set.getString("yisheng_name"),
@@ -283,10 +281,8 @@ public class UserDao {
 						set.getString("yisheng_zhicheng"), set.getInt("keshi_id"));
 				doctorlList.add(t_yisheng);
 				
-				System.out.println(t_yisheng);
-				return doctorlList;
 			}
-
+			return doctorlList;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -294,6 +290,31 @@ public class UserDao {
 		return null;
 	}
 
+	/**
+	 * @ps 用于获取所有管理员用户 ，返回所有管理员用户的集合
+	 */
+	public List<t_admin> getAlladmin(){
+		
+		Connection connection=ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		ResultSet set;
+		t_admin t_admin;
+		List<t_admin> adminlist =new ArrayList<t_admin>();
+		try {
+			ps=connection.prepareStatement("select * from t_admin");
+			set=ps.executeQuery();
+			while(set.next()){
+				t_admin=new t_admin(set.getInt("userId"),set.getString("userName"),set.getString("userPassword"));
+				adminlist.add(t_admin);
+			}
+			return adminlist;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	// 用于医生查询预约的患者；
 	/**
 	 * @ps 医生查询预约；
@@ -392,9 +413,30 @@ public class UserDao {
 		}
 		return count;
 	}
-
+	/**
+	 * 
+	 * @param 传入删除的医生对应的id
+	 * @return  返回删除后的所有医生的集合,删除失败返回null
+	 */
 	public List<t_admin> deleteAdmin(int id) {
 		// TODO Auto-generated method stub
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		List<t_admin> adminlList = new ArrayList<t_admin>();
+		int i;
+		try {
+			ps = conn.prepareStatement("delete from t_admin where userId=?");
+			ps.setInt(1, id);
+			i = ps.executeUpdate();
+			if (i == 1) {
+				adminlList =getAlladmin();
+				return adminlList;
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

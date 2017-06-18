@@ -60,7 +60,6 @@ public class LoginServlet extends HttpServlet {
 		// 登录
 		
 		if ("doctor".equals(select1)) {
-			System.out.println("医生登录");
 			t_yisheng t_yisheng;
 			DoctorLoginServer doctorlServer = new DoctorLoginServer();
 			t_yisheng = doctorlServer.getDoctor(username, password);
@@ -86,7 +85,6 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		if ("admin".equals(select1)) {
-			System.out.println("管理员登录");
 			Admin_chaxun admin_chaxun = new Admin_chaxun();
 			t_admin t_admin = new t_admin(username, password);
 			t_admin t_admin2 = new t_admin();
@@ -118,7 +116,6 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		if ("patient".equals(select1)) {
-			System.out.println("患者登录");
 			PatientLoginServer patientLoginServer = new PatientLoginServer();
 			t_user t_user = new t_user(username, password);
 			t_user t_user2 = new t_user();

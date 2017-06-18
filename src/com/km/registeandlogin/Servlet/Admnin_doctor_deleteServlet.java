@@ -21,13 +21,13 @@ import com.km.registeandlogin.server.DeleteUserServer;
  * Servlet implementation class Admnin_doctor_list
  */
 @WebServlet("/Admin_doctor_delete")
-public class Admnin_doctor_listServlet extends HttpServlet {
+public class Admnin_doctor_deleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Admnin_doctor_listServlet() {
+	public Admnin_doctor_deleteServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -63,16 +63,6 @@ public class Admnin_doctor_listServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println(jsonArray.toJSONString());
 		out.close();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }

@@ -12,22 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.km.pojo.t_user;
-import com.km.pojo.t_yisheng;
-import com.km.registeandlogin.server.Admin_doctor_Server;
-import com.km.registeandlogin.server.AllUserServer;
+import com.km.pojo.t_admin;
+import com.km.registeandlogin.server.Admin_admin_server;
 
 /**
- * Servlet implementation class Admnin_doctor_list
+ * Servlet implementation class Admnin_admin_list
  */
-@WebServlet("/Admnin_doctor_list")
-public class Admnin_doctor_list extends HttpServlet {
+@WebServlet("/Admnin_admin_list")
+public class Admnin_admin_list extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Admnin_doctor_list() {
+    public Admnin_admin_list() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,17 +45,18 @@ public class Admnin_doctor_list extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		List<t_yisheng> doctorlList;
-		Admin_doctor_Server alldoctorServer=new Admin_doctor_Server();
-		doctorlList=alldoctorServer.getdoctoclist();
+		t_admin t_admin;
+		List<t_admin> adminlist;
+		Admin_admin_server admin_admin_server=new Admin_admin_server();
+		adminlist=admin_admin_server.getAllAdmin();
+		
 		JSONObject jsonObject=new JSONObject();
 		JSONArray jsonArray=new JSONArray();
-		jsonObject.put("doctorlList", doctorlList);
+		jsonObject.put("adminlist",adminlist);
 		jsonArray.add(jsonObject);
-		PrintWriter out = response.getWriter();
-		out.println(jsonArray.toJSONString());
+		PrintWriter out=response.getWriter();
+		out.println(jsonArray);
 		out.close();
-		
 	}
 
 }

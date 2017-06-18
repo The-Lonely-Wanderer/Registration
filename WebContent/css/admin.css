@@ -133,6 +133,20 @@ body {
 }
 
 
+#admin_td {
+	text-align: center;
+	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
+}
+#admin_div span{
+	width:50px;
+	height:20px;
+	cursor:pointer;	
+	color:red;
+}
+#admin_div span:hover{
+	border-bottom:1px solid rgba(102, 102, 102, 0.5);
+}
+
 
 
 
