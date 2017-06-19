@@ -387,7 +387,15 @@
 										</tr>
 									</table>
 				</div>
-						
+				
+				<%--患者填写预约患者医生备注 --%>>
+					<div class="xinxi_right_1">
+					<p>////////</p>
+					<form action="">
+						${param.username}
+					
+					</form>
+					</div>	
 
 				<div class="xinxi_right_1">
 					<p>已经预约</p>

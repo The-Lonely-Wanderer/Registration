@@ -102,7 +102,7 @@ function hz_yisheng(id) {
 				alert(name); //输出用户输入的信息
 			//	age=prompt("你今年多大了?","请在这里输入年龄"); /*在页面上再一次弹出提示对话框，
 			//	讲用户输入的信息赋给变量age*/
-			//	alert(age)//输出用户输入的信息
+//				alert(age)//输出用户输入的信息
 	$ 
 			.ajax({
 				type : "post",
@@ -129,6 +129,7 @@ function hz_yisheng(id) {
 								
 
 								+ "</td></tr><table>";
+						
 
 					}
 					$(".keshiyisheng").html(str);
