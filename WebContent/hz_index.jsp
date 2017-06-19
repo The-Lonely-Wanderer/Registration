@@ -258,36 +258,13 @@
 						<%--拿的科室的值 --%>
 						<tr>
 							<td bgcolor="#9CCFFF" height="35px" colspan="4">
-								<div align="center" class="zhi1">
-									
-								</div>
-							</td>							
+								<div align="center" class="zhi1"></div>
+							</td>
 						</tr>
-
-					</table>
-					<p align="center">
-						<b><font size="4">点击<a href="#">这里</a>返回主页
-						</font></b>
-					</p>
-				</div>
-				<%-- 医生预约--%>
-				<div class="xinxi_right_1">
-					<p>
-					<b>医生预约</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：【<b>${param.username}】</b>
-					</p>
-					<table width="75%" border="0" align="center">
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="4">
+								<div align="center">
+									<table width="100%" border="0" align="center">
 										<tr>
 											<td bgcolor="#9CCFFF" height="35px" colspan="5">
 												<div align="center">
@@ -325,16 +302,102 @@
 										<tr>
 											<td bgcolor="#9CCFFF" height="35px" colspan="5">
 												<div align="center">
-													<font size="4" class="keshiyisheng"><b>
-													
-													</b>
-													</font>
+													<font size="4" class="keshiyisheng"><b> </b> </font>
 												</div>
 											</td>
 										</tr>
 									</table>
+								</div>
+							</td>
+						</tr>
+
+
+					</table>
+					<p align="center">
+						<b><font size="4">点击<a href="#">这里</a>返回主页
+						</font></b>
+					</p>
 				</div>
-						
+				<%-- 医生预约--%>
+				<div class="xinxi_right_1">
+					<p>
+						<b>医生预约</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：【<b>${param.username}】</b>
+					</p>
+					<table width="75%" border="0" align="center">
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="5">
+								<div align="center">
+									<font size="4"><b>该科室医生</b></font>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>医生姓名</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>性别</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>年龄</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>医生简介</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>操作</b></font>
+								</div>
+							</th>
+						</tr>
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="5">
+								<div align="center">
+									<font size="4" class="keshiyisheng"><b> </b> </font>
+								</div>
+							</td>
+						</tr>
+						<%--患者填写预约患者医生备注 --%>
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="5">
+								<div align="center">
+									<form action="" method="post">
+										<font size="4"><b> 
+										医生名字</br>
+										<span id="user_huanzhe">${param.username}"></span></br>
+										备注</br>
+										<textarea name="MSG" id="beizhu" cols=40 rows=4>
+												欢迎光临猴子也能看懂的网页制作入门
+										</textarea> </br>
+										<input type="submit">
+										</b> </font>
+									</form>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+
 
 				<div class="xinxi_right_1">
 					<p>已经预约</p>

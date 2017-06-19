@@ -23,7 +23,10 @@ $("#lis-li-5").click(function(){
 $("#lis-li-6").click(function(){
 	$(".xinxi_right_1").eq(5).show().siblings().hide();
 });
-
+//预约医生的排版
+$("#lis-li-7").click(function(){
+	$(".xinxi_right_1").eq(6).show().siblings().hide();
+});
 
 
 
