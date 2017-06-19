@@ -147,6 +147,15 @@ body {
 	border-bottom:1px solid rgba(102, 102, 102, 0.5);
 }
 
+#changefrom{
+	
+	width:300px;
+	height:200px;
+	border:1px solid red;
+	margin:200px auto;
+	
+	
+}
 
 
 

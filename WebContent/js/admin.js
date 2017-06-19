@@ -119,3 +119,27 @@ $("#lis-li-5").click(function() {
 
 	$(".xinxi_right_1").eq(4).show().siblings().hide();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

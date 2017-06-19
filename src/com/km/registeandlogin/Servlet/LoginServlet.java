@@ -63,7 +63,6 @@ public class LoginServlet extends HttpServlet {
 			t_yisheng t_yisheng;
 			DoctorLoginServer doctorlServer = new DoctorLoginServer();
 			t_yisheng = doctorlServer.getDoctor(username, password);
-			System.out.println("yisheng"+t_yisheng);
 			if (t_yisheng != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
@@ -89,7 +88,6 @@ public class LoginServlet extends HttpServlet {
 			t_admin t_admin = new t_admin(username, password);
 			t_admin t_admin2 = new t_admin();
 			t_admin2 = admin_chaxun.getAdmin(t_admin);
-			System.out.println("Admin"+t_admin2);
 			if (t_admin2 != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
@@ -120,7 +118,6 @@ public class LoginServlet extends HttpServlet {
 			t_user t_user = new t_user(username, password);
 			t_user t_user2 = new t_user();
 			t_user2 = patientLoginServer.getpatient(t_user);
-			System.out.println("t_user2"+t_user2);
 			if (t_user2 != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);

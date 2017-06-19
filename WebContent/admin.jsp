@@ -53,11 +53,13 @@
 			<div id="xinxi_right">
 				<div class="xinxi_right_1">
 					<p>查看修改</p><br/>
-					姓名:【${param.username}】<br /> 密码:【${param.password}】
-					<form action="" method="post">
-					
-					
-						 <input type="button" value="修改信息">
+					姓名:【${param.username}】<br /> 密码:【${param.password}】<br/>
+					<input type="button" value="修改信息">
+	
+					<form id="changeform" action="" method="post">
+						 <span>新用户名</span><input id="newusername" type="text" ><br/>
+						 <span>新&nbsp密&nbsp码</span><input id="newpassword" type="text" ><br/>
+						 <input id="ok" type="button" value="确定	" ><input id="no" type="button" value="取消">
 					 </form>
 				</div>
 				<div class="xinxi_right_1">

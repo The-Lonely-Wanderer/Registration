@@ -49,7 +49,6 @@ public class Admnin_admin_DeleteServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		int id2 = Integer.parseInt(id);
-		System.out.println(id2);
 		List<t_admin> adminslist;
 		DeleteAdminServer deleteAdmin = new DeleteAdminServer();
 		adminslist = deleteAdmin.deleteAdmin(id2);
