@@ -15,14 +15,14 @@
 </head>
 <body>
 	<div id="top">
-		<img src="img/1.jpg" width="100%" height="500px" /> 
-		<img src="img/2.jpg" width="100%" height="500px" /> 
-		<img src="img/4.jpg" width="100%" height="500px" /> 
-		<img src="img/5.jpg" width="100%" height="500px" />
+		<img src="img/1.jpg" width="100%" height="500px" /> <img
+			src="img/2.jpg" width="100%" height="500px" /> <img src="img/4.jpg"
+			width="100%" height="500px" /> <img src="img/5.jpg" width="100%"
+			height="500px" />
 	</div>
-	
+
 	<div id="banner">
-	<p id="gongneng">管理员功能</p>
+		<p id="gongneng">管理员功能</p>
 		<div id="xinxi">
 			<div id="xinxi_left">
 				<ul>
@@ -54,36 +54,47 @@
 			</div>
 			<div id="xinxi_right">
 				<div class="xinxi_right_1">
-					<p>查看修改</p><br/>
-					姓名:【${param.username}】<br /> 密码:【${param.password}】<br/>
+					<p>查看修改</p>
+					<br /> 姓名:【${param.username}】<br /> 密码:【${param.password}】<br />
 					<input id="changebut" type="button" value="修改信息">
-	
+
 					<form id="changeform" action="" method="post">
-					<p> <span>新用户名:</span><input id="newusername" type="text" ></p>
-					<p><span>新&nbsp密&nbsp码:</span><input id="newpassword" type="text" ></p>
-					<p> <input id="ok" type="button" value="确定" ><input id="no" type="button" value="取消"></p>
-					 </form>
+						<p>
+							<span>新用户名:</span><input id="newusername" type="text">
+						</p>
+						<p>
+							<span>新&nbsp密&nbsp码:</span><input id="newpassword" type="text">
+						</p>
+						<p>
+							<input id="ok" type="button" value="确定"><input id="no"
+								type="button" value="取消">
+						</p>
+					</form>
 				</div>
 				<div class="xinxi_right_1">
-					<p>患者信息:</p><br/>
+					<p>患者信息:</p>
+					<br />
 					<div id="huanzhe_div"></div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>医生</p><br/>
+					<p>医生</p>
+					<br />
 					<div id="doctor_div"></div>
 					<div id="doctor_add">
 						<form action="" method="post"></form>
 					</div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>管理员</p><br/>
+					<p>管理员</p>
+					<br />
 					<div id="admin_div"></div>
 					<div id="admin_add">
 						<form action="" method="post"></form>
 					</div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>最新消息</p><br/>
+					<p>最新消息</p>
+					<br />
 					<div id="message_div"></div>
 					<div id="message_add">
 						<form action="" method="post"></form>
@@ -93,9 +104,18 @@
 		</div>
 		<p id="newgonggao">最新公告--></p>
 		<div id="gonggao">
+			<c:forEach items="${sessionScope.gonggao_list}" var="gonggao">
+				<p>
+					<span class="gonggaosp" style="color:black;">&nbsp&nbsp&nbsp<b>${gonggao.gonggao_title}</b>
+					<span>-->${gonggao.gonggao_data}</span></span>
+					<span id="gonggao_con">${gonggao.gonggao_content}</span>
+				</p>
+			</c:forEach>
 		</div>
 	</div>
-	<div id="sbottom">医院挂号系统-2017-6-19<br/><br/>项目成员:柯蒙蒙，孟恒，杨圣林</div>
+	<div id="sbottom">
+		医院挂号系统-2017-6-19<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
+	</div>
 	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>
 </body>
 </html>

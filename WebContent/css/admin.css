@@ -6,7 +6,7 @@
 }
 
 body {
-	background: rgba(153, 153, 153, 0.2);
+	background: rgba(153, 153, 153, 0.1);
 }
 
 #banner {
@@ -34,7 +34,7 @@ body {
 #top img {
 	width: 100%;
 	height: 500px;
-	min-width:1520px;
+	min-width: 1520px;
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -138,7 +138,7 @@ body {
 }
 
 #huanzhe_div span:hover {
-	color:#FFF;
+	color: #FFF;
 }
 
 #doctor_td {
@@ -154,7 +154,7 @@ body {
 }
 
 #doctor_div span:hover {
-	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
+	color: #FFF;
 }
 
 #admin_td {
@@ -234,16 +234,108 @@ body {
 }
 
 #sbottom {
-	height:60px;
+	height: 60px;
 	width: 100%;
 	min-width: 1520px;
 	border-top: 1px solid rgba(102, 102, 102, 0.5);
-	color:rgba(102, 102, 102, 0.5);
-	font-size:14px;
-	text-align:center;
+	color: rgba(102, 102, 102, 0.5);
+	font-size: 14px;
+	text-align: center;
 }
-tr:hover{
-	background:rgba(0, 153, 153, 0.6);
+
+tr:hover {
+	background: rgba(0, 153, 153, 0.6);
+	cursor: pointer;
+}
+
+#message_div {
+	position: relative;
+	margin-left: 10px;
+}
+
+#message_div p {
+	margin-top: 5px;
+}
+
+#message_div span:hover {
+	color: red;
+}
+
+#message_div p:hover {
+	background: rgba(0, 153, 153, 0.6);
+	cursor: pointer;
+}
+
+#message_div div {
+	width: 700px;
+	height: 106px;
+	background: #FFF;
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+#message_div div span {
+	position: absolute;
+	top: 378px;
+	left: 648px;
+	color: #FFF;
+	width: 50px;
+	height: 20px;
+	border: 1px solid rgba(0, 153, 153, 0.5);
+	background: rgba(0, 153, 153, 0.5);
+	text-align: center;
+	cursor: pointer;
+}
+
+#message_div div span:hover {
+	background: rgba(0, 0, 0, 0);
+	color: rgba(0, 153, 153, 0.5);
+}
+
+#gonggao{
+	position:relative;
+}
+#gonggao p {
+	border-bottom: 1px solid rgba(0, 153, 153, 0.6);
+	width: 100%;
+	height: 20px;
+	padding: 5px 0px;
+	transition:0.2s;
+}
+
+#gonggao p:hover{
+	background: rgba(0, 153, 153, 0.5);
 	cursor:pointer;
 }
+.gonggaosp{
+	width:100%;
+	height:30px;
+	font-family: "microsoft yahei";
+	font-size: 16px;
+}
+#gonggao_con{
+	position:absolute;
+	left:400px;
+	top:50px;
+	display:block;
+	display:none;
+	background:#FFF;
+	width:680px;
+	height:400px;
+	box-shadow:0px 0px 1px 1px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

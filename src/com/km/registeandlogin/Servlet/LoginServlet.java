@@ -1,6 +1,7 @@
 package com.km.registeandlogin.Servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.km.pojo.t_admin;
+import com.km.pojo.t_gonggao;
 import com.km.pojo.t_user;
 import com.km.pojo.t_yisheng;
 import com.km.registeandlogin.server.Admin_chaxun;
 import com.km.registeandlogin.server.DoctorLoginServer;
+import com.km.registeandlogin.server.Gonggao_server;
 import com.km.registeandlogin.server.PatientLoginServer;
 
 /**
@@ -56,9 +59,11 @@ public class LoginServlet extends HttpServlet {
 		ServletContext application = getServletContext();
 		HttpSession session = request.getSession();
 		request.setAttribute("username", username);
-
+		List<t_gonggao> gonggao_list;
+		Gonggao_server gonggao_server=new Gonggao_server();
+		gonggao_list=gonggao_server.getgonggao();
+		session.setAttribute("gonggao_list", gonggao_list);
 		// 登录
-
 		if ("doctor".equals(select1)) {
 			t_yisheng t_yisheng;
 			DoctorLoginServer doctorlServer = new DoctorLoginServer();
@@ -115,6 +120,7 @@ public class LoginServlet extends HttpServlet {
 			t_user t_user = new t_user(username, password);
 			t_user t_user2 = new t_user();
 			t_user2 = patientLoginServer.getpatient(t_user);
+			request.setAttribute("t_user", t_user2);
 			if (t_user2 != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);

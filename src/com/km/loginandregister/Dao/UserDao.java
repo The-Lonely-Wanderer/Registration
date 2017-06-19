@@ -2,13 +2,14 @@ package com.km.loginandregister.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.PseudoColumnUsage;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.km.loginandregister.util.ConnectionFactory;
 import com.km.pojo.t_admin;
-
+import com.km.pojo.t_gonggao;
 import com.km.pojo.t_yisheng;
 import com.km.pojo.t_yuyue;
 import com.km.pojo.t_user;
@@ -279,7 +280,7 @@ public class UserDao {
 						set.getString("yisheng_pw"), set.getString("yisheng_sex"), set.getString("yisheng_age"),
 						set.getString("yisheng_zhicheng"), set.getInt("keshi_id"));
 				doctorlList.add(t_yisheng);
-				
+
 			}
 			return doctorlList;
 		} catch (SQLException e) {
@@ -292,18 +293,18 @@ public class UserDao {
 	/**
 	 * @ps 用于获取所有管理员用户 ，返回所有管理员用户的集合
 	 */
-	public List<t_admin> getAlladmin(){
-		
-		Connection connection=ConnectionFactory.getConnectionFactory();
+	public List<t_admin> getAlladmin() {
+
+		Connection connection = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps;
 		ResultSet set;
 		t_admin t_admin;
-		List<t_admin> adminlist =new ArrayList<t_admin>();
+		List<t_admin> adminlist = new ArrayList<t_admin>();
 		try {
-			ps=connection.prepareStatement("select * from t_admin");
-			set=ps.executeQuery();
-			while(set.next()){
-				t_admin=new t_admin(set.getInt("userId"),set.getString("userName"),set.getString("userPassword"));
+			ps = connection.prepareStatement("select * from t_admin");
+			set = ps.executeQuery();
+			while (set.next()) {
+				t_admin = new t_admin(set.getInt("userId"), set.getString("userName"), set.getString("userPassword"));
 				adminlist.add(t_admin);
 			}
 			return adminlist;
@@ -313,7 +314,61 @@ public class UserDao {
 		}
 		return null;
 	}
-	
+
+	/**
+	 * @ps 返回所有公告的集合
+	 */
+	public List<t_gonggao> getAllNews() {
+
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		ResultSet set;
+		List<t_gonggao> news = new ArrayList<t_gonggao>();
+		t_gonggao t_gonggao;
+		try {
+			ps = conn.prepareStatement("select * from t_gonggao");
+			set = ps.executeQuery();
+			while (set.next()) {
+				t_gonggao = new t_gonggao(set.getInt("gonggao_id"), set.getString("gonggao_title"),
+						set.getString("gonggao_content"), set.getString("gonggao_data"));
+				news.add(t_gonggao);
+			}
+			return news;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 
+	 * @return 查询所有的公告
+	 */
+
+	public List<t_gonggao> geT_gonggaos() {
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		ResultSet set = null;
+		List<t_gonggao> t_gonggaoslist = new ArrayList<t_gonggao>();
+		t_gonggao t_gonggao;
+		try {
+			ps = conn.prepareStatement("select * from t_gonggao");
+			set = ps.executeQuery();
+			while (set.next()) {
+				t_gonggao = new t_gonggao(set.getInt("gonggao_id"), set.getString("gonggao_title"),
+						set.getString("gonggao_content"), set.getString("gonggao_data"));
+				t_gonggaoslist.add(t_gonggao);
+			}
+			return t_gonggaoslist;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	// 用于医生查询预约的患者；
 	/**
 	 * @ps 医生查询预约；
@@ -412,10 +467,11 @@ public class UserDao {
 		}
 		return count;
 	}
+
 	/**
 	 * 
 	 * @param 传入删除的医生对应的id
-	 * @return  返回删除后的所有医生的集合,删除失败返回null
+	 * @return 返回删除后的所有医生的集合,删除失败返回null
 	 */
 	public List<t_admin> deleteAdmin(int id) {
 		// TODO Auto-generated method stub
@@ -428,7 +484,7 @@ public class UserDao {
 			ps.setInt(1, id);
 			i = ps.executeUpdate();
 			if (i == 1) {
-				adminlList =getAlladmin();
+				adminlList = getAlladmin();
 				return adminlList;
 			}
 

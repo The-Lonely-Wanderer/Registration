@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Register</title>
-<link rel="stylesheet" type="text/css" href="/registerandlogin3.0/css/register.css">
-<script rel="stylesheet" type="text/javascript" src="/registerandlogin3.0/js/register.js"> </script>
+<link rel="stylesheet" type="text/css" href="/Registration/css/register.css">
+<script rel="stylesheet" type="text/javascript" src="/Registration/js/register.js"> </script>
 </head>
 <body>
 		<form id="registerfrom" action="registerfrom" method="post">

@@ -105,7 +105,7 @@ $("#lis-li-4").click(function() {//所有管理员用户
 		var json = jQuery.parseJSON(adminlist);
 		var Adminlist=json[0].adminlist;
 		var str="";
-		console.log(Adminlist);
+		//console.log(Adminlist);
 		for ( var i in Adminlist) {
 			str += "<tr><td id='admin_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + Adminlist[i].user_id + "</td><td id='admin_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + Adminlist[i].userName+ "</td><td id='admin_td' style='border-bottom: 1px solid rgba(102, 102, 102, 0.5);text-align:center;'>" + Adminlist[i].userPassword+ "</td>" +
 					"<td><span id='"+Adminlist[i].user_id+"' onclick='javascript:adminupda("+Adminlist[i].user_id+");'>删除</span></td></tr>";
@@ -115,11 +115,31 @@ $("#lis-li-4").click(function() {//所有管理员用户
 	}); 
 
 });
-$("#lis-li-5").click(function() {
-
+$("#lis-li-5").click(function() {//公告
 	$(".xinxi_right_1").eq(4).show().siblings().hide();
+	
+	$.ajax({
+		type:"get",
+		url:"Admin_news_servle",
+		async:true,
+		success:function(Allnews){
+			var json=jQuery.parseJSON(Allnews);
+			var Allnew=json[0].Allnews;
+			//console.log(Allnew);
+			str="";
+			for(var i in Allnew){
+				str+="<p id='"+Allnew[i].gonggao_id+"' class='message'>"+Allnew[i].gonggao_title+"//"+Allnew[i].gonggao_data+"<span id='a'>查看/编辑</span><div id="+Allnew[i].gonggao_id+">"+Allnew[i].gonggao_content+"<span >关闭</span></div></p>";
+			}
+			$("#message_div").html(str);
+		}
+	
+	});
 });
-
+$("#a").click(function(){
+	
+	alert("sss");
+	
+});
 $("#changebut").click(function(){
 	$("#changeform").show();
 });
@@ -129,7 +149,12 @@ $("#no").click(function(){
 });
 
 
-
+$(".gonggaosp").click(function(){
+	
+	//alert("ssss");
+	$("#gonggao_con").show();
+	
+});
 
 
 
