@@ -45,6 +45,8 @@ public class Hz_KeshiyishengyuyueServlet extends HttpServlet {
 		
 		String username = request.getParameter("id");
 		int yisheng_id=Integer.parseInt(username);
+		String user_huanzhe = request.getParameter("user_huanzhe");
+		String beizhu = request.getParameter("beizhu");
 		Hz_KeshiyishengyuyueService ams = new Hz_KeshiyishengyuyueService();
 		
 //		List<t_user> list = ams.getall();

@@ -81,6 +81,7 @@ function look(id) {
 
 					}
 					$(".keshiyisheng").html(str);
+					$(".keshiyisheng").html(str)
 				}
 			});
 }
@@ -88,29 +89,20 @@ function look(id) {
 
 //预约的医生Ajax
 function hz_yisheng(id) {
-		//患者预约医生的时候所填写备注
-				var name;//age;
-				
-				var iWidth; //弹出窗口的宽度;
-				var iHeight; //弹出窗口的高度;
-				//window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
-				var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;
-				var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;
-				name=prompt("请输入病因?"); /*在页面上弹出提示对话框，
-				
-				将用户输入的结果赋给变量name*/
-				alert(name); //输出用户输入的信息
-			//	age=prompt("你今年多大了?","请在这里输入年龄"); /*在页面上再一次弹出提示对话框，
-			//	讲用户输入的信息赋给变量age*/
-//				alert(age)//输出用户输入的信息
+		
 	$ 
 			.ajax({
 				type : "post",
-				url : "Hz_YishengchaxunServlet?id=" + id+"&name="+name,
+				url : "Hz_KeshiyishengyuyueServlet?id=" + id,
 				async : true,
+				data : {
+					beizhu : $("#beizhu").val(),
+					yisheng_name : $("#user_huanzhe").val()
+				},
 				success : function(alist) {
 					var json = jQuery.parseJSON(alist);
 					var str = "";
+
 					for ( var i in json) {
 						str += "<table border='0px' width='100%'  align='center'><tr width='100%'>"
 								+ "<td align='center' width='30%' >"
@@ -133,26 +125,32 @@ function hz_yisheng(id) {
 
 					}
 					$(".keshiyisheng").html(str);
+					
 				}
 			});
 }
 
 
 
-function hz_yisheng(id) {
-	var name;//age;
-	
-	var iWidth; //弹出窗口的宽度;
-	var iHeight; //弹出窗口的高度;
-	//window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
-	var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;
-	var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;
-	name=prompt("请输入病因?"); /*在页面上弹出提示对话框，
-	
-	将用户输入的结果赋给变量name*/
-	alert(name); //输出用户输入的信息
-//	age=prompt("你今年多大了?","请在这里输入年龄"); /*在页面上再一次弹出提示对话框，
-//	讲用户输入的信息赋给变量age*/
-//	alert(age)//输出用户输入的信息
-	}
+
+
+
+
+
+//function hz_yisheng(id) {
+//	var name;//age;
+//	
+//	var iWidth; //弹出窗口的宽度;
+//	var iHeight; //弹出窗口的高度;
+//	//window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
+//	var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;
+//	var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;
+//	name=prompt("请输入病因?"); /*在页面上弹出提示对话框，
+//	
+//	将用户输入的结果赋给变量name*/
+//	alert(name); //输出用户输入的信息
+////	age=prompt("你今年多大了?","请在这里输入年龄"); /*在页面上再一次弹出提示对话框，
+////	讲用户输入的信息赋给变量age*/
+////	alert(age)//输出用户输入的信息	
+//	}
 
