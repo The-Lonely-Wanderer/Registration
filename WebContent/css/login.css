@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 body {
-	background: url("../img/3.jpg") center;
+	background: url("../img/3.jpg") center no-repeat;
 }
 
 #loginfrom {
