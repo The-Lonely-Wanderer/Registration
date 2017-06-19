@@ -11,30 +11,47 @@ body {
 
 #banner {
 	width: 1520px;
-	height: 1000px;
-	border: 1px solid rgba(102, 102, 102, 0.5);
+	height: 1300px;
 	margin: auto;
 	position: relative;
 }
 
+#gongneng {
+	font-size: 20px;
+	font-family: "micorsofr yahei";
+	font-weight: bold;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
 #top {
+	/* 	width: 2112px; */
 	width: 100%;
 	height: 500px;
-	min-width: 1510px;
+	min-width: 1520px;
 }
 
 #top img {
+	width: 100%;
+	height: 500px;
+	min-width:1520px;
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	position: absolute;
 }
 
 #xinxi {
 	position: relative;
 	height: 600px;
 	width: 100%;
-	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
 	background: rgba(255, 255, 255, 0.6);
+}
+
+#gonggao {
+	background: #FFF;
+	width: 1520px;
+	height: 555px;
 }
 
 #xinxi_left {
@@ -86,10 +103,16 @@ body {
 	height: 100%;
 	background: #FFF;
 }
-.xinxi_right_1 p{
-	font-size:20px;
-	font-family:"microsoft yahei";
-	font-weight:500px;
+
+.lis-li:hover {
+	background: rgba(0, 153, 153, 0.5);
+	color: #FFF;
+}
+
+.xinxi_right_1 p {
+	font-size: 20px;
+	font-family: "microsoft yahei";
+	font-weight: 500px;
 }
 
 .xinxi_right_1:nth-child(1) {
@@ -106,57 +129,120 @@ body {
 	text-align: center;
 	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
 }
-#huanzhe_div span{
-	width:50px;
-	height:20px;
-	cursor:pointer;	
-	color:red;
-}
-#huanzhe_div span:hover{
-	border-bottom:1px solid rgba(102, 102, 102, 0.5);
+
+#huanzhe_div span {
+	width: 50px;
+	height: 20px;
+	cursor: pointer;
+	color: red;
 }
 
-
+#huanzhe_div span:hover {
+	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
+}
 
 #doctor_td {
 	text-align: center;
 	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
 }
-#doctor_div span{
-	width:50px;
-	height:20px;
-	cursor:pointer;	
-	color:red;
-}
-#doctor_div span:hover{
-	border-bottom:1px solid rgba(102, 102, 102, 0.5);
+
+#doctor_div span {
+	width: 50px;
+	height: 20px;
+	cursor: pointer;
+	color: red;
 }
 
+#doctor_div span:hover {
+	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
+}
 
 #admin_td {
 	text-align: center;
 	border-bottom: 1px solid rgba(102, 102, 102, 0.5);
 }
-#admin_div span{
-	width:50px;
-	height:20px;
-	cursor:pointer;	
-	color:red;
-}
-#admin_div span:hover{
-	border-bottom:1px solid rgba(102, 102, 102, 0.5);
+
+#admin_div span {
+	width: 50px;
+	height: 20px;
+	cursor: pointer;
+	color: red;
 }
 
-#changefrom{
-	
-	width:300px;
-	height:200px;
-	border:1px solid red;
-	margin:200px auto;
-	
-	
+#admin_div span:hover {
+	border-bottom: 1px solid rgba(0, 153, 153, 0.5);
 }
 
+#changeform {
+	position: relative;
+	display: none;
+	width: 400px;
+	height: 260px;
+	margin: 50px auto;
+	box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+	display: none;
+}
 
+#changeform p {
+	position: absolute;
+	left: 50px;
+}
 
+#changeform p:nth-child(1) input, p:nth-child(2) input {
+	margin-left: 10px;
+	border: none;
+	border-bottom: 1px solid rgba(0, 153, 153, 0.6);
+	outline: none;
+	color: rgba(0, 153, 153, 0.6);
+}
+
+#changeform p:nth-child(1) {
+	font-size: 14px;
+	top: 60px;
+}
+
+#changeform p:nth-child(2) {
+	font-size: 14px;
+	top: 120px;
+}
+
+#changeform p:nth-child(3) {
+	top: 200px;
+}
+
+#ok, #no, #changebut {
+	width: 100px;
+	height: 30px;
+	border: 1px solid rgba(0, 153, 153, 0.6);
+	color: #FFF;
+	background: rgba(0, 153, 153, 0.6);
+	margin-left: 20px;
+	transition: 0.5s;
+}
+
+#ok:hover, #no:hover, #changebut:hover {
+	background: rgba(255, 255, 255, 0);
+	color: #000;
+}
+
+#newgonggao {
+	font-size: 20px;
+	font-family: "micorsofr yahei";
+	font-weight: bold;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#sbottom {
+	height:60px;
+	width: 100%;
+	min-width: 1520px;
+	border-top: 1px solid rgba(102, 102, 102, 0.5);
+	color:rgba(102, 102, 102, 0.5);
+	font-size:14px;
+	text-align:center;
+}
+tr:hover{
+	background:rgba(0, 153, 153, 0.6);
+}
 

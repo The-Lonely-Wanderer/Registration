@@ -21,27 +21,27 @@ public class UserDao {
 	 * @ps 用于查询患者用户，用于登录
 	 *
 	 */
-	public boolean getpatientLogin(User user) {// 查询患者用户，用于登录
+	public t_user getpatientLogin(User user) {// 查询患者用户，用于登录
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
-		User user1 = null;
+		t_user user1 = null;
 		try {
 			ps = conn.prepareStatement("select * from t_user where user_name=? and user_password=?");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new User(set.getString("user_name"), set.getString("user_password"));
+				user1 = new t_user(set.getString("user_name"), set.getString("user_password"));
 				if (user1 != null) {
-					return true;
+					return user1;
 				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 	/**
@@ -225,7 +225,6 @@ public class UserDao {
 				user1 = new t_admin(set.getString("username"), set.getString("userpassword"));
 				return user1;
 			}
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

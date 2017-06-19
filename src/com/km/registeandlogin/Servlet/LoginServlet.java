@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("username", username);
 
 		// 登录
-		
+
 		if ("doctor".equals(select1)) {
 			t_yisheng t_yisheng;
 			DoctorLoginServer doctorlServer = new DoctorLoginServer();
@@ -102,12 +102,9 @@ public class LoginServlet extends HttpServlet {
 				int counta = (int) application.getAttribute("count");// 获取count
 				counta++;
 				application.setAttribute("count", counta);// 将新增的人数重新赋值给count
-				
-				
+
 				request.getRequestDispatcher("admin.jsp").forward(request, response);
-				
-				
-				
+
 			} else {
 				request.setAttribute("message", "账号或密码错误");
 				request.getRequestDispatcher("Login.jsp").forward(request, response);

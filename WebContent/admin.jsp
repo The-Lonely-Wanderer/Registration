@@ -20,7 +20,9 @@
 		<img src="img/4.jpg" width="100%" height="500px" /> 
 		<img src="img/5.jpg" width="100%" height="500px" />
 	</div>
+	
 	<div id="banner">
+	<p id="gongneng">管理员功能</p>
 		<div id="xinxi">
 			<div id="xinxi_left">
 				<ul>
@@ -54,12 +56,12 @@
 				<div class="xinxi_right_1">
 					<p>查看修改</p><br/>
 					姓名:【${param.username}】<br /> 密码:【${param.password}】<br/>
-					<input type="button" value="修改信息">
+					<input id="changebut" type="button" value="修改信息">
 	
 					<form id="changeform" action="" method="post">
-						 <span>新用户名</span><input id="newusername" type="text" ><br/>
-						 <span>新&nbsp密&nbsp码</span><input id="newpassword" type="text" ><br/>
-						 <input id="ok" type="button" value="确定	" ><input id="no" type="button" value="取消">
+					<p> <span>新用户名:</span><input id="newusername" type="text" ></p>
+					<p><span>新&nbsp密&nbsp码:</span><input id="newpassword" type="text" ></p>
+					<p> <input id="ok" type="button" value="确定" ><input id="no" type="button" value="取消"></p>
 					 </form>
 				</div>
 				<div class="xinxi_right_1">
@@ -89,10 +91,11 @@
 				</div>
 			</div>
 		</div>
+		<p id="newgonggao">最新公告--></p>
 		<div id="gonggao">
-			<p>最新公告--></p>
 		</div>
 	</div>
+	<div id="sbottom">医院挂号系统-2017-6-19<br/><br/>项目成员:柯蒙蒙，孟恒，杨圣林</div>
 	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>
 </body>
 </html>
