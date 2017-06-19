@@ -105,10 +105,10 @@
 		<p id="newgonggao">最新公告--></p>
 		<div id="gonggao">
 			<c:forEach items="${sessionScope.gonggao_list}" var="gonggao">
-				<p>
+				<p class="newsp">
 					<span class="gonggaosp" style="color:black;">&nbsp&nbsp&nbsp<b>${gonggao.gonggao_title}</b>
 					<span>-->${gonggao.gonggao_data}</span></span>
-					<span id="gonggao_con">${gonggao.gonggao_content}</span>
+					<span class="gonggao_con">${gonggao.gonggao_content}<span class="close">关闭</span></span>
 				</p>
 			</c:forEach>
 		</div>
