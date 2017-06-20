@@ -103,6 +103,7 @@ public class LoginServlet extends HttpServlet {
 					response.addCookie(cookiepassword);
 				}
 				session.setAttribute("username", username);
+				session.setAttribute("userId",t_admin2.getUser_id());
 				session.setMaxInactiveInterval(60 * 60 * 1);
 				int counta = (int) application.getAttribute("count");// 获取count
 				counta++;

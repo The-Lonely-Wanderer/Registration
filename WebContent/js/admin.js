@@ -136,11 +136,6 @@ $("#lis-li-5").click(function() {//公告
 	
 	});
 });
-$("#a").click(function(){
-	
-	alert("sss");
-	
-});
 $("#changebut").click(function(){
 	$("#changeform").show();
 });
@@ -157,13 +152,14 @@ $(".newsp").click(function(){
 });
 
 $(".newsp .gonggao_con .close").click(function(event){
-//	
 //	var _index=$(this).index();
-	console.log($(this).parent(".gonggao_con"));
 	$(this).parent(".gonggao_con").slideUp(300);
 	  event.stopPropagation();
 });
 
+$("#ok").click(function(){
+	$("#changeform").submit();
+});
 
 
 

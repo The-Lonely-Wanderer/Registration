@@ -55,15 +55,16 @@
 			<div id="xinxi_right">
 				<div class="xinxi_right_1">
 					<p>查看修改</p>
-					<br /> 姓名:【${param.username}】<br /> 密码:【${param.password}】<br />
-					<input id="changebut" type="button" value="修改信息">
+					<br /> 姓名:[${sessionScope.username}]<br /> 密码:[${param.password}]<br />管理员ID:[${sessionScope.userId}]<br/>
+					<br/><input id="changebut" type="button" value="修改信息" style="margin-left:0px;">
 
-					<form id="changeform" action="" method="post">
+					<form id="changeform" action="Admin_change_servlet" method="post">
+							${requestScope.message}
 						<p>
-							<span>新用户名:</span><input id="newusername" type="text">
+							<span>新用户名:</span><input id="newusername" type="text" name="newusername">
 						</p>
 						<p>
-							<span>新&nbsp密&nbsp码:</span><input id="newpassword" type="text">
+							<span>新&nbsp密&nbsp码:</span><input id="newpassword" type="text" name="newpassword">
 						</p>
 						<p>
 							<input id="ok" type="button" value="确定"><input id="no"
@@ -77,15 +78,22 @@
 					<div id="huanzhe_div"></div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>医生</p>
+					<p>医生</p><input id="doctorRegister" value="添加医生账号" type="button"/>
 					<br />
 					<div id="doctor_div"></div>
 					<div id="doctor_add">
-						<form action="" method="post"></form>
+						<form action="" method="post">
+							<p><span>用户名:</span><input id="doctorusername" type="text" name="doctorusername" ></p>
+							<p><span>密码:</span><input id="doctorpassword" type="text" name="doctorpassword"></p>
+							<p><span>性别:</span><input id="doctorsex" type="text" name="doctorsex"></p>
+							<p><span>年龄:</span><input id="doctorage" type="text" name="doctorage"></p>
+							<p><span>职称:</span><input id="doctorzhicheng" type="text" name="doctorzhicheng"></p>
+							<p><span>科室ID:</span><input id="doctorkeshiid" type="text" name="doctorkeshiid"></p>
+						</form>
 					</div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>管理员</p>
+					<p>管理员</p><input id="doctorRegister" value="添加管理员账号" type="button"/>
 					<br />
 					<div id="admin_div"></div>
 					<div id="admin_add">

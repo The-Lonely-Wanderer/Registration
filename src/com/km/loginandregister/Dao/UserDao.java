@@ -178,6 +178,30 @@ public class UserDao {
 		return false;
 
 	}
+	/**
+	 * @ps 用于修改管理员信息,返回boolean
+	 */
+	public boolean getupdateAdmin(t_admin t_admin){
+		Connection conn=ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		int  flage = 0;
+		
+		try {
+			ps=conn.prepareStatement("update t_admin set userName=? and userPassword=? where userId=? ");
+			ps.setString(1, t_admin.getUserName());
+			ps.setString(2,t_admin.getUserPassword());
+			ps.setInt(3, t_admin.getUser_id());
+			flage=ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(flage==1){
+			return true;
+		}
+		return false;
+	}
+	
 
 	// 管理员
 	/**
@@ -216,14 +240,14 @@ public class UserDao {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
-		t_admin user1 = null;
+		t_admin user1 =new t_admin();
 		try {
 			ps = conn.prepareStatement("select * from t_admin where username=? and userpassword=?");
 			ps.setString(1, t_admin.getUserName());
 			ps.setString(2, t_admin.getUserPassword());
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new t_admin(set.getString("username"), set.getString("userpassword"));
+				user1 = new t_admin(set.getInt("userId"),set.getString("userName"), set.getString("userPassword"));
 				return user1;
 			}
 		} catch (SQLException e) {

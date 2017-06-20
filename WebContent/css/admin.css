@@ -188,7 +188,7 @@ body {
 	left: 50px;
 }
 
-#changeform p:nth-child(1) input, p:nth-child(2) input {
+#changeform p:nth-child(1) input,#changeform p:nth-child(2) input {
 	margin-left: 10px;
 	border: none;
 	border-bottom: 1px solid rgba(0, 153, 153, 0.6);
@@ -337,11 +337,27 @@ tr:hover {
 	text-align:center;
 	border-radius:0px 0px 5px 0px;
 }
-
-
-
-
-
+/* 医生注册 */
+#doctor_add{
+	border:1px solid red;
+	width:300px;
+	height:400px;
+}
+#doctorusername,
+#doctorpassword,
+#doctorsex,
+#doctorage,
+#doctorzhicheng,
+#doctorkeshiid{
+	border:none;
+	border-bottom:1px solid rgba(0,153,153,0.6);
+	color:rgba(0,153,1530,0.6);
+	font-size:16px;
+	outline:none;
+	background:rgba(0,0,0,0);
+	
+	
+}
 
 
 
