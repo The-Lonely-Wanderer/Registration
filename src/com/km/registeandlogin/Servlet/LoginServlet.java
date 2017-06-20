@@ -1,6 +1,7 @@
 package com.km.registeandlogin.Servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.km.pojo.t_admin;
+import com.km.pojo.t_gonggao;
 import com.km.pojo.t_user;
 import com.km.pojo.t_yisheng;
 import com.km.registeandlogin.server.Admin_chaxun;
 import com.km.registeandlogin.server.DoctorLoginServer;
+import com.km.registeandlogin.server.Gonggao_server;
 import com.km.registeandlogin.server.PatientLoginServer;
 
 /**
@@ -56,15 +59,15 @@ public class LoginServlet extends HttpServlet {
 		ServletContext application = getServletContext();
 		HttpSession session = request.getSession();
 		request.setAttribute("username", username);
-
+		List<t_gonggao> gonggao_list;
+		Gonggao_server gonggao_server=new Gonggao_server();
+		gonggao_list=gonggao_server.getgonggao();
+		session.setAttribute("gonggao_list", gonggao_list);
 		// 登录
-		
 		if ("doctor".equals(select1)) {
-			System.out.println("医生登录");
 			t_yisheng t_yisheng;
 			DoctorLoginServer doctorlServer = new DoctorLoginServer();
 			t_yisheng = doctorlServer.getDoctor(username, password);
-			System.out.println("yisheng"+t_yisheng);
 			if (t_yisheng != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
@@ -86,12 +89,10 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		if ("admin".equals(select1)) {
-			System.out.println("管理员登录");
 			Admin_chaxun admin_chaxun = new Admin_chaxun();
 			t_admin t_admin = new t_admin(username, password);
 			t_admin t_admin2 = new t_admin();
 			t_admin2 = admin_chaxun.getAdmin(t_admin);
-			System.out.println("Admin"+t_admin2);
 			if (t_admin2 != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
@@ -102,16 +103,15 @@ public class LoginServlet extends HttpServlet {
 					response.addCookie(cookiepassword);
 				}
 				session.setAttribute("username", username);
+				session.setAttribute("userId",t_admin2.getUser_id());
+				session.setAttribute("password", password);
 				session.setMaxInactiveInterval(60 * 60 * 1);
 				int counta = (int) application.getAttribute("count");// 获取count
 				counta++;
 				application.setAttribute("count", counta);// 将新增的人数重新赋值给count
-				
-				
+
 				request.getRequestDispatcher("admin.jsp").forward(request, response);
-				
-				
-				
+
 			} else {
 				request.setAttribute("message", "账号或密码错误");
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
@@ -123,6 +123,7 @@ public class LoginServlet extends HttpServlet {
 			t_user t_user = new t_user(username, password);
 			t_user t_user2 = new t_user();
 			t_user2 = patientLoginServer.getpatient(t_user);
+			request.setAttribute("t_user", t_user2);
 //			System.out.println("t_user2"+t_user2);
 			if (t_user2 != null) {
 				if ("ok".equals(rString)) {

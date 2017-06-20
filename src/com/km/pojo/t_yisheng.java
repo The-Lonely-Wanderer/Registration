@@ -155,6 +155,16 @@ public class t_yisheng {
 		this.keshi_id = keshi_id;
 		this.yisheng_del = yisheng_del;
 	}
+	public t_yisheng(int yisheng_id, String yisheng_name, String yisheng_password, String yisheng_sex,
+			String yisheng_age, String yisheng_zhicheng, int keshi_id) {
+		this.yisheng_id = yisheng_id;
+		this.yisheng_name = yisheng_name;
+		this.yisheng_password = yisheng_password;
+		this.yisheng_sex = yisheng_sex;
+		this.yisheng_age = yisheng_age;
+		this.yisheng_zhicheng = yisheng_zhicheng;
+		this.keshi_id = keshi_id;
+	}
 	
 	public t_yisheng(String yisheng_name, String yisheng_password) {
 		this.yisheng_name = yisheng_name;
@@ -188,8 +198,21 @@ public class t_yisheng {
 		this.yisheng_age = yisheng_age;
 		this.yisheng_zhicheng = yisheng_zhicheng;
 	}
+	
+	
+	
 	// 6.to string 方法；
 
+	public t_yisheng(String yisheng_name, String yisheng_password, String yisheng_sex, String yisheng_age,
+			String yisheng_zhicheng, int keshi_id) {
+		super();
+		this.yisheng_name = yisheng_name;
+		this.yisheng_password = yisheng_password;
+		this.yisheng_sex = yisheng_sex;
+		this.yisheng_age = yisheng_age;
+		this.yisheng_zhicheng = yisheng_zhicheng;
+		this.keshi_id = keshi_id;
+	}
 
 
 	@Override

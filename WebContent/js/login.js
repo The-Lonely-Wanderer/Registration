@@ -5,8 +5,6 @@
 function usernamef() {
 	var username = document.getElementById("username").value.trim();
 	var usernamespan = document.getElementById("sp1");
-	console.log(username);
-	console.log(usernamespan);
 	if (username.length == 0) {
 		usernamespan.style.display = "block";
 	} else {
@@ -16,8 +14,6 @@ function usernamef() {
 function passwordf() {
 	var password = document.getElementById("password").value.trim();
 	var passwordspan = document.getElementById("sp");
-	console.log(password);
-	console.log(passwordspan);
 	if (password.length == 0) {
 		passwordspan.style.display = "block";
 	} else {

@@ -9,25 +9,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.km.pojo.t_user;
-import com.km.registeandlogin.server.Admin_patient_server;
+import com.km.pojo.t_yisheng;
+import com.km.registeandlogin.server.Admin_doctor_Server;
 import com.km.registeandlogin.server.AllUserServer;
 
 /**
- * Servlet implementation class Admnin_patient_list
+ * Servlet implementation class Admnin_doctor_list
  */
-@WebServlet("/Admnin_patient_list")
-public class Admin_patient_list extends HttpServlet {
+@WebServlet("/Admnin_doctor_list")
+public class Admnin_doctor_list extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Admin_patient_list() {
+    public Admnin_doctor_list() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,18 +43,21 @@ public class Admin_patient_list extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		List<t_user> alList;
-		AllUserServer allUserServer=new AllUserServer();
-		alList=allUserServer.getlist();
+		List<t_yisheng> doctorlList;
+		Admin_doctor_Server alldoctorServer=new Admin_doctor_Server();
+		doctorlList=alldoctorServer.getdoctoclist();
 		JSONObject jsonObject=new JSONObject();
 		JSONArray jsonArray=new JSONArray();
-		jsonObject.put("alList", alList);
+		jsonObject.put("doctorlList", doctorlList);
 		jsonArray.add(jsonObject);
 		PrintWriter out = response.getWriter();
 		out.println(jsonArray.toJSONString());
 		out.close();
+		
 	}
+
 }

@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.km.pojo.t_user;
-import com.km.registeandlogin.server.DeleteUser;
+import com.km.registeandlogin.server.DeleteUserServer;
 
 /**
  * Servlet implementation class Admin_huanzhe_updata
  */
 @WebServlet("/Admin_huanzhe_delete")
-public class Admin_huanzhe_delete extends HttpServlet {
+public class Admin_patient_deleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Admin_huanzhe_delete() {
+	public Admin_patient_deleteServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -50,7 +50,7 @@ public class Admin_huanzhe_delete extends HttpServlet {
 		String id = request.getParameter("id");
 		int id2 = Integer.parseInt(id);
 		List<t_user> patientslist;
-		DeleteUser deleteUser = new DeleteUser();
+		DeleteUserServer deleteUser = new DeleteUserServer();
 		patientslist = deleteUser.deleteuser(id2);
 		JSONObject jsonObject = new JSONObject();
 		JSONArray jsonArray = new JSONArray();

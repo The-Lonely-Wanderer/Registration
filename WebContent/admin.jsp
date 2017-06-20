@@ -15,12 +15,14 @@
 </head>
 <body>
 	<div id="top">
-		<img src="img/1.jpg" width="100%" height="500px" /> 
-		<img src="img/2.jpg" width="100%" height="500px" /> 
-		<img src="img/4.jpg" width="100%" height="500px" /> 
-		<img src="img/5.jpg" width="100%" height="500px" />
+		<img src="img/1.jpg" width="100%" height="500px" /> <img
+			src="img/2.jpg" width="100%" height="500px" /> <img src="img/4.jpg"
+			width="100%" height="500px" /> <img src="img/5.jpg" width="100%"
+			height="500px" />
 	</div>
+
 	<div id="banner">
+		<p id="gongneng">管理员功能</p>
 		<div id="xinxi">
 			<div id="xinxi_left">
 				<ul>
@@ -52,31 +54,126 @@
 			</div>
 			<div id="xinxi_right">
 				<div class="xinxi_right_1">
-					<p>查看修改</p><br/>
-					姓名:【${param.username}】<br /> 密码:【${param.password}】 <input
-						type="button" value="修改信息">
+					<p>查看修改</p>
+					<br /> 姓名:[${sessionScope.username}]<br />
+					密码:[${sessionScope.password}]<br />管理员ID:[${sessionScope.userId}]<br />
+					<br /> <input id="changebut" type="button" value="修改信息"
+						style="margin-left: 0px;">
+
+					<form id="changeform" action="Admin_change_servlet" method="post">
+						${requestScope.message}
+						<p>
+							<span>新用户名:</span><input id="newusername" type="text"
+								name="newusername">
+						</p>
+						<p>
+							<span>新&nbsp;密&nbsp;码:</span><input id="newpassword" type="text"
+								name="newpassword">
+						</p>
+						<p>
+							<input id="ok" type="button" value="确定"><input id="no"
+								type="button" value="取消">
+						</p>
+					</form>
 				</div>
 				<div class="xinxi_right_1">
-					<p>患者信息:</p><br/>
+					<p>患者信息:</p>
+					<br />
 					<div id="huanzhe_div"></div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>医生</p><br/>
-					<form action=""></form>
+					<p>医生</p>
+					<input id="doctorRegister" value="添加医生账号" type="button" />
+					<!-- 					<input id="doctorshuaxin" value="刷新" type="button" /><br /> -->
+					<div id="doctor_div"></div>
+					<div id="doctor_add">
+						<form id="doctorfrom" action="Admin_addDoctor_servlet"
+							method="post">
+							<p>
+								<span>用户名:</span><input id="doctorusername" type="text"
+									name="doctorusername" placeholder="数字，字母"><br /> <span
+									class="doctors">用户名不能为空</span>
+							</p>
+							<p>
+								<span>密&nbsp;&nbsp;&nbsp;&nbsp;码:</span><input
+									id="doctorpassword" type="text" name="doctorpassword"
+									placeholder="数字，字母"><br /> <span class="doctors">密码不能为空</span>
+							</p>
+							<p>
+								<span>性&nbsp;&nbsp;&nbsp;&nbsp;别:</span><input id="doctorsex"
+									type="text" name="doctorsex" placeholder="非数字"><br /> <span
+									class="doctors">性别不能为空</span>
+							</p>
+							<p>
+								<span>年&nbsp;&nbsp;&nbsp;&nbsp;龄:</span><input id="doctorage"
+									type="text" name="doctorage" placeholder="数字"><br /> <span
+									class="doctors">年龄不能为空</span>
+							</p>
+							<p>
+								<span>职&nbsp;&nbsp;&nbsp;&nbsp;称:</span><input
+									id="doctorzhicheng" type="text" name="doctorzhicheng"
+									placeholder="非数字"><br /> <span class="doctors">职称不能为空</span>
+							</p>
+							<p>
+								<span>科室ID:</span><input id="doctorkeshiid" type="text"
+									name="doctorkeshiid" placeholder="数字"><br /> <span
+									class="doctors">客户ID不能为空</span>
+							</p>
+							<p>
+								<input id="doctorbut" type="button" value="提交" /> <input
+									id="doctorno" type="button" value="取消" /> <input id="flage"
+									type="hidden" value="F6" name="flage" />
+							</p>
+
+						</form>
+					</div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>管理员</p><br/>
-					<form action=""></form>
+					<p>管理员</p>
+					<input id="AdminRegister" value="添加管理员账号" type="button" /> <br />
+					<div id="admin_div"></div>
+					<div id="admin_add">
+						<form action="" method="post">
+							<p>
+								<span>用户名:</span><input id="adminusername" type="text"
+									name="adminusername" placeholder="数字，字母"><br /> <span
+									class="admins">用户名不能为空</span>
+							</p>
+							<p>
+								<span>密&nbsp;&nbsp;&nbsp;&nbsp;码:</span><input
+									id="adminpassword" type="text" name="adminpassword"
+									placeholder="数字，字母"><br /> <span class="admins">密码不能为空</span>
+							</p>
+							<p>
+								<input id="adminbut" type="button" value="提交" /> <input
+									id="adminrno" type="button" value="取消" />
+							</p>
+						</form>
+					</div>
 				</div>
 				<div class="xinxi_right_1">
-					<p>最新消息</p><br/>
-					<form action=""></form>
+					<p>最新消息</p>
+					<br />
+					<div id="message_div"></div>
+					<div id="message_add">
+						<form action="" method="post"></form>
+					</div>
 				</div>
 			</div>
 		</div>
+		<p id="newgonggao">最新公告--></p>
 		<div id="gonggao">
-			<p>最新公告--></p>
+			<c:forEach items="${sessionScope.gonggao_list}" var="gonggao">
+				<p class="newsp">
+					<span class="gonggaosp" style="color: black;">&nbsp;&nbsp;&nbsp;<b>${gonggao.gonggao_title}</b>
+						<span>-->${gonggao.gonggao_data}</span></span> <span class="gonggao_con">${gonggao.gonggao_content}<span
+						class="close">关闭</span></span>
+				</p>
+			</c:forEach>
 		</div>
+	</div>
+	<div id="sbottom">
+		医院挂号系统-2017-6-19<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
 	</div>
 	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>
 </body>

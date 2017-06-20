@@ -5,7 +5,7 @@ import java.util.List;
 import com.km.loginandregister.Dao.UserDao;
 import com.km.pojo.t_user;
 
-public class DeleteUser {
+public class DeleteUserServer {
 	/**
 	 * @ps删除患者
 	 */
