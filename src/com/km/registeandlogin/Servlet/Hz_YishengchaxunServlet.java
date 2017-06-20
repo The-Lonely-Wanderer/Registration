@@ -50,14 +50,14 @@ public class Hz_YishengchaxunServlet extends HttpServlet {
 		String username = request.getParameter("id");
 //		System.out.println(username.);
 		int keshi_id=Integer.parseInt(username);
-		System.out.println("医生查询"+keshi_id);
+		//System.out.println("医生查询"+keshi_id);
 
 
 		
 		t_keshi keshi = new t_keshi(keshi_id);
 		Hz_YichengxhekanService look = new Hz_YichengxhekanService();
 		List<t_yisheng> list = look.getlook(keshi);
-		System.out.println("list"+list);
+		//System.out.println("list"+list);
 		JSONArray jsonArray = new JSONArray();
 		// 将需要发送到页面的数据封装到 jsonObject 中
 		for (int i = 0; i < list.size(); i++) {
@@ -72,7 +72,7 @@ public class Hz_YishengchaxunServlet extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();
 		out.println(jsonArray.toJSONString());
-		System.out.println("jsonArray" + jsonArray);
+//		System.out.println("jsonArray" + jsonArray);
 		out.close();
 
 	}

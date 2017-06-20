@@ -278,7 +278,7 @@ public class UserDao {
 			ps = connection.prepareStatement("select  *from t_yuyue");
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				yuyue = new t_yuyue(rs.getString("yuyue_userId"), rs.getString("yuyue_yishengId"),
+				yuyue = new t_yuyue(rs.getInt("yuyue_userId"), rs.getInt("yuyue_yishengId"),
 						rs.getString("yuyue_shijian"), rs.getString("yuyue_beizhu"));
 				list.add(yuyue);
 			}

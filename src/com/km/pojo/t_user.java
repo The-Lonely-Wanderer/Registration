@@ -175,8 +175,8 @@ public class t_user {
 		this.user_tel = user_tel;
 	}
 
-	public t_user(String user_password, String user_type, String user_realname, String user_address, long user_tel) {
-
+	public t_user(int user_id , String user_password, String user_type, String user_realname, String user_address, long user_tel) {
+		this.user_id = user_id;
 		this.user_password = user_password;
 		this.user_type = user_type;
 		this.user_realname = user_realname;
@@ -195,6 +195,9 @@ public class t_user {
 		this.user_address = user_address;
 		this.user_tel = user_tel;
 	}
+
+	
+
 
 	@Override
 	public String toString() {

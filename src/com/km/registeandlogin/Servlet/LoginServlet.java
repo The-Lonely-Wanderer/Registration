@@ -118,12 +118,12 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		if ("patient".equals(select1)) {
-			System.out.println("患者登录");
+			//System.out.println("患者登录");
 			PatientLoginServer patientLoginServer = new PatientLoginServer();
 			t_user t_user = new t_user(username, password);
 			t_user t_user2 = new t_user();
 			t_user2 = patientLoginServer.getpatient(t_user);
-			System.out.println("t_user2"+t_user2);
+//			System.out.println("t_user2"+t_user2);
 			if (t_user2 != null) {
 				if ("ok".equals(rString)) {
 					Cookie cookieusername = new Cookie("username", username);
@@ -133,7 +133,7 @@ public class LoginServlet extends HttpServlet {
 					response.addCookie(cookieusername);
 					response.addCookie(cookiepassword);
 				}
-				session.setAttribute("username", username);
+				session.setAttribute("t_user2", t_user2);
 				session.setMaxInactiveInterval(60 * 60 * 1);
 				int counta = (int) application.getAttribute("count");// 获取count
 				counta++;

@@ -181,13 +181,15 @@ public class t_yisheng {
 	}
 
 	// 医生查询构造方法
-	public t_yisheng(String yisheng_name, String yisheng_sex, String yisheng_age, String yisheng_zhicheng) {
+	public t_yisheng(int yisheng_id,String yisheng_name, String yisheng_sex, String yisheng_age, String yisheng_zhicheng) {
+		this.yisheng_id=yisheng_id;
 		this.yisheng_name = yisheng_name;
 		this.yisheng_sex = yisheng_sex;
 		this.yisheng_age = yisheng_age;
 		this.yisheng_zhicheng = yisheng_zhicheng;
 	}
 	// 6.to string 方法；
+
 
 
 	@Override

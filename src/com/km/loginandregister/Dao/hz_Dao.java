@@ -1,6 +1,7 @@
 package com.km.loginandregister.Dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import com.km.loginandregister.util.ConnectionFactory;
 import com.km.pojo.t_keshi;
 import com.km.pojo.t_user;
 import com.km.pojo.t_yisheng;
+import com.km.pojo.t_yuyue;
 
 public class hz_Dao {
 
@@ -28,11 +30,11 @@ public class hz_Dao {
 		t_user t_user1=new t_user();
 		try {
 			ps = conn.prepareStatement(
-					"select  user_password, user_type, user_realname , user_address,user_tel from t_user where user_name = ?");
+					"select  * from t_user where user_name = ?");
 			ps.setString(1, t_user.getUser_name());
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				t_user1 = new t_user(rs.getString("user_password"), rs.getString("user_type"),
+				t_user1 = new t_user(rs.getInt("user_id"),rs.getString("user_password"), rs.getString("user_type"),
 
 						rs.getString("user_realname"), rs.getString("user_address"), rs.getLong("user_tel"));
 				return t_user1;
@@ -111,13 +113,13 @@ public class hz_Dao {
 			t_yisheng yisheng = new t_yisheng();
 			List<t_yisheng> list = new ArrayList<t_yisheng>();
 			try {
-				ps = conn.prepareStatement("SELECT yisheng_name,yisheng_sex,yisheng_age,yisheng_zhicheng from t_yisheng where keshi_id = ?");
+				ps = conn.prepareStatement("SELECT * from t_yisheng where keshi_id = ?");
 				ps.setInt(1, keshi.getKeshi_id());
 				ResultSet rs = ps.executeQuery();	
 				while (rs.next()) {
-					yisheng = new t_yisheng(rs.getString("yisheng_name"), rs.getString("yisheng_sex"),
+					yisheng = new t_yisheng(rs.getInt("yisheng_id"),rs.getString("yisheng_name"), rs.getString("yisheng_sex"),
 							rs.getString("yisheng_age"), rs.getString("yisheng_zhicheng"));
-					System.out.println(yisheng.getYisheng_name());
+//					System.out.println(yisheng.getYisheng_name());
 					list.add(yisheng);
 				}
 			} catch (SQLException e) {
@@ -126,5 +128,70 @@ public class hz_Dao {
 			}
 			return list;
 		}
+//预约医生插入备注以及信息
+	public boolean getyuyueyisheng(t_yuyue yuyue) {
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		Date time = new Date(System.currentTimeMillis());
+		try {
+			ps = conn.prepareStatement("insert into t_yuyue values(?,(SELECT user_id FROM t_user WHERE user_id = ?),?,?,?,?,?,?)");
+			ps.setInt(1, 0);
+			ps.setInt(2, yuyue.getYuyue_userId());
+			ps.setInt(3, yuyue.getYuyue_yishengId());
+			ps.setString(4, ""+time);
+			ps.setString(5, yuyue.getYuyue_beizhu());
+			ps.setString(6, "no");
+			ps.setString(7, null);
+			ps.setString(8, null);
+			boolean duixiang =  ps.execute();
+			if(duixiang){
+				return duixiang;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	//患者查询自己的预约
+	public List<t_yuyue> gethuanzheyuyueall(t_yuyue yuyue) {
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		List<t_yuyue> list = new ArrayList<t_yuyue>();
+		try {
+			ps = conn.prepareStatement("select ys.yisheng_name,ty.id ,ty.shijian,ty.beizhu   from t_yuyue ty left join t_yisheng ys on ty.yishengId = ys.yisheng_id where ty.userId = ?");
+//			System.out.println(yuyue.getYuyue_userId());
+			ps.setInt(1, yuyue.getYuyue_userId());
+			ResultSet rs = ps.executeQuery();	
+			while (rs.next()) {
+				yuyue = new t_yuyue(rs.getInt("id"),rs.getString("yisheng_name"),rs.getString("shijian"),rs.getString("beizhu"));
+//				System.out.println(yisheng.getYisheng_name());
+				list.add(yuyue);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	//患者取消预约
+	public boolean quxiao(t_yuyue yuyue) {
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		try {
+			
+			ps = conn.prepareStatement("delete from t_yuyue where id = ? ");
+			ps.setInt(1, yuyue.getYuyue_id());
+			System.out.println(yuyue.getYuyue_id());
+			boolean i = ps.execute();
+			if (i) {
+				
+				return i;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 }

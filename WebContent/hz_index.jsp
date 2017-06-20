@@ -43,7 +43,6 @@
 						<div class="xinxi_div">
 							<ul>
 								<li id="lis-li-5" class="lis-li">已经预约</li>
-								<li id="lis-li-6" class="lis-li">取消预约</li>
 							</ul>
 						</div>
 					</li>
@@ -306,6 +305,25 @@
 												</div>
 											</td>
 										</tr>
+										<%--患者填写预约患者医生备注 --%>
+										<tr>
+											<td bgcolor="#9CCFFF" height="35px" colspan="5">
+												<div align="center">
+													<font size="4"><b> 患者名字</br> <input type="text"
+															id="user_huanzhe" value="${param.username}"
+															align="center"></br> 备注</br> <textarea name="MSG"
+																id="beizhu" cols=40 rows=4>
+													病因:
+										</textarea> </br>
+
+													</b> </font>
+
+												</div>
+												<div align="center">
+													<font size="4" class="amigespan"><b> </b> </font>
+												</div>
+											</td>
+										</tr>
 									</table>
 								</div>
 							</td>
@@ -381,17 +399,17 @@
 						<tr>
 							<td bgcolor="#9CCFFF" height="35px" colspan="5">
 								<div align="center">
-									<form action="" method="post">
-										<font size="4"><b> 
-										医生名字</br>
-										<span id="user_huanzhe">${param.username}"></span></br>
-										备注</br>
-										<textarea name="MSG" id="beizhu" cols=40 rows=4>
-												欢迎光临猴子也能看懂的网页制作入门
+									<font size="4"><b> 患者名字</br> <input type="text"
+											id="user_huanzhe" value="${param.username}" align="center"></br>
+											备注</br> <textarea name="MSG" id="beizhu" cols=40 rows=4>
+													病因:
 										</textarea> </br>
-										<input type="submit">
-										</b> </font>
-									</form>
+
+									</b> </font>
+
+								</div>
+								<div align="center">
+									<font size="4" class="amigespan"><b> </b> </font>
 								</div>
 							</td>
 						</tr>
@@ -400,16 +418,61 @@
 
 
 				<div class="xinxi_right_1">
-					<p>已经预约</p>
-					<form action=""></form>
+					<p><b>已经预约</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：【<b>${param.username}】</b></p>
+					<table width="75%" border="0" align="center">
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="4">
+								<div align="center">
+									<font size="4"><b>已经预约</b></font>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>医生姓名</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>预约时间</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>备注</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>操作</b></font>
+								</div>
+							</th>
+						</tr>
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="5">
+								<div align="center">
+									<font size="4" class="chaxunyuyue"><b> </b> </font>
+								</div>
+							</td>
+							<div align="center">
+									<font size="4" class="amigespan"><b> </b> </font>
+								</div>
+						</tr>
+						</table>
 				</div>
-
-
-				<div class="xinxi_right_1">
-					<p>取消预约。。。。。。。</p>
-					<form action="" method="post"></form>
-				</div>
-
 
 			</div>
 		</div>
@@ -419,5 +482,6 @@
 	</div>
 	<script src="js/hz_index.js" type="text/javascript" type="stylesheet"></script>
 	<script src="js/hz_Ajax.js" type="text/javascript" type="stylesheet"></script>
+	<script src="js/Hz_Huanzheyuyuechaxun.js" type="text/javascript" type="stylesheet"></script>
 </body>
 </html>
