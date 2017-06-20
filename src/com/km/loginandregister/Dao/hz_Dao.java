@@ -174,24 +174,27 @@ public class hz_Dao {
 		return list;
 	}
 	//患者取消预约
-	public boolean quxiao(t_yuyue yuyue) {
+	public List<t_yuyue> quxiao(t_yuyue yuyue) {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
+		List<t_yuyue> alList = new ArrayList<t_yuyue>();
 		try {
 			
 			ps = conn.prepareStatement("delete from t_yuyue where id = ? ");
 			ps.setInt(1, yuyue.getYuyue_id());
-			System.out.println(yuyue.getYuyue_id());
-			boolean i = ps.execute();
-			if (i) {
-				
-				return i;
+			
+			int i = ps.executeUpdate();
+			System.out.println(i);
+			if (i == 1) {
+				alList = gethuanzheyuyueall(yuyue);
+				System.out.println(alList);
+				return alList;
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 	
 }

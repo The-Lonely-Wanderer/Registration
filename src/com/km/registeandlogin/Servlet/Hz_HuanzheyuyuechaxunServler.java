@@ -75,7 +75,7 @@ public class Hz_HuanzheyuyuechaxunServler extends HttpServlet {
 		// 将 jsonObject 封装进 jsonArray中
 		PrintWriter out = response.getWriter();
 		out.println(jsonArray.toJSONString());
-		System.out.println(jsonArray);
+		// System.out.println(jsonArray);
 		out.close();
 
 	}

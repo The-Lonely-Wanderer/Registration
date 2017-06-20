@@ -169,17 +169,9 @@ public class t_yuyue {
 		this.yuyue_beizhu = yuyue_beizhu;
 	}
 
-
-
-
-
-
 	public t_yuyue(int yuyue_userId) {
 		this.yuyue_userId = yuyue_userId;
 	}
-//	public t_yuyue(int yuyue_id) {
-//		this.yuyue_id = yuyue_id;
-//	}
 
 	public t_yuyue(int yuyue_id,String yisheng_name, String yuyue_shijian, String yuyue_beizhu) {
 		this.yisheng_name = yisheng_name;
@@ -190,9 +182,12 @@ public class t_yuyue {
 
 	
 
-//	public t_yuyue(int t_yuyue_id) {
-//		this.yuyue_id = t_yuyue_id;
-//	}
+	public t_yuyue(int t_yuyue_id,int yuyue_userId) {
+		this.yuyue_id = t_yuyue_id;
+		this.yuyue_userId = yuyue_userId;
+	}
+
+	
 
 	// 6.to string方法；
 	@Override
