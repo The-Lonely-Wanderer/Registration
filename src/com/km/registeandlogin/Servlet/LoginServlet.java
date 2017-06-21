@@ -78,6 +78,7 @@ public class LoginServlet extends HttpServlet {
 					response.addCookie(cookiepassword);
 				}
 				session.setAttribute("username", username);
+				session.setAttribute("flage", 1);
 				session.setAttribute("t_yisheng", t_yisheng);
 				session.setMaxInactiveInterval(60 * 60 * 1);
 				int counta = (int) application.getAttribute("count");// 获取count
@@ -104,6 +105,7 @@ public class LoginServlet extends HttpServlet {
 					response.addCookie(cookiepassword);
 				}
 				session.setAttribute("username", username);
+				session.setAttribute("flage", 2);
 				session.setAttribute("userId",t_admin2.getUser_id());
 				session.setAttribute("password", password);
 				session.setMaxInactiveInterval(60 * 60 * 1);
@@ -136,6 +138,7 @@ public class LoginServlet extends HttpServlet {
 					response.addCookie(cookiepassword);
 				}
 				session.setAttribute("t_user2", t_user2);
+				session.setAttribute("flage", 3);
 				//System.out.println(t_user2);
 				session.setMaxInactiveInterval(60 * 60 * 1);
 				int counta = (int) application.getAttribute("count");// 获取count
