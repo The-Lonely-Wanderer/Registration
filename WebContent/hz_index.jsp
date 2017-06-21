@@ -38,7 +38,7 @@
 				</ul>
 				<div id="mene_li_right">
 					<ul>
-						<a ><li>${sessionScope.t_user2.user_name}${sessionScope.flage}</li></a>
+						<a ><li>${sessionScope.t_user2.user_name}</li></a>
 						<a href="/Registration/register.jsp"><li>注册</li></a>
 					</ul>
 				</div>
