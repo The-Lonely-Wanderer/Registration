@@ -83,7 +83,15 @@ body{
 .xinxi_right_1:nth-child(1){
 	display:block;
 }
-
+#sbottom {
+	height: 60px;
+	width: 100%;
+	min-width: 1520px;
+	border-top: 1px solid rgba(102, 102, 102, 0.5);
+	color: rgba(102, 102, 102, 0.5);
+	font-size: 14px;
+	text-align: center;
+}
 
 
 
