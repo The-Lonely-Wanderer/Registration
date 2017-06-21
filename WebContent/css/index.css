@@ -1,6 +1,22 @@
 @CHARSET "UTF-8";
-
-
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	
+	background:rgba(0,0,0,0.3);
+	
+	
+}
+#banner{
+	background:#FFF;
+	width:1520px;
+	height:1500px;
+	border:1px solid red;
+	margin:auto;
+	
+}
 
 
 

@@ -50,7 +50,22 @@
 		</div>
 	</div>
 	<div id="banner">
-		<div id="xinxi"></div>
+		<div id="xinxi">
+		
+		
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
 		<div id="gonggao">
 			<p>最新公告--></p>
 		</div>
