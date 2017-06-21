@@ -8,7 +8,7 @@ public class t_yuyue {
 	private String yuyue_shijian;
 	private String yuyue_beizhu;
 	private String yuyue_paiqishijian;
-	private int yuyue_zhuanjiajianyi;
+	private String yuyue_zhuanjiajianyi;
 	private String yisheng_name;
 	private String huanzhe_name;
 
@@ -70,11 +70,11 @@ public class t_yuyue {
 		this.yuyue_paiqishijian = yuyue_paiqishijian;
 	}
 
-	public int getYuyue_zhuanjiajianyi() {
+	public String getYuyue_zhuanjiajianyi() {
 		return yuyue_zhuanjiajianyi;
 	}
 
-	public void setYuyue_zhuanjiajianyi(int yuyue_zhuanjiajianyi) {
+	public void setYuyue_zhuanjiajianyi(String yuyue_zhuanjiajianyi) {
 		this.yuyue_zhuanjiajianyi = yuyue_zhuanjiajianyi;
 	}
 
@@ -88,60 +88,6 @@ public class t_yuyue {
 
 	// 3.hash code方法和equals方法；
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((yisheng_name == null) ? 0 : yisheng_name.hashCode());
-		result = prime * result + ((yuyue_beizhu == null) ? 0 : yuyue_beizhu.hashCode());
-		result = prime * result + yuyue_id;
-		result = prime * result + ((yuyue_paiqishijian == null) ? 0 : yuyue_paiqishijian.hashCode());
-		result = prime * result + ((yuyue_shijian == null) ? 0 : yuyue_shijian.hashCode());
-		result = prime * result + yuyue_userId;
-		result = prime * result + yuyue_yishengId;
-		result = prime * result + yuyue_zhuanjiajianyi;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		t_yuyue other = (t_yuyue) obj;
-		if (yisheng_name == null) {
-			if (other.yisheng_name != null)
-				return false;
-		} else if (!yisheng_name.equals(other.yisheng_name))
-			return false;
-		if (yuyue_beizhu == null) {
-			if (other.yuyue_beizhu != null)
-				return false;
-		} else if (!yuyue_beizhu.equals(other.yuyue_beizhu))
-			return false;
-		if (yuyue_id != other.yuyue_id)
-			return false;
-		if (yuyue_paiqishijian == null) {
-			if (other.yuyue_paiqishijian != null)
-				return false;
-		} else if (!yuyue_paiqishijian.equals(other.yuyue_paiqishijian))
-			return false;
-		if (yuyue_shijian == null) {
-			if (other.yuyue_shijian != null)
-				return false;
-		} else if (!yuyue_shijian.equals(other.yuyue_shijian))
-			return false;
-		if (yuyue_userId != other.yuyue_userId)
-			return false;
-		if (yuyue_yishengId != other.yuyue_yishengId)
-			return false;
-		if (yuyue_zhuanjiajianyi != other.yuyue_zhuanjiajianyi)
-			return false;
-		return true;
-	}
 	// 4.无参构造方法；
 	public t_yuyue() {
 	}
@@ -151,7 +97,7 @@ public class t_yuyue {
 
 	// 5.有参构造方法；
 	public t_yuyue(int yuyue_id, int yuyue_userId, int yuyue_yishengId, String yuyue_shijian, String yuyue_beizhu,
-			String yuyue_paiqishijian, int yuyue_zhuanjiajianyi) {
+			String yuyue_paiqishijian, String yuyue_zhuanjiajianyi) {
 		super();
 		this.yuyue_id = yuyue_id;
 		this.yuyue_userId = yuyue_userId;
@@ -197,11 +143,7 @@ public class t_yuyue {
 		this.yuyue_userId = yuyue_userId;
 	}
 
-	
 
-	public t_yuyue(int yuyue_yishengid, String string) {
-		this.yuyue_yishengId = yuyue_yishengid;
-	}
 
 	public t_yuyue(String user_name, String yuyue_shijian, String yuyue_beizhu,int yuyue_id) {
 		this.huanzhe_name = user_name;
@@ -210,8 +152,16 @@ public class t_yuyue {
 		this.yuyue_id = yuyue_id;
 	}
 
+	public t_yuyue(int yuyue_yishengid, String String) {
+		this.yuyue_yishengId = yuyue_yishengid;
+		
+	}
 
-
+	public t_yuyue(int yuyue_id, String yuyue_paiqishijian, String yuyue_zhuanjiajianyi) {
+		this.yuyue_id = yuyue_id;
+		this.yuyue_paiqishijian = yuyue_paiqishijian;
+		this.yuyue_zhuanjiajianyi = yuyue_zhuanjiajianyi;
+	}
 
 	// 6.to string方法；
 	@Override

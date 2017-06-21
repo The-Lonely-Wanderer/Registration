@@ -201,11 +201,22 @@ public class hz_Dao {
 	}
 
 
+		//医生修改患者预约的信息
+	public t_yuyue getxiugaihuanzhe(t_yuyue yuyue) {
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps = null;
+		Date time = new Date(System.currentTimeMillis());
+		try {
+			ps=conn.prepareStatement("update t_yuyue set paiqishijian =? ,zhuanjiajianyi=? where id=?");
+			ps.setString(1, ""+time);
+			ps.setString(2, yuyue.getYuyue_zhuanjiajianyi());
+			ps.setInt(3, yuyue.getYuyue_id());
+			ps.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 
-
-	
-
-
-	
 }

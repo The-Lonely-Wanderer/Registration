@@ -52,13 +52,13 @@ public class ys_ChakanyuyueiServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		
+
 		HttpSession session = request.getSession();
 		// 医生id
-		t_yisheng use = (t_yisheng)session.getAttribute("t_yisheng");
+		t_yisheng use = (t_yisheng) session.getAttribute("t_yisheng");
 		int yuyue_yishengid = use.getYisheng_id();
-		
-		t_yuyue yuyue = new t_yuyue(yuyue_yishengid,"");
+
+		t_yuyue yuyue = new t_yuyue(yuyue_yishengid, "");
 		ys_AllService service = new ys_AllService();
 		List<t_yuyue> list = service.getAll(yuyue);
 		JSONArray jsonArray = new JSONArray();
@@ -77,7 +77,7 @@ public class ys_ChakanyuyueiServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		out.println(jsonArray.toJSONString());
-
+		// System.out.println(jsonArray);
 		// HttpSession session = request.getSession();
 		// session.setAttribute("list", list);
 		out.close();

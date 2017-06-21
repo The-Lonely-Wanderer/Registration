@@ -20,21 +20,21 @@ $("document")
 														//
 														// // 遍历list对象
 														for ( var i in json) {
-															
+
 															str += "<table border='0px' width='100%'  align='center'><tr width='100%'><td align='center' width='28%'>"
-																+ json[i].Huanzhe_name
-																+ "</td><td width='28%' align='center'>"
-																+ json[i].Yuyue_beizhu
-																+ "</td><td width='28%' align='center'>"
-																+ json[i].Yuyue_shijian
-																+ "</td><td width='14%' align='center'><span id='"
-																+ json[i].yuyue_id
-																+ "' onclick='look("
-																+ json[i].yuyue_id
-																+ "); return false'>修改</span></td></tr><table>";
-															
-															alert(json[i].Huanzhe_name);
-															
+																	+ json[i].Huanzhe_name
+																	+ "</td><td width='28%' align='center'>"
+																	+ json[i].Yuyue_beizhu
+																	+ "</td><td width='28%' align='center'>"
+																	+ json[i].Yuyue_shijian
+																	+ "</td><td width='14%' align='center'><span id='"
+																	+ json[i].Yuyue_id
+																	+ "' onclick='look("
+																	+ json[i].Yuyue_id
+																	+ "); return false'>修改</span></td></tr><table>";
+
+															// alert(json[i].Yuyue_id);
+
 														}
 														// alert(doctorlists[i].yuyue_id);
 
@@ -49,27 +49,18 @@ $("document")
 									});
 				});
 
-function look(id) {
 
+function look(id) {
 	$.ajax({
-		type : "post",
-		url : "xiugaiyuyueaction?id" + id,
-		async : true,
-		success : function(list) {
-			var json = jquery.parseJSON(list);
-			var doctorliste = json[0].list;
-			var str = "";
-			for ( var i in list) {
-				str += "<table border: 2px solid ;><th>"
-						+ doctorliste[i].yuyue_userId + "</th><th>"
-						+ doctorliste[i].yuyue_beizhu + "</th><th>"
-						+ doctorliste[i].yuyue_yishengId + "</th><th>"
-						+ doctorliste[i].yuyue_shijian + "</th><th>"
-						+ doctorliste[i].yuyue_paiqishijian + "</th><th>"
-						+ doctorliste[i].yuyue_zhuanjiajianyi + "</th><th>"
-						+ "</th></table>";
-			}
-			$(".querenxiugai").html(str);
-		}
-	})
+				type : "post",
+				url : "xiugaiyuyueaction?id=" + id,
+				async : true,
+				data : {
+					beizhu : $("#beizhu").val(),
+				},
+				success : function(data) {
+					$(".chaxunyuyue").html("<table width='75%' border='0px' align='center'><tr><td bgcolor='#9CCFFF' height='35px' align='center'><div align='center'><font size='4'><b>修改</b></font></div></td></tr><tr align='center'><td><b>备注</b></td></tr><tr align='center'><td><textarea name='MSG' id='beizhu' cols=40 rows=4>建议:</textarea> </td></tr><tr><td></td></tr></table>");
+					// $(".xinxi_right_1").html(str);
+				},
+			})
 }

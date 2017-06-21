@@ -217,6 +217,13 @@ public class t_yisheng {
 
 	
 
+	public t_yisheng(String yisheng_name, String yisheng_age, String yisheng_sex, String yisheng_password) {
+		this.yisheng_name = yisheng_name;
+		this.yisheng_password = yisheng_password;
+		this.yisheng_sex = yisheng_sex;
+		this.yisheng_age = yisheng_age;
+	}
+
 	@Override
 	public String toString() {
 		return "t_yisheng [yisheng_id=" + yisheng_id + ", yisheng_name=" + yisheng_name + ", yisheng_password="

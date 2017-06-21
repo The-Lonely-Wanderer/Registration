@@ -210,19 +210,18 @@ public class UserDao {
 	public boolean getXiugai(t_yisheng xgxi) {
 		Connection connection = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
-
+System.out.println("agx  :  " +xgxi);
 		try {
 			ps = connection.prepareStatement(
-					"update t_yisheng  set yisheng_name=?, yisheng_sex=?,yisheng_age=?,yisheng_zhicheng=?,keshi_id=? where yisheng_id =?");
-			ps.setString(1, xgxi.getYisheng_name());
-			ps.setString(2, xgxi.getYisheng_sex());
-			ps.setString(3, xgxi.getYisheng_age());
-			ps.setString(4, xgxi.getYisheng_zhicheng());
-			ps.setInt(5, xgxi.getKeshi_id());
-			ps.setInt(6, xgxi.getYisheng_id());
+					"update t_yisheng  set   yisheng_age=?,  yisheng_sex=?,  yisheng_pw=? where yisheng_name=?");								
+			ps.setString(1, xgxi.getYisheng_age());
+			ps.setString(2, xgxi.getYisheng_sex());		
+			ps.setString(3, xgxi.getYisheng_password());
+			ps.setString(4, xgxi.getYisheng_name());
 			int aa = ps.executeUpdate();
-			if (aa == 1) {
-				System.out.println("aa" + aa);
+			
+			if (aa==1) {
+			
 				return true;
 			}
 		} catch (SQLException e) {
@@ -231,6 +230,7 @@ public class UserDao {
 		return false;
 
 	}
+
 
 	/**
 	 * @ps 用于修改管理员信息,返回boolean

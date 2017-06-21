@@ -162,14 +162,7 @@
 										<font size="4"><b>修改信息</b></font>
 									</div>
 								</td>
-							</tr>
-							<tr>
-								<td bgcolor="#9CCFFF" height="45px">
-									<div align="center">
-										<font size="2">姓&nbsp;&nbsp;&nbsp;名:<input type="text" name="yisheng_name"></font>
-									</div>
-								</td>
-							</tr>
+							</tr>						
 							<tr>
 								<td bgcolor="#9CCFFF" height="45px">
 									<div align="center">
@@ -187,12 +180,12 @@
 							<tr>
 								<td bgcolor="#9CCFFF" height="45px">
 									<div align="center">
-										<font size="2">职&nbsp;&nbsp;&nbsp;称:<input type="text" name="yisheng_zhicheng"></font>
+										<font size="2">密&nbsp;&nbsp;&nbsp;码:<input type="text" name="yisheng_pw"></font>
 									</div>
 								</td>
 							</tr>
 							</table>
-						<input type= "submit"  value ="修改" name ="xiugai">
+							<input type= "submit"  value ="修改" name ="xiugai">
 					</form>
 
 				<span style="display: block;">${message } </span>
@@ -231,7 +224,7 @@
 							<th bgcolor="#9CCFFF" height="35px">
 								<div align="center">
 									<font size="4"><b>患者症状</b></font>
-								</div>
+							 	</div>
 							</th>
 							<th bgcolor="#9CCFFF" height="35px">
 								<div align="center">
@@ -248,6 +241,11 @@
 						<tr>
 							<td bgcolor="#9CCFFF" height="35px" colspan="5">
 								<div align="center" class="chakan"></div>
+							</td>
+						</tr>
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="5">
+								<div align="center" class="chaxunyuyue"></div>
 							</td>
 						</tr>
 						</table>				
