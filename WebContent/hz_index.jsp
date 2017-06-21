@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="/Registration/css/top.css">
 <link rel="stylesheet" type="text/css" href="css/hz_index.css">
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="/Registration/js/top.js"></script>
 </head>
 <body>
 	<div id="top">
