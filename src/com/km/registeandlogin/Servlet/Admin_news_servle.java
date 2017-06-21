@@ -2,8 +2,10 @@ package com.km.registeandlogin.Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -47,10 +49,17 @@ public class Admin_news_servle extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		List<t_gonggao> news=new ArrayList<t_gonggao>();
+		boolean news;
+		Date date=new Date();
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time=format.format(date);
+		String title=request.getParameter("title");
+		String message=request.getParameter("message");
+		
+		t_gonggao t_gonggao=new t_gonggao(title,message,time);
 		
 		Admin_news_server admin_news_server=new Admin_news_server();
-		news=admin_news_server.getAllNews();
+		news=admin_news_server.addNews(t_gonggao);
 		JSONObject jsonObject=new JSONObject();
 		JSONArray jsonArray=new JSONArray();
 		jsonObject.put("Allnews", news);

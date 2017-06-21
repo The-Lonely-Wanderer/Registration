@@ -233,33 +233,33 @@ $("#lis-li-4")
 
 				});
 $("#lis-li-5").click(
-		function() {// 公告
-			$(".xinxi_right_1").eq(4).show().siblings().hide();
 
-			$.ajax({
-				type : "get",
-				url : "Admin_news_servle",
-				async : true,
-				success : function(Allnews) {
-					var json = jQuery.parseJSON(Allnews);
-					var Allnew = json[0].Allnews;
-					// console.log(Allnew);
-					str = "";
-					for ( var i in Allnew) {
-						str += "<p id='" + Allnew[i].gonggao_id
-								+ "' class='message'>"
-								+ Allnew[i].gonggao_title + "//"
-								+ Allnew[i].gonggao_data
-								+ "<span id='a'>查看/编辑</span><div id="
-								+ Allnew[i].gonggao_id + ">"
-								+ Allnew[i].gonggao_content
-								+ "<span >关闭</span></div></p>";
-					}
-					$("#message_div").html(str);
-				}
+function() {// 公告
+	$(".xinxi_right_1").eq(4).show().siblings().hide();
+});
 
-			});
-		});
+$("#ok2").click(function() {
+	$.ajax({
+		type : "get",
+		url : "Admin_news_servle",
+		async : true,
+		data : {
+			title : $("#title").val(),
+			message : $("#messages").val()
+		},
+		success : function(Allnews) {
+			var json = jQuery.parseJSON(Allnews);
+			var flage = json[0].Allnews;
+			if (flage == true) {
+				alert("公告发布成功");
+			} else {
+				alert("公告发布失败，请重新发布");
+			}
+		}
+	});
+
+});
+
 $("#changebut").click(function() {
 	$("#changeform").show();
 });
@@ -426,7 +426,6 @@ $("#adminrno").click(function() {
 
 });
 
-
 $("#adminusername").blur(function() {
 
 	var name = $("#adminusername").val();
@@ -450,3 +449,25 @@ $("#adminpassword").blur(function() {
 
 });
 
+$("#adminbut").click(function(event) {
+
+	var flage = $("#flage2").val();
+	var name = $("#adminusername").val();
+	var password = $("#adminpassword").val();
+	$("#flage2").val("F5");
+	if (name != "") {
+		if (password != "") {
+			$("#admin_add").css("display", "none");
+			$("#admin_from").submit();
+			$("#flage2").val("F6");
+			$("#adminusername").val("");
+			$("#adminpassword").val("")
+		} else {
+			$(".admins").eq(1).css("display", "block");
+		}
+
+	} else {
+		$(".admins").eq(0).css("display", "block");
+	}
+	event.stopPropagation();
+});

@@ -93,6 +93,14 @@ public class t_gonggao {
 		this.gonggao_content = gonggao_content;
 		this.gonggao_data = gonggao_data;
 	}
+	
+
+	public t_gonggao(String gonggao_title, String gonggao_content, String gonggao_data) {
+		super();
+		this.gonggao_title = gonggao_title;
+		this.gonggao_content = gonggao_content;
+		this.gonggao_data = gonggao_data;
+	}
 
 	// 6.to string 方法；
 	@Override

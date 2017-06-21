@@ -215,7 +215,7 @@ body {
 	top: 200px;
 }
 
-#ok, #no, #changebut {
+#ok, #no, #changebut{
 	width: 100px;
 	height: 30px;
 	border: 1px solid rgba(0, 153, 153, 0.6);
@@ -273,7 +273,7 @@ tr:hover {
 
 #message_div div {
 	width: 700px;
-	height: 106px;
+	height: 79px;
 	background: #FFF;
 	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
@@ -413,7 +413,8 @@ tr:hover {
 #AdminRegister,
 #adminbut,
 #adminrno,
-#doctorshuaxin{
+#doctorshuaxin,
+#ok2,#reset{
 	border:none;
 	width:100px;
 	height:30px;
@@ -426,7 +427,8 @@ tr:hover {
 #AdminRegister:hover,
 #adminbut:hover,
 #adminrno:hover,
-#doctorshuaxin:hover{
+#doctorshuaxin:hover,
+#ok2:hover,#reset:hover{
 	background:rgba(0,0,0,0);
 }
 
@@ -460,9 +462,23 @@ tr:hover {
 	left:30px;
 }
 
+#title{
+	margin-left:20px;
+	outline:none;
+	font-size:20px;
+	width:1120px;
+	height:30px;
+	border:none;
+	border-bottom:1px solid rgba(0,153,153,0.5);
+}
 
-
-
+#messages{
+	width:1210px;
+	height:440px;
+	border:1px solid rgba(0,153,153,0.5);
+	outline:none;
+	font-size:18px;	
+}
 
 
 

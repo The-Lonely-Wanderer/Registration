@@ -133,7 +133,7 @@
 					<input id="AdminRegister" value="添加管理员账号" type="button" /> <br />
 					<div id="admin_div"></div>
 					<div id="admin_add">
-						<form action="" method="post">
+						<form id="admin_from" action="Admin_add_servlet" method="post">
 							<p>
 								<span>用户名:</span><input id="adminusername" type="text"
 									name="adminusername" placeholder="数字，字母"><br /> <span
@@ -147,6 +147,8 @@
 							<p>
 								<input id="adminbut" type="button" value="提交" /> <input
 									id="adminrno" type="button" value="取消" />
+									<input id="flage2"
+									type="hidden" value="F6" name="flage2" />
 							</p>
 						</form>
 					</div>
@@ -156,7 +158,14 @@
 					<br />
 					<div id="message_div"></div>
 					<div id="message_add">
-						<form action="" method="post"></form>
+						<form action="" method="post">
+						
+						<span>公告标题:</span><input id="title" type="text" name="title"/><br/>
+						<span>正文:</span>
+						<textarea id="messages"></textarea>
+						<input id="ok2" type="button" name="ok" value="发布" style="margin-top:20px;"/>
+						<input id="reset" type="reset" style="margin-top:20px;"/>
+						</form>
 					</div>
 				</div>
 			</div>

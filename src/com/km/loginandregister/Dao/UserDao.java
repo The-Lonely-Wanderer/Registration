@@ -99,29 +99,53 @@ public class UserDao {
 		return null;
 
 	}
-	
+
 	/**
 	 * 用于增加医生用户
 	 */
-	public boolean insertDoator(t_yisheng t_yisheng){
-		
-		Connection conn=ConnectionFactory.getConnectionFactory();
+	public boolean insertDoator(t_yisheng t_yisheng) {
+
+		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps;
-		t_yisheng t_yisheng1 =new t_yisheng();
+		t_yisheng t_yisheng1 = new t_yisheng();
 		int falge;
-		
+
 		try {
-			ps=conn.prepareStatement("insert t_yisheng value(0,?,?,?,?,?,?,0)");
-			ps.setString(1,t_yisheng.getYisheng_name());
+			ps = conn.prepareStatement("insert t_yisheng value(0,?,?,?,?,?,?,0)");
+			ps.setString(1, t_yisheng.getYisheng_name());
 			ps.setString(2, t_yisheng.getYisheng_sex());
 			ps.setString(3, t_yisheng.getYisheng_age());
 			ps.setString(4, t_yisheng.getYisheng_password());
 			ps.setString(5, t_yisheng.getYisheng_zhicheng());
 			ps.setInt(6, t_yisheng.getKeshi_id());
-			falge=ps.executeUpdate();
-			if(falge==1){
+			falge = ps.executeUpdate();
+			if (falge == 1) {
 				return true;
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	/**
+	 * @ps 增加管理员用户
+	 */
+	public boolean insertAdmin(t_admin t_admin) {
+
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		int flage;
+		try {
+			ps = conn.prepareStatement("insert t_admin value(0,?,?)");
+			ps.setString(1, t_admin.getUserName());
+			ps.setString(2, t_admin.getUserPassword());
+			flage = ps.executeUpdate();
+			if (flage == 1) {
+				return true;
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -207,30 +231,30 @@ public class UserDao {
 		return false;
 
 	}
+
 	/**
 	 * @ps 用于修改管理员信息,返回boolean
 	 */
-	public boolean getupdateAdmin(t_admin t_admin){
-		Connection conn=ConnectionFactory.getConnectionFactory();
+	public boolean getupdateAdmin(t_admin t_admin) {
+		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps;
-		int  flage = 0;
-		
+		int flage = 0;
+
 		try {
-			ps=conn.prepareStatement("update t_admin set userName=? and userPassword=? where userId=? ");
+			ps = conn.prepareStatement("update t_admin set userName=? and userPassword=? where userId=? ");
 			ps.setString(1, t_admin.getUserName());
-			ps.setString(2,t_admin.getUserPassword());
+			ps.setString(2, t_admin.getUserPassword());
 			ps.setInt(3, t_admin.getUser_id());
-			flage=ps.executeUpdate();
+			flage = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(flage==1){
+		if (flage == 1) {
 			return true;
 		}
 		return false;
 	}
-	
 
 	// 管理员
 	/**
@@ -269,14 +293,14 @@ public class UserDao {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		ResultSet set;
-		t_admin user1 =new t_admin();
+		t_admin user1 = new t_admin();
 		try {
 			ps = conn.prepareStatement("select * from t_admin where username=? and userpassword=?");
 			ps.setString(1, t_admin.getUserName());
 			ps.setString(2, t_admin.getUserPassword());
 			set = ps.executeQuery();
 			while (set.next()) {
-				user1 = new t_admin(set.getInt("userId"),set.getString("userName"), set.getString("userPassword"));
+				user1 = new t_admin(set.getInt("userId"), set.getString("userName"), set.getString("userPassword"));
 				return user1;
 			}
 		} catch (SQLException e) {
@@ -369,29 +393,26 @@ public class UserDao {
 	}
 
 	/**
-	 * @ps 返回所有公告的集合
+	 * @ps 返回所有公告的boolean
 	 */
-	public List<t_gonggao> getAllNews() {
-
+	public boolean addNews(t_gonggao t_gonggao) {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps;
-		ResultSet set;
-		List<t_gonggao> news = new ArrayList<t_gonggao>();
-		t_gonggao t_gonggao;
+		int set;
 		try {
-			ps = conn.prepareStatement("select * from t_gonggao");
-			set = ps.executeQuery();
-			while (set.next()) {
-				t_gonggao = new t_gonggao(set.getInt("gonggao_id"), set.getString("gonggao_title"),
-						set.getString("gonggao_content"), set.getString("gonggao_data"));
-				news.add(t_gonggao);
+			ps = conn.prepareStatement("insert t_gonggao value(0,?,?,?)");
+			ps.setString(1, t_gonggao.getGonggao_title());
+			ps.setString(2, t_gonggao.getGonggao_content());
+			ps.setString(3, t_gonggao.getGonggao_data());
+			set = ps.executeUpdate();
+			if (set == 1) {
+				return true;
 			}
-			return news;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return false;
 	}
 
 	/**

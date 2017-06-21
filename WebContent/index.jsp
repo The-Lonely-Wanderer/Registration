@@ -13,36 +13,17 @@
 </head>
 <body>
 	<div id="top">
-		<img src="img/1.jpg" width="100%" height="500px" /> <img
-			src="img/2.jpg" width="100%" height="500px" /> <img src="img/4.jpg"
-			width="100%" height="500px" /> <img src="img/5.jpg" width="100%"
-			height="500px" />
+		<img class="top_s" src="img/1.jpg" width="100%" height="500px" /> 
+		<img class="top_s" src="img/2.jpg" width="100%" height="500px" /> 
+		<img class="top_s" src="img/4.jpg" width="100%" height="500px" /> 
+		<img class="top_s" src="img/5.jpg" width="100%" height="500px" />
 	</div>
 	<div id="banner">
-		<div id="xinxi">
-			<div id="xinxi_left"></div>
-			<div id="xinxi_right">
-				<div class="xinxi_right_1">
-				查看修改
-				</div>
-				<div class="xinxi_right_1">
-				患者
-				</div>
-				<div class="xinxi_right_1">
-				医生
-				</div>
-				<div class="xinxi_right_1">
-				管理员
-				</div>
-				<div class="xinxi_right_1">
-				最新消息
-				</div>
-			</div>
-		</div>
+		<div id="xinxi"></div>
 		<div id="gonggao">
 			<p>最新公告--></p>
 		</div>
 	</div>
-	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>
+	<script rel="stylesheet" style="text/javascript" src="/Registration/index.js"></script>
 </body>
 </html>
