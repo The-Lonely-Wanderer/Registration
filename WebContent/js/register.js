@@ -40,8 +40,6 @@ function registerbuttonsub() {
 	}
 }
 
-
-
 function registerusertypef() {
 	var usertype = document.getElementById("registerusertype").value.trim();
 	var usertypespan = document.getElementById("registersp3");

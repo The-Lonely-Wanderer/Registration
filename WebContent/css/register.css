@@ -99,7 +99,20 @@ body{
 #no {
 	top:593px;
 	position: absolute;
-	left: 184px;
+	left: 122px;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	background: rgba(0, 153, 153, 0.6);
+	cursor: pointer;
+	color: #FFF;
+	font-size:20px;
+	border: none;
+}
+#no1 {
+	top:593px;
+	position: absolute;
+	left: 214px;
 	height: 30px;
 	width: 80px;
 	border-radius: 5px;

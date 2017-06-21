@@ -48,7 +48,8 @@
 				</p>
 					<input id="register" type="button" value="注册" onclick="registerbuttonsub()" />
 					<input id="no" type="reset" value="重置"/>
-				</p>
+					<input id="no1" type="button" value="返回" onclick="backa()"/>
+				
 			</div>
 		</form>
 </body>
