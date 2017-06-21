@@ -43,11 +43,16 @@ public class hz_GerenxinxiServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		hz_GerenxinxiService ams = new hz_GerenxinxiService();
 		
-		HttpSession session=request.getSession();	
-		t_user usersession = (t_user) session.getAttribute("username");
+		HttpSession session=request.getSession();
+		t_user usersession = (t_user) session.getAttribute("t_user2");
+		String name = usersession.getUser_name();
 		
-		t_user user = ams.getall(usersession);
+		t_user user_name = new t_user(name);
+		t_user user = ams.getall(user_name);
+		
+		System.out.println(user);
 		request.setAttribute("user", user);
+		
 		request.getRequestDispatcher("hz_index.jsp").forward(request, response);
 		
 	}

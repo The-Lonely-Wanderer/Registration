@@ -149,7 +149,9 @@ public class t_user {
 		this.user_password = user_password;
 	}
 
-
+	public t_user(String user_name) {
+		this.user_name = user_name;
+	}
 
 	public t_user(int user_id, String user_name, String user_password, String user_type, String user_realname,
 			String user_address, String user_del, long user_tel) {
@@ -186,9 +188,9 @@ public class t_user {
 
 
 	//患者修改的构造方法
-	public t_user(String username, String user_password, String user_type, String user_realname,
+	public t_user(String name, String user_password, String user_type, String user_realname,
 			String user_address, long user_tel) {
-		this.user_name = username;
+		this.user_name = name;
 		this.user_password = user_password;
 		this.user_type = user_type;
 		this.user_realname = user_realname;

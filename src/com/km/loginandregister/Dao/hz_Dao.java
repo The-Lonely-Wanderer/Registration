@@ -23,20 +23,21 @@ public class hz_Dao {
 	 * @param usersession
 	 * @ps 传入 t_user对象 返回t_user对象
 	 */
-
-	public t_user getgerenxinxi(t_user t_user) {
+	
+	public t_user getgerenxinxi(t_user user_name) {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		t_user t_user1=new t_user();
 		try {
 			ps = conn.prepareStatement(
 					"select  * from t_user where user_name = ?");
-			ps.setString(1, t_user.getUser_name());
+			ps.setString(1, user_name.getUser_name());
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				t_user1 = new t_user(rs.getInt("user_id"),rs.getString("user_password"), rs.getString("user_type"),
+				t_user1 = new t_user(rs.getInt("user_id"),rs.getString("user_name"),rs.getString("user_password"), rs.getString("user_type"),
 
 						rs.getString("user_realname"), rs.getString("user_address"), rs.getLong("user_tel"));
+				
 				return t_user1;
 			}
 		} catch (SQLException e) {
@@ -49,10 +50,12 @@ public class hz_Dao {
 	public t_user getxiugai(t_user user) {
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
+		System.out.println(user);
 		try {
 			ps = conn.prepareStatement(
 					"update t_user set user_password=? ,user_type=?, user_realname=?,user_address=?,user_tel=? where user_name=?");
 			ps.setString(1, user.getUser_password());
+			
 			ps.setString(2, user.getUser_type());
 			ps.setString(3, user.getUser_realname());
 			ps.setString(4, user.getUser_address());
@@ -184,10 +187,10 @@ public class hz_Dao {
 			ps.setInt(1, yuyue.getYuyue_id());
 			
 			int i = ps.executeUpdate();
-			System.out.println(i);
+//			System.out.println(i);
 			if (i == 1) {
 				alList = gethuanzheyuyueall(yuyue);
-				System.out.println(alList);
+//				System.out.println(alList);
 				return alList;
 			}
 
@@ -196,5 +199,13 @@ public class hz_Dao {
 		}
 		return null;
 	}
+
+
+
+
+
+	
+
+
 	
 }

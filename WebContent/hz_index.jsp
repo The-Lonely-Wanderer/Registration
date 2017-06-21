@@ -21,7 +21,7 @@
 	</div>
 	<div id="banner">
 		<div id="xinxi">
-			<div id="xinxi_left">
+			<div id="xinxi_left" style="background:#9CCFFF; color:#FFF">
 				<ul>
 					<li class="lis">个人信息
 						<div class="xinxi_div">
@@ -65,10 +65,9 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：<b>【${param.username}】</b>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：<b>【${sessionScope.t_user2.user_name}】</b>
 					</p>
 
-					<form action="hz_GerenxinxiServlet" method="post">
 						<table width="75%" border="0" align="center">
 							<tr>
 								<td bgcolor="#9CCFFF">
@@ -81,7 +80,7 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">患者账户：<input type="text"
-											disabled="disabled" value="${user_name}" /></font>
+											disabled="disabled" value="${sessionScope.t_user2.user_name}" /></font>
 									</div>
 								</td>
 							</tr>
@@ -89,7 +88,8 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">患者密码：<input type="text"
-											disabled="disabled" value="${user_password}" /></font>
+											disabled="disabled"
+											value="${sessionScope.t_user2.user_password}" /></font>
 									</div>
 								</td>
 							</tr>
@@ -97,7 +97,7 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">患者类型：<input type="text"
-											disabled="disabled" value="${user_type}" /></font>
+											disabled="disabled" value="${sessionScope.t_user2.user_type}" /></font>
 									</div>
 								</td>
 							</tr>
@@ -105,7 +105,8 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">患者姓名：<input type="text"
-											disabled="disabled" value="${user_realname}" /></font>
+											disabled="disabled"
+											value="${sessionScope.t_user2.user_realname}" /></font>
 									</div>
 								</td>
 							</tr>
@@ -113,7 +114,8 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">收货地址：<input type="text"
-											disabled="disabled" value="${user_address}" /></font>
+											disabled="disabled"
+											value="${sessionScope.t_user2.user_address}" /></font>
 									</div>
 								</td>
 							</tr>
@@ -121,7 +123,7 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">手机号码：<input type="text"
-											disabled="disabled" value="${user_tel}" /></font>
+											disabled="disabled" value="${sessionScope.t_user2.user_tel}" /></font>
 									</div>
 								</td>
 							</tr>
@@ -130,7 +132,6 @@
 							<b><font size="4">点击<a href="#">这里</a>返回主页
 							</font></b>
 						</p>
-					</form>
 				</div>
 
 				<%--个人信息修改 --%>
@@ -163,7 +164,8 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">患者密码：<input type="text"
-											value="${user_password}" name="user_password" /></font>
+											value="${sessionScope.t_user2.user_password}"
+											name="user_password" /></font>
 									</div>
 								</td>
 							</tr>
@@ -171,7 +173,7 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">患者类型：<input type="text"
-											value="${user_type}" name="user_type" /></font>
+											value="${sessionScope.t_user2.user_type}" name="user_type" /></font>
 									</div>
 								</td>
 							</tr>
@@ -179,7 +181,8 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">患者姓名：<input type="text"
-											value="${user_realname}" name="user_realname" /></font>
+											value="${sessionScope.t_user2.user_realname}"
+											name="user_realname" /></font>
 									</div>
 								</td>
 							</tr>
@@ -187,7 +190,8 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">收货地址：<input type="text"
-											value="${user_address}" name="user_address" /></font>
+											value="${sessionScope.t_user2.user_address}"
+											name="user_address" /></font>
 									</div>
 								</td>
 							</tr>
@@ -195,7 +199,7 @@
 								<td bgcolor="#9CCFFF" height="35px">
 									<div align="center">
 										<font size="2">手机号码：<input type="text"
-											value="${user_tel}" name="user_tel" /></font>
+											value="${sessionScope.t_user2.user_tel}" name="user_tel" /></font>
 									</div>
 								</td>
 							</tr>
@@ -418,7 +422,8 @@
 
 
 				<div class="xinxi_right_1">
-					<p><b>已经预约</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<p>
+						<b>已经预约</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -430,7 +435,8 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：【<b>${param.username}】</b></p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：【<b>${param.username}】</b>
+					</p>
 					<table width="75%" border="0" align="center">
 						<tr>
 							<td bgcolor="#9CCFFF" height="35px" colspan="4">
@@ -468,20 +474,40 @@
 								</div>
 							</td>
 							<div align="center">
-									<font size="4" class="amigespan"><b> </b> </font>
-								</div>
+								<font size="4" class="amigespan"><b> </b> </font>
+							</div>
 						</tr>
-						</table>
+					</table>
 				</div>
 
 			</div>
 		</div>
-		<div id="gonggao">
-			<p>最新公告--></p>
+		<div id="gonggao" align="center">
+			<p>
+			<h1>
+				<b><font color="red">最新公告</font></b>
+			</h1>
+			</p>
+			<div id="gonggao">
+				<c:forEach items="${sessionScope.gonggao_list}" var="gonggao">
+					<table border="0px" width="45%" height="40px">
+						<tr>
+							<td width="50%" align="left" bgcolor="#9CCFFF"><span
+								class="gonggaosp" style="color: black;">
+									&nbsp;&nbsp;&nbsp;<b>${gonggao.gonggao_title}--></b> <span
+									style="color: red;">${gonggao.gonggao_data}</span>
+							</span></td>
+							<td bgcolor="#9CCFFF"><span class="gonggao_con">${gonggao.gonggao_content}</span>
+							</td>
+						</tr>
+					</table>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 	<script src="js/hz_index.js" type="text/javascript" type="stylesheet"></script>
 	<script src="js/hz_Ajax.js" type="text/javascript" type="stylesheet"></script>
-	<script src="js/Hz_Huanzheyuyuechaxun.js" type="text/javascript" type="stylesheet"></script>
+	<script src="js/Hz_Huanzheyuyuechaxun.js" type="text/javascript"
+		type="stylesheet"></script>
 </body>
 </html>

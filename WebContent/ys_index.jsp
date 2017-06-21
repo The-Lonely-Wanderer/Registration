@@ -19,7 +19,7 @@
 	</div>
 	<div id="banner">
 		<div id="xinxi">
-			<div id="xinxi_left">
+			<div id="xinxi_left" style="background:#9CCFFF; color:#FFF">
 				<ul>
 					<li class="lis">个人信息
 						<div class="xinxi_div">
@@ -49,27 +49,127 @@
 					</li>
 				</ul>
 			</div>
-			<div id="xinxi_right">
+			<div id="xinxi_right" align="center">
 				<div class="xinxi_right_1">
-					<p>查看医生个人信息</p><br />
-					<form action="gerenxinxiaction" method="post">
-						<label>工&nbsp;号:&nbsp;</label><input readonly="text" name="yisheng_id"><br />
-						<label>名&nbsp;字:&nbsp;</label><input readonly="text"  name="yisheng_name"><br />
-						<label>年&nbsp;龄:&nbsp;</label><input readonly="text"  name="yisheng_age"><br />
-						<label>性&nbsp;别:&nbsp;</label><input readonly="text"  name="yisheng_sex"><br />
-						<label> 职&nbsp;称:&nbsp;</label><input readonly="text"  name="yisheng_zhicheng"><br />
-						<label>科&nbsp;室:&nbsp;</label><input readonly="text" name="keshi_id"><br />
-					</form>
+				<p>
+						<b>查看医生个人信息 </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：<b>【${sessionScope.t_yisheng.yisheng_name}】</b>
+					</p>
+					<table width="75%" border="0" align="center">
+							<tr>
+								<td bgcolor="#9CCFFF">
+									<div align="center">
+										<font size="4"><b>个人信息</b></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">工&nbsp;&nbsp;&nbsp;号:<input type="text"
+											disabled="disabled" value="${sessionScope.t_yisheng.yisheng_id}" /></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">姓&nbsp;&nbsp;&nbsp;名:<input type="text"
+											disabled="disabled" value="${sessionScope.t_yisheng.yisheng_name}" /></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">年&nbsp;&nbsp;&nbsp;龄:<input type="text"
+											disabled="disabled" value="${sessionScope.t_yisheng.yisheng_age}" /></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">性&nbsp;&nbsp;&nbsp;别:<input type="text"
+											disabled="disabled" value="${sessionScope.t_yisheng.yisheng_sex}" /></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">职&nbsp;&nbsp;&nbsp;称:<input type="text"
+											disabled="disabled" value="${sessionScope.t_yisheng.yisheng_zhicheng}" /></font>
+									</div>
+								</td>
+							</tr>
+							</table>
 				</div>
 				<div class="xinxi_right_1">
-					<p>修改医生个人信息</p><br />
+				<p>
+						<b>修改医生个人信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：<b>【${sessionScope.t_yisheng.yisheng_name}】</b>
+					</p>
 					<form action="xiugaiaction"  method="post">
-						<label>工&nbsp;号:&nbsp;</label><input  readonly="text"  name="yisheng_id"><br />
-						<label>名&nbsp;字:&nbsp;</label><input type="text" name="yisheng_name"><br />
-						<label>年&nbsp;龄:&nbsp;</label><input type="text" name="yisheng_age"><br />
-						<label>性&nbsp;别:&nbsp;</label><input type="text" name="yisheng_sex"><br />
-						<label>职&nbsp;称:&nbsp;</label><input type="text" name="yisheng_zhicheng"><br />
-						<label>科&nbsp;室:&nbsp;</label><input type="text" name="keshi_id"><br />
+					<table width="75%" border="0" align="center">
+							<tr>
+								<td bgcolor="#9CCFFF">
+									<div align="center">
+										<font size="4"><b>修改信息</b></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">姓&nbsp;&nbsp;&nbsp;名:<input type="text" name="yisheng_name"></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">年&nbsp;&nbsp;&nbsp;龄:<input type="text" name="yisheng_age"></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">性&nbsp;&nbsp;&nbsp;别:<input type="text" name="yisheng_sex"></font>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#9CCFFF" height="45px">
+									<div align="center">
+										<font size="2">职&nbsp;&nbsp;&nbsp;称:<input type="text" name="yisheng_zhicheng"></font>
+									</div>
+								</td>
+							</tr>
+							</table>
 						<input type= "submit"  value ="修改" name ="xiugai">
 					</form>
 	<%--
@@ -120,8 +220,25 @@
 				</div>
 			</div>
 		</div>
-		<div id="gonggao">
-			<p>最新公告--></p>
+		<div id="gonggao" align="center">
+			<h1>
+				<b><font color="red">最新公告</font></b>
+			</h1>
+			<div id="gonggao">
+				<c:forEach items="${sessionScope.gonggao_list}" var="gonggao">
+					<table border="0px" width="45%" height="40px">
+						<tr>
+							<td width="50%" align="left" bgcolor="#9CCFFF"><span
+								class="gonggaosp" style="color: black;">
+									&nbsp;&nbsp;&nbsp;<b>${gonggao.gonggao_title}--></b> <span
+									style="color: red;">${gonggao.gonggao_data}</span>
+							</span></td>
+							<td bgcolor="#9CCFFF"><span class="gonggao_con">${gonggao.gonggao_content}</span>
+							</td>
+						</tr>
+					</table>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 	<script src="js/doctor.js" type="text/javascript" type="stylesheet"></script>

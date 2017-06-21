@@ -56,7 +56,7 @@ public class Hz_QuxiaoyuyueServlet extends HttpServlet {
 		t_yuyue yuyue = new t_yuyue(yuyue_id,yuyue_userId);
 		Hz_QuxiaoyuyueService qxyy = new Hz_QuxiaoyuyueService();
 		List<t_yuyue> list = qxyy.quxiao(yuyue);
-		System.out.println("集合"+list);
+//		System.out.println("集合"+list);
 		JSONArray jsonArray = new JSONArray();
 		// 将需要发送到页面的数据封装到 jsonObject 中
 		for (int i = 0; i < list.size(); i++) {
@@ -72,7 +72,7 @@ public class Hz_QuxiaoyuyueServlet extends HttpServlet {
 		// 将 jsonObject 封装进 jsonArray中
 		PrintWriter out = response.getWriter();
 		out.println(jsonArray.toJSONString());
-		System.out.println("取消预约"+jsonArray);
+//		System.out.println("取消预约"+jsonArray);
 		out.close();
 	}
 

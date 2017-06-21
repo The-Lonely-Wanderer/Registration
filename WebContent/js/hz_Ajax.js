@@ -1,8 +1,7 @@
 $("document")
 		.ready(
 				function() {
-					$("#lis-li-3")
-							.click(
+					$("#lis-li-3").click(
 									function() {
 										$
 												.ajax({
