@@ -27,24 +27,6 @@ body {
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
-
-#top {
-	/* 	width: 2112px; */
-	width: 100%;
-	height: 500px;
-	min-width: 1520px;
-}
-
-#top img {
-	width: 100%;
-	height: 500px;
-	min-width: 1520px;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	position: absolute;
-}
-
 #xinxi {
 	position: relative;
 	height: 600px;

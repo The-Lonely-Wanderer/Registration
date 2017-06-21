@@ -9,16 +9,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/admin.css">
+<link rel="stylesheet" type="text/css" href="/Registration/css/admin.css">
+<link rel="stylesheet" type="text/css" href="/Registration/css/top.css">
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-<!-- <script type="text/javascript" src="js/Admin_Ajax.js"></script> -->
+<script type="text/javascript" src="/Registration/js/top.js"></script>
 </head>
 <body>
 	<div id="top">
-		<img src="img/1.jpg" width="100%" height="500px" /> <img
-			src="img/2.jpg" width="100%" height="500px" /> <img src="img/4.jpg"
-			width="100%" height="500px" /> <img src="img/5.jpg" width="100%"
-			height="500px" />
+		<img class="top_s"  src="img/6.jpg" width="100%" height="500px" />
+		<img class="top_s"  src="img/2.jpg" width="100%" height="500px" />
+		<img class="top_s"  src="img/4.jpg" width="100%" height="500px" /> 
+		<img class="top_s"  src="img/1.jpg" width="100%" height="500px" />
 	</div>
 
 	<div id="banner">
