@@ -3,21 +3,19 @@
 	margin:0px;
 	padding:0px;
 }
-body{
-	
-	background:rgba(0,0,0,0.3);
-	
-	
-}
 #banner{
+	box-shadow:0px 0px 1px 1px rgba(0,0,0,0.2);
 	background:#FFF;
 	width:1520px;
 	height:1500px;
-	border:1px solid red;
-	margin:auto;
+	margin:0px auto;
+}
+.banner_p{
+	margin-top:20px;
+	font-size:18px;
+	font-weight:bold;
 	
 }
-
 
 
 

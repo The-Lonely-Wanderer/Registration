@@ -48,7 +48,7 @@ top{
 #menu_li>ul{
 	float:left;
 }
-#menu_li>ul>li{
+#menu_li>ul>a>li{
 	color:#000;
 	font-family:"microsoft yahei";
 	list-style:none;
@@ -61,10 +61,10 @@ top{
     transition:0.4s;
     display:block;
 }
-#menu_li>ul>li:nth-child(1){	
+#menu_li>ul>a>li:nth-child(1){	
 	margin-left:50px;
 }
-#menu_li>ul>li:hover{
+#menu_li>ul>a>li:hover{
 	color:rgba(255,0,255,0.6);
 	background:rgba(255,255,255,0.7);
 }
