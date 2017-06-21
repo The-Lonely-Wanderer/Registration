@@ -86,7 +86,7 @@ public class UserDao {
 			ps.setString(2, user.getYisheng_password());
 			set = ps.executeQuery();
 			while (set.next()) {
-				t_yisheng = new t_yisheng(set.getString("yisheng_name"), set.getString("yisheng_pw"));
+				t_yisheng = new t_yisheng(set.getInt("yisheng_id"),set.getString("yisheng_name"), set.getString("yisheng_sex"),set.getString("yisheng_age"),set.getString("yisheng_pw"),set.getString("yisheng_zhicheng"),set.getInt("keshi_id"));
 				if (t_yisheng != null) {
 					return t_yisheng;
 				}
@@ -447,27 +447,27 @@ public class UserDao {
 	/**
 	 * @ps 医生查询预约；
 	 */
-	public List<t_yuyue> getYuyue() {
+	public List<t_yuyue> getYuyue(t_yuyue yuyue) {
 		Connection connection = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
 		List<t_yuyue> list = new ArrayList<>();
 		ResultSet rs = null;
-		t_yuyue yuyue = null;
 
 		try {
-			ps = connection.prepareStatement("select  *from t_yuyue");
+			ps = connection.prepareStatement("SELECT ty.* ,tu.user_name  FROM t_yuyue  ty LEFT JOIN t_user tu on ty.userid = tu.user_id where ty.yishengid = ? ");
+			ps.setInt(1, yuyue.getYuyue_yishengId());
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				yuyue = new t_yuyue(rs.getInt("yuyue_userId"), rs.getInt("yuyue_yishengId"),
-						rs.getString("yuyue_shijian"), rs.getString("yuyue_beizhu"));
+				yuyue = new t_yuyue(rs.getString("user_name"),rs.getString("shijian"), rs.getString("beizhu"),rs.getInt("id"));
 				list.add(yuyue);
 			}
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return null;
+		return list;
 	}
 	// 访问人数
 
@@ -568,5 +568,7 @@ public class UserDao {
 		}
 		return null;
 	}
+
+
 
 }

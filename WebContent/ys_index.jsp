@@ -24,29 +24,20 @@
 					<li class="lis">个人信息
 						<div class="xinxi_div">
 							<ul>
-								<li id="lis-li-1" class="lis-li">查看</li>
+								<li id="lis-li-1" class="lis-li">查看信息</li>
 
-								<li id="lis-li-2" class="lis-li">修改</li>
+								<li id="lis-li-2" class="lis-li">修改信息</li>
 							</ul>
 						</div>
 					</li>
 					<li class="lis">预约查询
 						<div class="xinxi_div">
 							<ul>
-								<li id="lis-li-3" class="lis-li">查看</li>
-
-								<li id="lis-li-4" class="lis-li">修改</li>
-
+								<li id="lis-li-3" class="lis-li">查看预约</li>
 							</ul>
 						</div>
 					</li>
-					<li class="lis">医院动态
-						<div class="xinxi_div">
-							<ul>
-								<li id="lis-li-5" class="lis-li">最新消息</li>
-							</ul>
-						</div>
-					</li>
+					
 				</ul>
 			</div>
 			<div id="xinxi_right" align="center">
@@ -172,52 +163,65 @@
 							</table>
 						<input type= "submit"  value ="修改" name ="xiugai">
 					</form>
-	<%--
-			String message = (String) request.getAttribute("message");
-			if (message != null && !"".equals(message)) {
-				System.out.println("连接success");
-		%>
-		<span style="display: block;"><%=message%> </span>
-		<%
-			}
-		--%>
+
 				<span style="display: block;">${message } </span>
 		
 				</div>
 				<div class="xinxi_right_1">
-					<p>查看预约</p><br/><br/>				
-							欢迎：${yisheng_name }  登录
-					<form action="chakanyuyueaction">
-						<table style="border: 1px solid ;">
-							<tr>
-							<th>患者名字丨</th>
-							<th>患者症状丨</th>
-							<th>预约医生丨</th>
-							<th>预约时间丨</th>
+				<p>
+						<b>查看预约 </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欢迎：<b>【${sessionScope.t_yisheng.yisheng_name}】</b>
+					</p>
+					<table width="75%" border="0" align="center">
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="5">
+								<div align="center">
+									<font size="4"><b>预约查询</b></font>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th bgcolor="#9CCFFF" height="35px" colspan="2">
+								<div align="center">
+									<font size="4"><b>患者名字</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>患者症状</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>预约时间</b></font>
+								</div>
+							</th>
+							<th bgcolor="#9CCFFF" height="35px">
+								<div align="center">
+									<font size="4"><b>操作</b></font>
+								</div>
+							</th>
+						</tr>
+						<%--拿预约表的值 --%>
+						<tr>
+							<td bgcolor="#9CCFFF" height="35px" colspan="5">
+								<div align="center" class="chakan"></div>
+							</td>
 						</tr>
 						</table>				
-						<input type="submit" value="修改信息"> <input type="submit" value="返回主页">
-					</form>
 				</div>
-				<div class="xinxi_right_1">
-					<p>修改预约时间</p><br />
-					<form action="xiugaiyuyueaction">
-						<table style="border: 1px solid ;">
-							<tr>
-							<th>患者名字丨</th>
-							<th>患者症状丨</th>
-							<th>预约医生丨</th>
-							<th>预约时间丨</th>
-							<th>排期时间丨</th>
-							<th>专家建议丨</th>
-							</tr>
-						</table>
-					</form>
-					<div class="xinxi_right_1">
-						<p>最新消息</p>
-						<form action=""></form>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 		<div id="gonggao" align="center">
@@ -242,5 +246,6 @@
 		</div>
 	</div>
 	<script src="js/doctor.js" type="text/javascript" type="stylesheet"></script>
+	<script src="js/Ys_Yuyue-Ajax.js" type="text/javascript" type="stylesheet"></script>
 </body>
 </html>

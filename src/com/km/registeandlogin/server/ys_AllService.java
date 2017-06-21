@@ -9,8 +9,8 @@ public class ys_AllService {
 
 	UserDao dao = new UserDao();
 
-	public List<t_yuyue> getAll() {
-		return dao.getYuyue();
+	public List<t_yuyue> getAll(t_yuyue yuyue) {
+		return dao.getYuyue(yuyue);
 	}
 
 }

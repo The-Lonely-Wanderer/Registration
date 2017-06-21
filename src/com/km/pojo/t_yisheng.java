@@ -215,6 +215,8 @@ public class t_yisheng {
 	}
 
 
+	
+
 	@Override
 	public String toString() {
 		return "t_yisheng [yisheng_id=" + yisheng_id + ", yisheng_name=" + yisheng_name + ", yisheng_password="

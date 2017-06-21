@@ -10,8 +10,18 @@ public class t_yuyue {
 	private String yuyue_paiqishijian;
 	private int yuyue_zhuanjiajianyi;
 	private String yisheng_name;
+	private String huanzhe_name;
 
+	
 	// 2.get set方法
+	public String getHuanzhe_name() {
+		return huanzhe_name;
+	}
+
+	public void setHuanzhe_name(String huanzhe_name) {
+		this.huanzhe_name = huanzhe_name;
+	}
+
 	public int getYuyue_id() {
 		return yuyue_id;
 	}
@@ -189,12 +199,27 @@ public class t_yuyue {
 
 	
 
+	public t_yuyue(int yuyue_yishengid, String string) {
+		this.yuyue_yishengId = yuyue_yishengid;
+	}
+
+	public t_yuyue(String user_name, String yuyue_shijian, String yuyue_beizhu,int yuyue_id) {
+		this.huanzhe_name = user_name;
+		this.yuyue_shijian = yuyue_shijian;
+		this.yuyue_beizhu = yuyue_beizhu;
+		this.yuyue_id = yuyue_id;
+	}
+
+
+
+
 	// 6.to string方法；
 	@Override
 	public String toString() {
 		return "t_yuyue [yuyue_id=" + yuyue_id + ", yuyue_userId=" + yuyue_userId + ", yuyue_yishengId="
 				+ yuyue_yishengId + ", yuyue_shijian=" + yuyue_shijian + ", yuyue_beizhu=" + yuyue_beizhu
-				+ ", yuyue_paiqishijian=" + yuyue_paiqishijian + ", yuyue_zhuanjiajianyi=" + yuyue_zhuanjiajianyi + "]";
+				+ ", yuyue_paiqishijian=" + yuyue_paiqishijian + ", yuyue_zhuanjiajianyi=" + yuyue_zhuanjiajianyi
+				+ ", yisheng_name=" + yisheng_name + ", huanzhe_name=" + huanzhe_name + "]";
 	}
 
 }
