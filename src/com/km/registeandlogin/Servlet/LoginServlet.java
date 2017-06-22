@@ -138,6 +138,7 @@ public class LoginServlet extends HttpServlet {
 					response.addCookie(cookiepassword);
 				}
 				session.setAttribute("t_user2", t_user2);
+				session.setAttribute("username", t_user2.getUser_name());
 				session.setAttribute("flage", 3);
 				//System.out.println(t_user2);
 				session.setMaxInactiveInterval(60 * 60 * 1);
