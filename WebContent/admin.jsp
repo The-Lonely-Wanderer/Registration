@@ -205,14 +205,14 @@
 			<c:forEach items="${sessionScope.gonggao_list}" var="gonggao">
 				<p class="newsp">
 					<span class="gonggaosp" style="color: black;">&nbsp;&nbsp;&nbsp;<b>${gonggao.gonggao_title}</b>
-						<span>-->${gonggao.gonggao_data}</span></span> <span class="gonggao_con">${gonggao.gonggao_content}<span
+						<span>-->${gonggao.gonggao_data}</span ></span> <span class="gonggao_con">${gonggao.gonggao_content}&nbsp;&nbsp;&nbsp;<span id="${gonggao.gonggao_id}" class="newssp" onclick="news(${gonggao.gonggao_id})"/>删除</span><span
 						class="close">关闭</span></span>
 				</p>
 			</c:forEach>
 		</div>
 	</div>
 	<div id="sbottom">
-		医院挂号系统-2017-6-19<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
+		医院挂号系统-2017/6/15-2017/6/21<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
 	</div>
 	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>
 </body>

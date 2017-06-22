@@ -3,8 +3,7 @@
  * 
  */
 function paitentupda(id) {// 患者异步更新
-	$
-			.ajax({
+	$.ajax({
 				type : "get",
 				url : "Admin_huanzhe_delete?id=" + id,
 				async : true,
@@ -30,17 +29,14 @@ function paitentupda(id) {// 患者异步更新
 								+ "' onclick='paitentupda("
 								+ list[i].user_id + ");'>删除</span></td></tr>";
 					}
-					$("#huanzhe_div")
-							.html(
-									"<table><tr><th style='width:100px;height:20px;'>用户名</th><th style='width:200px;height:20px;'>密码</th><th style='width:200px;height:20px;'>类型</th><th style='width:125px;height:20px;'>真实姓名</th><th style='width:400px;height:20px;'>地址</th><th style='width:50px;height:20px;'>电话</th><th>删除</th></tr>"
+					$("#huanzhe_div").html("<table><tr><th style='width:100px;height:20px;'>用户名</th><th style='width:200px;height:20px;'>密码</th><th style='width:200px;height:20px;'>类型</th><th style='width:125px;height:20px;'>真实姓名</th><th style='width:400px;height:20px;'>地址</th><th style='width:50px;height:20px;'>电话</th><th>删除</th></tr>"
 											+ str + "</table>");
 
 				}
 			});
 }
 function doctorupda(id) {// 医生异步更新
-	$
-			.ajax({
+	$.ajax({
 				type : "get",
 				url : "Admin_doctor_delete?id=" + id,
 				async : true,
@@ -77,8 +73,7 @@ function doctorupda(id) {// 医生异步更新
 			});
 }
 function adminupda(id) {// 管理员异步更新
-	$
-			.ajax({
+	$.ajax({
 				type : "get",
 				url : "Admin_admin_delete?id=" + id,
 				async : true,
@@ -108,11 +103,29 @@ function adminupda(id) {// 管理员异步更新
 				}
 			});
 }
+function news(id){
+	$(".newsp .gonggao_con .close").parent(".gonggao_con").slideUp(300);
+	
+	$.ajax({
+		type:"get",
+		url:"Admin_news_servlet?id="+id,
+		async:true,
+		success:function(flage){
+			var json=jQuery.parseJSON(flage);
+			var flages=json[0].flage;
+			if(flages==true){
+				alert("删除成功");
+			}else{
+				alert("删除失败，请联系技术人员...");
+			}
+		}	
+	});
+	event.stopPropagation();
+}
 $("#lis-li-1").click(function() {// 管理员个人信息
 	$(".xinxi_right_1").eq(0).show().siblings().hide();
 });
-$("#lis-li-2")
-		.click(
+$("#lis-li-2").click(
 				function(event) {// 所用患者用户
 					$(".xinxi_right_1").eq(1).show().siblings().hide();
 
@@ -152,8 +165,7 @@ $("#lis-li-2")
 								}
 							});
 				});
-$("#lis-li-3")
-		.click(
+$("#lis-li-3").click(
 				function() {// 所有医生用户
 					$(".xinxi_right_1").eq(2).show().siblings().hide();
 					$
@@ -195,8 +207,7 @@ $("#lis-li-3")
 							});
 
 				});
-$("#lis-li-4")
-		.click(
+$("#lis-li-4").click(
 				function() {// 所有管理员用户
 
 					$(".xinxi_right_1").eq(3).show().siblings().hide();
@@ -454,7 +465,7 @@ $("#adminbut").click(function(event) {
 	var flage = $("#flage2").val();
 	var name = $("#adminusername").val();
 	var password = $("#adminpassword").val();
-	$("#flage2").val("F5");
+	$("#flage2").val("F5");//页面刷新重新提交数据解决方案
 	if (name != "") {
 		if (password != "") {
 			$("#admin_add").css("display", "none");

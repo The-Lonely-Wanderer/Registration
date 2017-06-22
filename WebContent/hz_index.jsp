@@ -539,7 +539,7 @@
 		</div>
 	</div>
 	<div id="sbottom">
-		医院挂号系统-2017-6-19<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
+		医院挂号系统-2017/6/15-2017/6/21<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
 	</div>
 	<script src="js/hz_index.js" type="text/javascript" type="stylesheet"></script>
 	<script src="js/hz_Ajax.js" type="text/javascript" type="stylesheet"></script>

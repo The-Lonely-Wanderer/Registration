@@ -86,7 +86,9 @@ public class UserDao {
 			ps.setString(2, user.getYisheng_password());
 			set = ps.executeQuery();
 			while (set.next()) {
-				t_yisheng = new t_yisheng(set.getInt("yisheng_id"),set.getString("yisheng_name"), set.getString("yisheng_sex"),set.getString("yisheng_age"),set.getString("yisheng_pw"),set.getString("yisheng_zhicheng"),set.getInt("keshi_id"));
+				t_yisheng = new t_yisheng(set.getInt("yisheng_id"), set.getString("yisheng_name"),
+						set.getString("yisheng_sex"), set.getString("yisheng_age"), set.getString("yisheng_pw"),
+						set.getString("yisheng_zhicheng"), set.getInt("keshi_id"));
 				if (t_yisheng != null) {
 					return t_yisheng;
 				}
@@ -210,18 +212,18 @@ public class UserDao {
 	public boolean getXiugai(t_yisheng xgxi) {
 		Connection connection = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps = null;
-System.out.println("agx  :  " +xgxi);
+		System.out.println("agx  :  " + xgxi);
 		try {
 			ps = connection.prepareStatement(
-					"update t_yisheng  set   yisheng_age=?,  yisheng_sex=?,  yisheng_pw=? where yisheng_name=?");								
+					"update t_yisheng  set   yisheng_age=?,  yisheng_sex=?,  yisheng_pw=? where yisheng_name=?");
 			ps.setString(1, xgxi.getYisheng_age());
-			ps.setString(2, xgxi.getYisheng_sex());		
+			ps.setString(2, xgxi.getYisheng_sex());
 			ps.setString(3, xgxi.getYisheng_password());
 			ps.setString(4, xgxi.getYisheng_name());
 			int aa = ps.executeUpdate();
-			
-			if (aa==1) {
-			
+
+			if (aa == 1) {
+
 				return true;
 			}
 		} catch (SQLException e) {
@@ -230,7 +232,6 @@ System.out.println("agx  :  " +xgxi);
 		return false;
 
 	}
-
 
 	/**
 	 * @ps 用于修改管理员信息,返回boolean
@@ -454,14 +455,15 @@ System.out.println("agx  :  " +xgxi);
 		ResultSet rs = null;
 
 		try {
-			ps = connection.prepareStatement("SELECT ty.* ,tu.user_name  FROM t_yuyue  ty LEFT JOIN t_user tu on ty.userid = tu.user_id where ty.yishengid = ? ");
+			ps = connection.prepareStatement(
+					"SELECT ty.* ,tu.user_name  FROM t_yuyue  ty LEFT JOIN t_user tu on ty.userid = tu.user_id where ty.yishengid = ? ");
 			ps.setInt(1, yuyue.getYuyue_yishengId());
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				yuyue = new t_yuyue(rs.getString("user_name"),rs.getString("shijian"), rs.getString("beizhu"),rs.getInt("id"));
+				yuyue = new t_yuyue(rs.getString("user_name"), rs.getString("shijian"), rs.getString("beizhu"),
+						rs.getInt("id"));
 				list.add(yuyue);
 			}
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -569,6 +571,42 @@ System.out.println("agx  :  " +xgxi);
 		return null;
 	}
 
+	/**
+	 * @ps 用于删除公告,返回boolean
+	 */
+	public boolean Admin_deletenews(int id) {
 
-
+		Connection conn = ConnectionFactory.getConnectionFactory();
+		PreparedStatement ps;
+		int flage;
+		try {
+			ps=conn.prepareStatement("delete from t_gonggao where gonggao_id=?");
+			ps.setInt(1,id);
+			flage=ps.executeUpdate();
+			if(flage==1){
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

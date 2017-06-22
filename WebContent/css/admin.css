@@ -314,11 +314,11 @@ tr:hover {
 }
 
 .close{
-	width:50px;
-	height:20px;
+	width:88px;
+	height:30px;
 	position:absolute;
-	left:628px;
-	top:378px;
+	left:590px;
+	top:368px;
 	border:1px solid rgba(0, 153, 153, 0.5);
 	background:rgba(0, 153, 153, 0.5);
 	text-align:center;
@@ -396,12 +396,13 @@ tr:hover {
 #adminbut,
 #adminrno,
 #doctorshuaxin,
-#ok2,#reset{
+#ok2,#reset,.newssp{
 	border:none;
 	width:100px;
 	height:30px;
 	border:1px solid rgba(0,153,153,0.5);
 	background:rgba(0,153,153,0.5);
+	text-align:center;
 }
 #doctorbut:hover,
 #doctorno:hover,
@@ -410,10 +411,14 @@ tr:hover {
 #adminbut:hover,
 #adminrno:hover,
 #doctorshuaxin:hover,
-#ok2:hover,#reset:hover{
+#ok2:hover,#reset:hover,.newssp:hover{
 	background:rgba(0,0,0,0);
 }
-
+.newssp{
+	position:absolute;
+	left:475px;
+	top:368px;
+}
 .doctors{
 	font-size:14px;
 	color:red;
@@ -455,13 +460,12 @@ tr:hover {
 }
 
 #messages{
+	resize:none;
 	width:1210px;
 	height:440px;
 	border:1px solid rgba(0,153,153,0.5);
 	outline:none;
 	font-size:18px;	
 }
-
-
 
 

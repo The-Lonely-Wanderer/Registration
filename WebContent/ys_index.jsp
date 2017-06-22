@@ -276,7 +276,7 @@
 		</div>
 	</div>
 	<div id="sbottom">
-		医院挂号系统-2017-6-19<br /> <br />项目成员:杨圣林，柯蒙蒙，孟恒
+		医院挂号系统-2017/6/15-2017/6/21<br /> <br />项目成员:杨圣林，柯蒙蒙，孟恒
 	</div>
 	<script src="js/doctor.js" type="text/javascript" type="stylesheet"></script>
 	<script src="js/Ys_Yuyue-Ajax.js" type="text/javascript" type="stylesheet"></script>
