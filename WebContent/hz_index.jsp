@@ -162,7 +162,7 @@
 							</tr>
 						</table>
 						<p align="center">
-							<b><font size="4">点击<a href="#">这里</a>返回主页
+							<b><font size="4">点击<a href="index.jsp">这里</a>返回主页
 							</font></b>
 						</p>
 				</div>
@@ -242,7 +242,7 @@
 						</p>
 						<img alt="" src="" height="250px">
 						<p align="center">
-							<b><font size="4">点击<a href="#">这里</a>返回主页
+							<b><font size="4">点击<a href="index.jsp">这里</a>返回主页
 							</font></b>
 						</p>
 						<span>${massage}</span>
@@ -349,11 +349,9 @@
 													<font size="4"><b> 患者名字</br> <input type="text"
 															id="user_huanzhe" value="${param.username}"
 															align="center"></br> 备注</br> <textarea name="MSG"
-																id="beizhu" cols=40 rows=4>
-													病因:
-										</textarea> </br>
+																id="beizhu" cols=40 rows=4>病因:</textarea> </br>
 
-													</b> </font>
+													</b></font>
 
 												</div>
 												<div align="center">
@@ -369,7 +367,7 @@
 
 					</table>
 					<p align="center">
-						<b><font size="4">点击<a href="#">这里</a>返回主页
+						<b><font size="4">点击<a href="index.jsp">这里</a>返回主页
 						</font></b>
 					</p>
 				</div>

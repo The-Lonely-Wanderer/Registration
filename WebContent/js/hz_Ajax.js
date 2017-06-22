@@ -3,8 +3,7 @@ $("document")
 				function() {
 					$("#lis-li-3").click(
 									function() {
-										$
-												.ajax({
+										$.ajax({
 													cache : true,
 													type : "POST",
 													url : "Hz_KeshiyuyueAjaxServlet",
