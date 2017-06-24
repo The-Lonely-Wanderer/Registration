@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class Doctor_filter
+ * Servlet Filter implementation class Index_filter
  */
-@WebFilter("/ys_index.jsp")
-public class Doctor_filter implements Filter {
+@WebFilter("/index.jsp")
+public class Index_filter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public Doctor_filter() {
+    public Index_filter() {
         // TODO Auto-generated constructor stub
     }
 

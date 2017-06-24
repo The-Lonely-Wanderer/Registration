@@ -208,6 +208,6 @@
 	<div id="sbottom">
 		医院挂号系统-2017/6/15-2017/6/21<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
 	</div>
-	<script src="js/admin.js" type="text/javascript" type="stylesheet"></script>
+	<script src="/Registration/js/admin.js" type="text/javascript" type="stylesheet"></script>
 </body>
 </html>

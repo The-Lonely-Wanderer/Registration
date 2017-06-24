@@ -45,16 +45,19 @@ public class hz_GerenxinxiServlet extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		t_user usersession = (t_user) session.getAttribute("t_user2");
+		String flage=request.getParameter("flage");
+		int flages=Integer.parseInt(flage);
 		String name = usersession.getUser_name();
 		
 		t_user user_name = new t_user(name);
 		t_user user = ams.getall(user_name);
-		
-		System.out.println(user);
 		request.setAttribute("user", user);
-		
-		request.getRequestDispatcher("hz_index.jsp").forward(request, response);
-		
+		if(flages!=3){
+			request.setAttribute("message","不是患者用户无法预约挂号，请登录患者账号");
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
+		}else{
+			request.getRequestDispatcher("hz_index.jsp").forward(request, response);
+		}
 	}
 
 }

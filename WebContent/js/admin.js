@@ -5,7 +5,6 @@
 function paitentupda(id) {// 患者异步更新
 	var i=confirm("确认删除");
 	if(i==true){
-		
 		$.ajax({
 			type : "post",
 			url : "Admin_huanzhe_delete?id=" + id,
@@ -378,7 +377,6 @@ $("#doctorkeshiid").blur(function() {//非空提示
 });
 
 $("#doctorbut").click(function(event) {
-
 	var flage = $("#flage").val();
 	var name = $("#doctorusername").val();
 	var password = $("#doctorpassword").val();
@@ -393,6 +391,7 @@ $("#doctorbut").click(function(event) {
 				if (age != "") {
 					if (zhicheng != "") {
 						if (kehsiid != "") {
+							$("#doctor_add").css("display","none");
 								$.ajax({
 									type:"post",
 									url:"Admin_addDoctor_servlet",
@@ -433,12 +432,6 @@ $("#doctorbut").click(function(event) {
 										$("#doctor_div") .html(
 														"<table><tr><th style='width:85px;height:20px;'>医生ID</th><th style='width:100px;height:20px;'>用户名</th><th style='width:200px;height:20px;'>密码</th><th style='width:40px;height:20px;'>性别</th><th style='width:125px;height:20px;'>年龄</th><th style='width:400px;height:20px;'>职称</th><th>科室ID</th><th>删除</th></tr>"
 																+ str + "</table>");
-										
-										
-										
-										
-										
-										
 									}
 								});
 							

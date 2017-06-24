@@ -359,32 +359,32 @@ tr:hover {
 
 #doctor_add p:nth-child(1){
 	position:absolute;
-	top:10px;
+	top:50px;
 }
 #doctor_add p:nth-child(2){
 	position:absolute;
-	top:65px;
+	top:105px;
 } 
 #doctor_add p:nth-child(3){
 	position:absolute;
-	top:120px;
+	top:160px;
 }
 #doctor_add p:nth-child(4){
 	position:absolute;
-	top:175px;
+	top:215px;
 }
 #doctor_add p:nth-child(5){
 	position:absolute;
-	top:225px;
+	top:265px;
 }
 #doctor_add p:nth-child(6){
 	position:absolute;
-	top:280px;
+	top:320px;
 }
 
 #doctor_add p:nth-child(7){
 	position:absolute;
-	top:360px;
+	top:380px;
 	left:30px;
 }
 

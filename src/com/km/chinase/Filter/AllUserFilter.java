@@ -45,7 +45,9 @@ public class AllUserFilter implements Filter {
 
 		String name = (String) session.getAttribute("username");
 		if (null == name) {
-			req.getRequestDispatcher("index.jsp").forward(req, resp);
+//			req.getRequestDispatcher("index.jsp").forward(req, resp);
+			req.getRequestDispatcher("Index_servlet").forward(req, resp);
+			
 		}
 		chain.doFilter(req, resp);
 	}

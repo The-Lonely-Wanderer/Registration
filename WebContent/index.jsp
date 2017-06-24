@@ -7,9 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/Registration/css/top.css">
-<link rel="stylesheet" type="text/css"
-	href="/Registration/css/index.css">
-<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<link rel="stylesheet" type="text/css" href="/Registration/css/index.css">
+<script type="text/javascript" src="/Registration/js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="/Registration/js/top.js"></script>
 
 </head>
@@ -30,7 +29,7 @@
 					fill="#18b03d" p-id="1049" /></svg>
 				<ul>
 					<a href="index.jsp"><li>主页</li></a>
-					<a href="hz_index.jsp"><li>挂号服务</li></a>
+					<a href="GerenxinxiServlet?flage=${flage}"><li>挂号服务</li></a>
 					<a href="index.jsp"><li>预约管理</li></a>
 					<a href="index.jsp"><li>医院简介</li></a>
 				</ul>
@@ -69,13 +68,27 @@
 
 	<div id="banner">
 		<p class="banner_p">医生简介</p>
+		<div id="doctor_jianjie">
+		
+		
+		</div>
 		<div id="xinxi"></div>
-		<div id="gonggao">
-			<p>最新公告--></p>
+		<p id="new_gonggao">最新公告--></p>
+			<div id="gonggao">
+			<c:forEach items="${sessionScope.gonggao_list}" var="gonggao">
+				<p class="newsp">
+					<span class="gonggaosp" style="color: black;">&nbsp;&nbsp;&nbsp;<b>${gonggao.gonggao_title}</b>
+						<span>-->${gonggao.gonggao_data}</span ></span> <span class="gonggao_con">${gonggao.gonggao_content}&nbsp;&nbsp;&nbsp;<span
+						class="close">关闭</span></span>
+				</p>
+			</c:forEach>
+		</div>
+			
 		</div>
 	</div>
 	<div id="sbottom">
 		医院挂号系统-2017-6-19<br /> <br />项目成员:柯蒙蒙，孟恒，杨圣林
 	</div>
+	<script type="text/javascript" src="/Registration/js/index.js"></script>
 </body>
 </html>

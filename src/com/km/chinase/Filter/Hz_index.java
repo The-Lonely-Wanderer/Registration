@@ -41,7 +41,7 @@ public class Hz_index implements Filter {
 		HttpSession session = req.getSession();
 		String name = (String) session.getAttribute("username");
 		if (null == name) {
-			req.getRequestDispatcher("index.jsp").forward(req, resp);
+			req.getRequestDispatcher("Index_servlet").forward(req, resp);
 		}
 		chain.doFilter(req, resp);
 	}
