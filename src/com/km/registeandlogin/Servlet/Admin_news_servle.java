@@ -55,9 +55,7 @@ public class Admin_news_servle extends HttpServlet {
 		String time=format.format(date);
 		String title=request.getParameter("title");
 		String message=request.getParameter("message");
-		
 		t_gonggao t_gonggao=new t_gonggao(title,message,time);
-		
 		Admin_news_server admin_news_server=new Admin_news_server();
 		news=admin_news_server.addNews(t_gonggao);
 		JSONObject jsonObject=new JSONObject();

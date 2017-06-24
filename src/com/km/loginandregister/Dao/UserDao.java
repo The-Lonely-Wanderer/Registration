@@ -105,13 +105,13 @@ public class UserDao {
 	/**
 	 * 用于增加医生用户
 	 */
-	public boolean insertDoator(t_yisheng t_yisheng) {
+	public List<t_yisheng> insertDoator(t_yisheng t_yisheng) {
 
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps;
 		t_yisheng t_yisheng1 = new t_yisheng();
-		int falge;
-
+		List<t_yisheng> yishenglist=new ArrayList<t_yisheng>();
+		int flage;
 		try {
 			ps = conn.prepareStatement("insert t_yisheng value(0,?,?,?,?,?,?,0)");
 			ps.setString(1, t_yisheng.getYisheng_name());
@@ -120,39 +120,41 @@ public class UserDao {
 			ps.setString(4, t_yisheng.getYisheng_password());
 			ps.setString(5, t_yisheng.getYisheng_zhicheng());
 			ps.setInt(6, t_yisheng.getKeshi_id());
-			falge = ps.executeUpdate();
-			if (falge == 1) {
-				return true;
+			flage = ps.executeUpdate();
+			if (flage == 1) {
+				yishenglist=getAlldoctorUser();
+				return yishenglist;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 	/**
 	 * @ps 增加管理员用户
 	 */
-	public boolean insertAdmin(t_admin t_admin) {
+	public List<t_admin> insertAdmin(t_admin t_admin) {
 
 		Connection conn = ConnectionFactory.getConnectionFactory();
 		PreparedStatement ps;
+		List<t_admin> adminlist = null;
 		int flage;
 		try {
 			ps = conn.prepareStatement("insert t_admin value(0,?,?)");
 			ps.setString(1, t_admin.getUserName());
 			ps.setString(2, t_admin.getUserPassword());
-			flage = ps.executeUpdate();
-			if (flage == 1) {
-				return true;
+			flage=ps.executeUpdate();
+			if(flage==1){
+				adminlist=getAlladmin();
+				return adminlist;
 			}
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 	/**

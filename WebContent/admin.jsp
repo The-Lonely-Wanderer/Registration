@@ -117,8 +117,6 @@
 					<!-- 					<input id="doctorshuaxin" value="刷新" type="button" /><br /> -->
 					<div id="doctor_div"></div>
 					<div id="doctor_add">
-						<form id="doctorfrom" action="Admin_addDoctor_servlet"
-							method="post">
 							<p>
 								<span>用户名:</span><input id="doctorusername" type="text"
 									name="doctorusername" placeholder="数字，字母"><br /> <span
@@ -154,8 +152,6 @@
 									id="doctorno" type="button" value="取消" /> <input id="flage"
 									type="hidden" value="F6" name="flage" />
 							</p>
-
-						</form>
 					</div>
 				</div>
 				<div class="xinxi_right_1">
@@ -163,7 +159,6 @@
 					<input id="AdminRegister" value="添加管理员账号" type="button" /> <br />
 					<div id="admin_div"></div>
 					<div id="admin_add">
-						<form id="admin_from" action="Admin_add_servlet" method="post">
 							<p>
 								<span>用户名:</span><input id="adminusername" type="text"
 									name="adminusername" placeholder="数字，字母"><br /> <span
@@ -180,7 +175,6 @@
 									<input id="flage2"
 									type="hidden" value="F6" name="flage2" />
 							</p>
-						</form>
 					</div>
 				</div>
 				<div class="xinxi_right_1">

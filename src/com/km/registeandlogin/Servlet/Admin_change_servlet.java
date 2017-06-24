@@ -38,7 +38,8 @@ public class Admin_change_servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String username=request.getParameter("newusername");
 		String password=request.getParameter("newpassword");
 		HttpSession session=request.getSession();
